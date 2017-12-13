@@ -1,0 +1,134 @@
+﻿body{
+}
+
+/*.nav ul {
+    background-color:darkgray;
+        margin: 0px;
+        padding: 0px;
+        width:100%;       
+        z-index:1;
+    }
+
+        .nav ul li {
+            float: left;
+            list-style-type: none;
+            display: block;
+        }
+
+            .nav ul li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .nav ul li a:hover {
+                    background-color: black;
+                }
+
+            .nav ul li:hover {
+                display: block;
+                position: relative;
+            }
+
+            .nav ul li ul li {
+                display: block;
+                background-color: lightgreen;
+            }
+
+                .nav ul li ul li a {
+                    display: block;
+                }
+
+                    .nav ul li ul li a:hover {
+                        display: block;
+                        background-color: skyblue;
+                    }
+
+            .nav ul li ul {
+                display: none;
+                position: absolute;
+            }
+
+            .nav ul li:hover ul {
+                display: block;
+                position: absolute;
+            }
+
+            .nav ul li ul li ul {
+                display: none;
+                position: absolute;
+            }
+
+            .nav ul li:hover ul li ul {
+                display: none;
+                position: absolute;
+            }
+
+            .nav ul li ul li:hover ul {
+                display: block;
+                position: absolute;
+                left: 75px;
+            }*/
+
+@media (max-width: 768px) {
+  #btn12 {
+	font-size:11px;
+    padding:2px 4px;
+  }
+  #btn6 {
+	font-size:11px;
+    padding:2px 4px;
+  }
+  #btn4 {
+	font-size:11px;
+    padding:2px 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  #btn12 {
+	font-size:11px;
+    padding:6px 12px;
+  }
+  #btn6 {
+	font-size:11px;
+    padding:6px 12px;
+  }
+  #btn4 {
+	font-size:11px;
+    padding:6px 12px;
+  }
+}
+  
+@media (min-width: 992px) {
+  #btn12 {
+	font-size:12px;
+    padding:8px 10px;
+  }
+   #btn6 {
+	font-size:12px;
+    padding:8px 10px;
+  }
+    #btn4 {
+	font-size:12px;
+    padding:8px 10px;
+  }
+}
+ 
+@media (min-width: 1200px) {
+  #btn12 {
+    padding:6px 12px;
+	font-size:14px;
+  }
+   #btn6 {
+    padding:6px 12px;
+	font-size:14px;
+  }
+    #btn4 {
+    padding:6px 12px;
+	font-size:14px;
+  }
+}
+
