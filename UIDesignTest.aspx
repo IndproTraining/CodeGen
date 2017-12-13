@@ -8,7 +8,7 @@
         <div id="header">
         </div>
         <%--  NavBar--%>
-
+        <div id="navbarContain" style="position:absolute; top:151px;"></div>
         <%--Carousel--%>
         <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 800px; position: absolute; top: 200px; left: 25px">
             <!-- Indicators -->
