@@ -22,7 +22,7 @@
         </ul>
       </li>
       <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li><a href="#">Page 3</a></li> 
     </ul>
   </div>
 </nav>
@@ -60,6 +60,7 @@
                     </a>
                 </div>
             </div>
+           <div id="map" style="display:none; position:absolute; top:495px;left:17px"></div>
             <%--Footer--%>
             <div id="Footer" style="height: 70px; width: 819px; background-color: lightgrey; padding: 5px;position:absolute;top:608px;left:16px">
                 <asp:Label ID="Label1" runat="server" Text="Footer Values" Style="font-family: Verdana; font-size: larger"></asp:Label>

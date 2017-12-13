@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=initMap"></script> 
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -24,6 +25,26 @@
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
             });
         });
+        function generateMap() {
+            document.getElementById('map').style.display = 'block';
+            var location = { lat: 22.711447, lng: 88.475216 };
+            var noticeBoard = '-: Our Office :-';
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: location
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: noticeBoard
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: 'Click Me'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
 </script>
    <%-- <script type="text/javascript">
          $(document).on('click', 'a[href^="#"]', function (event) {
@@ -115,7 +136,7 @@
             <li><button type="button" id="btnFooter" class="btn btn-info btn" style="width:130px; margin-top:5px; margin-bottom:5px;">Footer</button></li>
             <li><button type="button" id="btnCarousel" class="btn btn-info btn" style="width:130px; margin-top:5px; margin-bottom:5px;">Carousel</button></li>
             <li><button type="button" id="btnNavbar" class="btn btn-info btn" style="width:130px; margin-top:5px; margin-bottom:5px;">NavBar</button></li>
-              <li><button type="button" id="btnMap" class="btn btn-info btn" style="width:130px; margin-top:5px; margin-bottom:5px;">Map</button></li>
+              <li><button type="button" id="btnMap" class="btn btn-info btn" style="width:130px; margin-top:5px; margin-bottom:5px;" onclick="generateMap()">Map</button></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

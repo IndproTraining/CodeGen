@@ -132,3 +132,8 @@
   }
 }
 
+#map {
+        height: 110px;
+        width: 96%;
+        border:2px solid darkgrey;
+     }
