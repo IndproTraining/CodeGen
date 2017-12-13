@@ -25,7 +25,7 @@
             });
         });
 </script>
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
          $(document).on('click', 'a[href^="#"]', function (event) {
              event.preventDefault();
 
@@ -45,7 +45,32 @@
 
              window.resizeTo(current[0], current[1]);
          }
-     </script>
+     </script>--%>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $('#header').hide();
+             $('#Footer').hide();
+             $('#carosoulholder').hide();
+             $('#navigation').hide();
+             // CREATE MORE DIV, WITH 'ABSOLUTE' POSITIONING.
+             $('#btnCarousel').click(function () {
+                 $('#carosoulholder').show();
+                 return false;
+             });
+             $('#btnHeader').click(function () {
+                 $('#header').show();
+                 return false;
+             });
+             $('#btnFooter').click(function () {
+                 $('#Footer').show();
+                 return false;
+             });
+             $('#btnNavbar').click(function () {
+                 $('#navigation').show();
+                 return false;
+             });
+         });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -57,7 +82,7 @@
             </div>
         <br />
         <div class="container">
-             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color:lightgray; height:550px; border:2px solid gray;">
+             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color:lightgray; height:700px; border:2px solid gray;">
              <h3 style="text-align:center">Controls</h3>
              <!--Accordion-->
              <div class="bs-example">
@@ -130,7 +155,7 @@
                  </div>
               <!--End of Accordion-->
          </div>
-         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="border:2px solid; height:550px;">
+         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="border:2px solid; height:700px;">
             <div class="container" style="width:auto; border-bottom:1px solid black;">
                 <h4 style="text-align:center">Working Area</h4>
  </div>
