@@ -3,14 +3,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-    <div class="container" style="width: inherit; border: 1px solid gray; height: 620px;">
+    <div class="container" style="width: inherit; border: 1px solid gray; height: 920px;">
         <%--Header--%>
-        <div id="header">
+        <div id="header" style="position: absolute; left: 16.5px; width: 100%; top:61px;">
         </div>
         <%--  NavBar--%>
-        <div id="navbarContain" style="position:absolute; top:151px;"></div>
+        <div id="navbarContain" style="position:absolute; top:151px; width:96.3%;"></div>
         <%--Carousel--%>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 820px; position: absolute; top: 200px; left: 16px">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute; top: 200px; left: 16px">
             <!-- Indicators -->
             <ol class="carousel-indicators">
             </ol>
@@ -27,10 +27,13 @@
             </a>
         </div>
     
+        <div class="container" style="height:381px; border:1px solid gray;  width: 96.2%; left:0px; right:0px; position:absolute; top:350px;">
+            <h4 style="text-align:center">Content Area</h4>
+        </div>
     <%--Map--%>
-    <div id="map" style="display: none; position: absolute; top: 480px; left: 16.5px"></div>
+    <div id="map" style="display: none; position: absolute; top: 731px; left: 16.5px"></div>
     <%--Footer--%>
-    <div id="Footer">
+    <div id="Footer" style="position: absolute; left: 16.5px; width: 100%; top:887px;">
     </div>
     </div>
 </asp:Content>
