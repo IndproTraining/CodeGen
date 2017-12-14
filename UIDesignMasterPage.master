@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -235,7 +235,7 @@
                 <!--End of Content-->
             </div>
         </div>
-        <%--<div class="container">
+        <div class="container">
              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float:right">Generate Page</button>
             <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -249,7 +249,7 @@
       <div class="modal-body">
           <asp:Label ID="lblPageName" runat="server" Text="Insert Name of the Page: "></asp:Label>
           <asp:TextBox ID="txtnewpage" runat="server"></asp:TextBox>
-          <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click"/>
+          <asp:Button ID="btnCreate" runat="server" Text="Create" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -257,7 +257,7 @@
     </div>
   </div>
 </div>
-        </div>--%>
+        </div>
         <br />
         <div class="footer" style="background-color: gray; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
