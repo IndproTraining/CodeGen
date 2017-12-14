@@ -5,7 +5,9 @@
     <br />
     <div class="container" style="width: inherit; border: 1px solid gray; height: 920px;">
         <%--Header--%>
-        <div id="header" style="position: absolute; left: 16.5px; width: 100%; top:61px;">
+        <div id="header">
+                <asp:Label ID="lblheader" runat="server" Text="Header" Style="position:absolute;top:80px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
+                <span class="label label-success" style="position:absolute;top:65px;z-index:10;" id="apply">Apply</span><span class="label label-danger" Style="position:absolute;top:65px;left:75px; z-index:10;" id="remove">Remove</span>
         </div>
         <%--  NavBar--%>
         <div id="navbarContain" style="position:absolute; top:151px; width:96.3%;"></div>

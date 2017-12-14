@@ -9,23 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            // Add minus icon for collapse element which is open by default
-            $(".collapse.in").each(function () {
-                $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
-            });
-
-            // Toggle plus minus icon on show hide of collapse element
-            $(".collapse").on('show.bs.collapse', function () {
-                $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-            }).on('hide.bs.collapse', function () {
-                $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-            });
-        });
-        function generateMap() {
+        function generateMap()
+        {
+            var mapFlag = 1;
             document.getElementById('map').style.display = 'block';
             var location = { lat: 22.711447, lng: 88.475216 };
             var noticeBoard = '-: Our Office :-';
@@ -44,6 +33,7 @@
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
             });
+            document.getElementById("hiddenFieldMapFlag").value = mapFlag;
             $('#btnMap').prop('disabled', true);
         }
     </script>
@@ -71,6 +61,67 @@
     <script type="text/javascript">
         
         $(document).ready(function () {
+            debugger;
+            $('#apply').hide();
+            $('#remove').hide();
+            $('#lblheader').hide();
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.in").each(function () {
+                $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+            });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+            }).on('hide.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+            });
+
+           
+           
+
+            var element_pos = -15;
+            
+            $('#btnHeader').click(function () {
+                $('#lblheader').show();
+                    var dynamic_header = $(document.createElement('div'));
+                    dynamic_header.css({
+                        border: '1px solid', position: 'relative', left: element_pos,
+
+                        width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                    });
+                    //$(dynamic_header).append('Header');
+                    $(dynamic_header).appendTo('#header');
+                    
+                    $('#btnHeader').prop('disabled', true);
+                    return false;
+                
+            });
+            $('#lblheader').click(function () {
+                debugger;
+                $('#apply').show();
+                $('#remove').show();
+                return false;
+            });
+            $('#apply').click(function () {
+                debugger;
+                var edited = document.getElementById('lblheader');
+                var useredited = edited.innerHTML;
+                $('#apply').hide();
+                $('#remove').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            $('#remove').click(function () {
+                debugger;
+               // $('#lblheader').text('Header');
+                document.getElementById('lblheader').innerHTML ="Header";
+                $('#apply').hide();
+                $('#remove').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            $('#btnCarousel').click(function () {
             var images = [
          "1.jpg",
          "2.jpg",
@@ -82,8 +133,6 @@
                 $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
             }
           
-            $('#btnCarousel').click(function () {
-               
                     $('#pre').show();
                     $('#nxt').show();
                     $('.item').first().addClass('active');
@@ -127,7 +176,6 @@
                 var dynamic_nav = '<nav class="navbar navbar-default" style=" width: 100%; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
                     $('#btnNavbar').prop('disabled', true);
-                
             });
         });
     </script>
@@ -179,7 +227,9 @@
                                                                 <li>
                                                                     <button type="button" id="btnNavbar" class="btn btn-info btn">NavBar</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="generateMap()">Map</button></li>
+                                                                    <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button>
+                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                         <!--/.nav-collapse -->
@@ -233,9 +283,10 @@
                 <!--End of Content-->
             </div>
         </div>
-        <%--<div class="container">
-             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float:right">Generate Page</button>
-            <!-- Modal -->
+        <br />
+        <div class="container">
+                <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" style="float:right" runat="server" OnClick="btnPageGenerate_Click" />
+          <%--  <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
@@ -247,15 +298,15 @@
       <div class="modal-body">
           <asp:Label ID="lblPageName" runat="server" Text="Insert Name of the Page: "></asp:Label>
           <asp:TextBox ID="txtnewpage" runat="server"></asp:TextBox>
-          <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click"/>
+          <asp:Button ID="btnCreate" runat="server" Text="Create" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>--%>--%>
 </div>
-        </div>--%>
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
