@@ -159,17 +159,16 @@
             });
             
             $('#btnFooter').click(function () {
-                    var element_pos = -15;
+                debugger;
+                $('#lblfooter').show();
                     var dynamic_footer = $(document.createElement('div'));
                     dynamic_footer.css({
-                        border: '1px solid',
-                        top: '889px',
-                        width: '96.2%', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                        border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                    // $(dynamic_footer).append('Footer');
                     $(dynamic_footer).appendTo('#Footer');
                     $('#btnFooter').prop('disabled', true);
-                    return false
+                    return false;
             });
             $('#lblfooter').click(function () {
                 debugger;
@@ -195,11 +194,6 @@
                 // $('#lblheader').val(useredited);
                 return false;
             });
-            //$('#btnNavbar').click(function () {
-            //        var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
-            //        $("#navbarContain").append(dynamic_nav);
-            //        $('#btnNavbar').prop('disabled', true);
-            //});
         });
     </script>
 </head>
@@ -235,10 +229,9 @@
                                                     <div class="navbar navbar-default" role="navigation">
                                                         <div class="navbar-header">
                                                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                                                                <span class="sr-only">Toggle navigation</span>
-                                                                <span class="icon-bar"></span>
-                                                                <span class="icon-bar"></span>
-                                                                <span class="icon-bar"></span>
+                                                                <span>Menu</span>
+                                                                 <span class="caret"></span>
+                                                                 <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
@@ -250,9 +243,9 @@
                                                                 <li>
                                                                     <button type="button" id="btnCarousel" class="btn btn-info btn" >Carousel</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="NavigationPopup();return false;">NavBar</button></li>
+                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button>
+                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="generateMap()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
                                                                 </li>
                                                             </ul>
