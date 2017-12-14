@@ -44,6 +44,7 @@
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
             });
+            $('#btnMap').prop('disabled', true);
         }
     </script>
     <%-- <script type="text/javascript">
@@ -68,6 +69,7 @@
          }
      </script>--%>
     <script type="text/javascript">
+        
         $(document).ready(function () {
             var images = [
          "1.jpg",
@@ -79,43 +81,54 @@
                 $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
                 $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
             }
+          
             $('#btnCarousel').click(function () {
-                $('#pre').show();
-                $('#nxt').show();
-                $('.item').first().addClass('active');
-                $('.carousel-indicators > li').first().addClass('active');
-                $('#carousel-example-generic').carousel();
-                return false;
+               
+                    $('#pre').show();
+                    $('#nxt').show();
+                    $('.item').first().addClass('active');
+                    $('.carousel-indicators > li').first().addClass('active');
+                //$('#carousel-example-generic').carousel();
+                    $('#btnCarousel').prop('disabled', true);
+                    return false;
+                
             });
 
             var element_pos = -15;
-
+            
             $('#btnHeader').click(function () {
-                var dynamic_header = $(document.createElement('div'));
-                dynamic_header.css({
-                    border: '1px solid', position: 'relative', left: element_pos,
+                    var dynamic_header = $(document.createElement('div'));
+                    dynamic_header.css({
+                        border: '1px solid', position: 'relative', left: element_pos,
 
-                    width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey'
-                });
-                $(dynamic_header).append('Header');
-                $(dynamic_header).appendTo('#header');
-                return false;
+                        width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey'
+                    });
+                    $(dynamic_header).append('Header');
+                    $(dynamic_header).appendTo('#header');
+                    $('#btnHeader').prop('disabled', true);
+                    return false;
+                
             });
+            
             $('#btnFooter').click(function () {
-                var element_pos = -15;
-                var dynamic_footer = $(document.createElement('div'));
-                dynamic_footer.css({
-                    border: '1px solid', position: 'absolute', left: '16px',
-                    top: '590px',
-                    width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey'
-                });
-                $(dynamic_footer).append('Footer');
-                $(dynamic_footer).appendTo('#Footer');
-                return false
+                    var element_pos = -15;
+                    var dynamic_footer = $(document.createElement('div'));
+                    dynamic_footer.css({
+                        border: '1px solid', position: 'absolute', left: '16px',
+                        top: '590px',
+                        width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey'
+                    });
+                    $(dynamic_footer).append('Footer');
+                    $(dynamic_footer).appendTo('#Footer');
+                    $('#btnFooter').prop('disabled', true);
+                    return false
+                
             });
             $('#btnNavbar').click(function () {
-                var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
-                $("#navbarContain").append(dynamic_nav);
+                    var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
+                    $("#navbarContain").append(dynamic_nav);
+                    $('#btnNavbar').prop('disabled', true);
+                
             });
         });
     </script>
