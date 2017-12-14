@@ -45,7 +45,6 @@
             document.getElementById("hiddenFieldMapFlag").value = mapFlag;
             $('#btnMap').prop('disabled', true);
         }
-    </script>
 
         function NavigationPopup() {
             debugger;
