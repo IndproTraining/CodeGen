@@ -86,6 +86,7 @@
                 debugger;
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
+                $('#hiddenFieldHeaderValue').val(useredited);
                 $('#apply').hide();
                 $('#remove').hide();
                 // $('#lblheader').val(useredited);
@@ -146,6 +147,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+       <%-- //Hidden Field //--%>
+         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static"/>
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
