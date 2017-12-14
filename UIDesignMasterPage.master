@@ -101,7 +101,7 @@
                     dynamic_header.css({
                         border: '1px solid', position: 'relative', left: element_pos,
 
-                        width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey'
+                        width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                     $(dynamic_header).append('Header');
                     $(dynamic_header).appendTo('#header');
@@ -116,7 +116,7 @@
                     dynamic_footer.css({
                         border: '1px solid', position: 'absolute', left: '16px',
                         top: '590px',
-                        width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey'
+                        width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                     $(dynamic_footer).append('Footer');
                     $(dynamic_footer).appendTo('#Footer');

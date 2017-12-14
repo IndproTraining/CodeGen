@@ -28,7 +28,7 @@
         </div>
     
     <%--Map--%>
-    <div id="map" style="display: none; position: absolute; top: 480px; left: 17px"></div>
+    <div id="map" style="display: none; position: absolute; top: 480px; left: 16.5px"></div>
     <%--Footer--%>
     <div id="Footer">
     </div>
