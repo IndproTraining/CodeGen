@@ -5,12 +5,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+     <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtabs.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
-    <script src="jquery-1.11.1.min.js"></script>
+    <%--<script src="jquery-1.11.1.min.js"></script>--%>
     <script type="text/javascript">
 
         function generateMap() {
@@ -34,28 +43,31 @@
             });
             $('#btnMap').prop('disabled', true);
         }
+
+        function NavigationPopup() {
+            debugger;
+            $("#winHeader").html('Menu Headers');
+            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="350" height="407" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '420', width: '350', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindow").jqxWindow('open');
+        }
+        function ReceiveNavigationHeaders(a, b, c, d) {
+            var a1 = a;
+            var b1 = b;
+            var c1 = c;
+            var d1 = d;
+            var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
+                    $("#navbarContain").append(dynamic_nav);
+                   $('#btnNavbar').prop('disabled', true);
+            debugger;
+
+        }
+
     </script>
-    <%-- <script type="text/javascript">
-         $(document).on('click', 'a[href^="#"]', function (event) {
-             event.preventDefault();
-
-             $('html, body').animate({
-                 scrollTop: $($.attr(this, 'href')).offset().top
-             }, 500);
-         });
-         function resizeToMinimum() {
-             var minimum = [640, 480];
-             var current = [window.outerWidth, window.outerHeight];
-             var restricted = [];
-             var i = 2;
-
-             while (i-- > 0) {
-                 restricted[i] = minimum[i] > current[i] ? minimum[i] : current[i];
-             }
-
-             window.resizeTo(current[0], current[1]);
-         }
-     </script>--%>
+   
     <script type="text/javascript">
         
         $(document).ready(function () {
@@ -63,6 +75,9 @@
             $('#apply').hide();
             $('#remove').hide();
             $('#lblheader').hide();
+            $('#apply1').hide();
+            $('#remove1').hide();
+            $('#lblfooter').hide();
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
@@ -141,6 +156,7 @@
                 
             });
             $('#btnFooter').click(function () {
+                $('#lblfooter').show();
                     var element_pos = -15;
                     var dynamic_footer = $(document.createElement('div'));
                     dynamic_footer.css({
@@ -148,17 +164,40 @@
                         top: '590px',
                         width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
-                    $(dynamic_footer).append('Footer');
+                   // $(dynamic_footer).append('Footer');
                     $(dynamic_footer).appendTo('#Footer');
                     $('#btnFooter').prop('disabled', true);
                     return false
-                
             });
-            $('#btnNavbar').click(function () {
-                    var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
-                    $("#navbarContain").append(dynamic_nav);
-                    $('#btnNavbar').prop('disabled', true);
+            $('#lblfooter').click(function () {
+                debugger;
+                $('#apply1').show();
+                $('#remove1').show();
+                return false;
             });
+            $('#apply1').click(function () {
+                debugger;
+                var edited = document.getElementById('lblheader');
+                var useredited = edited.innerHTML;
+                $('#apply1').hide();
+                $('#remove1').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            $('#remove1').click(function () {
+                debugger;
+                // $('#lblheader').text('Header');
+                document.getElementById('lblfooter').innerHTML = "Footer";
+                $('#apply1').hide();
+                $('#remove1').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            //$('#btnNavbar').click(function () {
+            //        var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
+            //        $("#navbarContain").append(dynamic_nav);
+            //        $('#btnNavbar').prop('disabled', true);
+            //});
         });
     </script>
 </head>
@@ -208,7 +247,7 @@
                                                                 <li>
                                                                     <button type="button" id="btnCarousel" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">Carousel</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">NavBar</button></li>
+                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="NavigationPopup();return false;">NavBar</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button></li>
                                                             </ul>
@@ -285,11 +324,16 @@
       </div>
     </div>
   </div>
-</div>--%>--%>
+</div>--%>
         </div>
         <br />
         <div class="footer" style="background-color: gray; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
+        </div>
+        <%--JQX Window--%>
+         <div id="jqxwindow">
+            <div id="winHeader"></div>
+            <div id="wincontent"></div>
         </div>
     </form>
 </body>

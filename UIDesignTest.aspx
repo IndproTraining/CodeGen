@@ -7,7 +7,7 @@
         <%--Header--%>
         <div id="header">
                 <asp:Label ID="lblheader" runat="server" Text="Header" Style="position:absolute;top:80px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
-                <span class="label label-success" Style="position:absolute;top:65px;z-index:10;" id="apply">Apply</span><span class="label label-danger" Style="position:absolute;top:65px;left:75px; z-index:10;" id="remove">Remove</span>
+                <a href="#"<span class="label label-success" Style="position:absolute;top:65px;z-index:10;" id="apply">Apply</span></a><a href="#<span class="label label-danger" Style="position:absolute;top:65px;left:75px; z-index:10;" id="remove">Remove</span></a>
         </div>
         <%--  NavBar--%>
         <div id="navbarContain" style="position:absolute; top:151px;"></div>
@@ -33,6 +33,8 @@
     <div id="map" style="display: none; position: absolute; top: 480px; left: 16.5px"></div>
     <%--Footer--%>
     <div id="Footer">
+         <asp:Label ID="lblfooter" runat="server" Text="Footer" Style="position:absolute;top:620px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
+                <a href="#"<span class="label label-success" Style="position:absolute;top:605px;z-index:10;" id="apply1">Apply</span></a><a href="#"<span class="label label-danger" Style="position:absolute;top:605px;left:75px; z-index:10;" id="remove1">Remove</span></a>
     </div>
     </div>
 </asp:Content>
