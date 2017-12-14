@@ -14,6 +14,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
     }   
     protected void btnPageGenerate_Click(object sender, EventArgs e)
      {
+         string headerCode = hiddenFieldHeaderValue.Value;
          string gMapDiv = "";
          string gMapConvertFunction = "";
          if (!string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapFlag.Value)))
@@ -28,6 +29,9 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
      "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap\">",
      "</script>",
      "<script type=\"text/javascript\">",
+     "window.onload = function () {",
+     "      generateMap();",
+     "   }",
      " function generateMap() {",
      "      document.getElementById('map').style.display = 'block';",
      "      var location = { lat: 22.711447, lng: 88.475216 };",
