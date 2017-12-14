@@ -12,19 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            // Add minus icon for collapse element which is open by default
-            $(".collapse.in").each(function () {
-                $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
-            });
-
-            // Toggle plus minus icon on show hide of collapse element
-            $(".collapse").on('show.bs.collapse', function () {
-                $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-            }).on('hide.bs.collapse', function () {
-                $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-            });
-        });
+      
         function generateMap() {
             document.getElementById('map').style.display = 'block';
             var location = { lat: 22.711447, lng: 88.475216 };
@@ -71,45 +59,87 @@
     <script type="text/javascript">
         
         $(document).ready(function () {
-            var images = [
-         "1.jpg",
-         "2.jpg",
-         "3.jpg"
-            ];
-
-            for (var i = 0 ; i < images.length ; i++) {
-                $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-                $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
-            }
-          
-            $('#btnCarousel').click(function () {
-               
-                    $('#pre').show();
-                    $('#nxt').show();
-                    $('.item').first().addClass('active');
-                    $('.carousel-indicators > li').first().addClass('active');
-                //$('#carousel-example-generic').carousel();
-                    $('#btnCarousel').prop('disabled', true);
-                    return false;
-                
+            debugger;
+            $('#apply').hide();
+            $('#remove').hide();
+            $('#lblheader').hide();
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.in").each(function () {
+                $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
             });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+            }).on('hide.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+            });
+
+           
+           
 
             var element_pos = -15;
             
             $('#btnHeader').click(function () {
+                $('#lblheader').show();
                     var dynamic_header = $(document.createElement('div'));
                     dynamic_header.css({
                         border: '1px solid', position: 'relative', left: element_pos,
 
                         width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
-                    $(dynamic_header).append('Header');
+                    //$(dynamic_header).append('Header');
                     $(dynamic_header).appendTo('#header');
+                    
                     $('#btnHeader').prop('disabled', true);
                     return false;
                 
             });
-            
+            $('#lblheader').click(function () {
+                debugger;
+                $('#apply').show();
+                $('#remove').show();
+                return false;
+            });
+            $('#apply').click(function () {
+                debugger;
+                var edited = document.getElementById('lblheader');
+                var useredited = edited.innerHTML;
+                $('#apply').hide();
+                $('#remove').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            $('#remove').click(function () {
+                debugger;
+               // $('#lblheader').text('Header');
+                document.getElementById('lblheader').innerHTML ="Header";
+                $('#apply').hide();
+                $('#remove').hide();
+                // $('#lblheader').val(useredited);
+                return false;
+            });
+            $('#btnCarousel').click(function () {
+                var images = [
+       "1.jpg",
+       "2.jpg",
+       "3.jpg"
+                ];
+
+                for (var i = 0 ; i < images.length ; i++) {
+                    $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                    $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+                }
+
+                $('#pre').show();
+                $('#nxt').show();
+                $('.item').first().addClass('active');
+                $('.carousel-indicators > li').first().addClass('active');
+                //$('#carousel-example-generic').carousel();
+                $('#btnCarousel').prop('disabled', true);
+                return false;
+
+            });
             $('#btnFooter').click(function () {
                     var element_pos = -15;
                     var dynamic_footer = $(document.createElement('div'));
@@ -128,7 +158,6 @@
                     var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
                     $('#btnNavbar').prop('disabled', true);
-                
             });
         });
     </script>
@@ -237,7 +266,7 @@
         </div>
         <div class="container">
              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float:right">Generate Page</button>
-            <!-- Modal -->
+            <%--<!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
@@ -256,7 +285,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>--%>
         </div>
         <br />
         <div class="footer" style="background-color: gray; height: 100px;">
