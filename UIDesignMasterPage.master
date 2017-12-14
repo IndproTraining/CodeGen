@@ -12,7 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
-      
+
         function generateMap() {
             document.getElementById('map').style.display = 'block';
             var location = { lat: 22.711447, lng: 88.475216 };
@@ -120,25 +120,25 @@
                 return false;
             });
             $('#btnCarousel').click(function () {
-                var images = [
-       "1.jpg",
-       "2.jpg",
-       "3.jpg"
-                ];
+            var images = [
+         "1.jpg",
+         "2.jpg",
+         "3.jpg"
+            ];
 
-                for (var i = 0 ; i < images.length ; i++) {
-                    $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-                    $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
-                }
-
-                $('#pre').show();
-                $('#nxt').show();
-                $('.item').first().addClass('active');
-                $('.carousel-indicators > li').first().addClass('active');
+            for (var i = 0 ; i < images.length ; i++) {
+                $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+            }
+          
+                    $('#pre').show();
+                    $('#nxt').show();
+                    $('.item').first().addClass('active');
+                    $('.carousel-indicators > li').first().addClass('active');
                 //$('#carousel-example-generic').carousel();
-                $('#btnCarousel').prop('disabled', true);
-                return false;
-
+                    $('#btnCarousel').prop('disabled', true);
+                    return false;
+                
             });
             $('#btnFooter').click(function () {
                     var element_pos = -15;
@@ -266,7 +266,7 @@
         </div>
         <div class="container">
              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float:right">Generate Page</button>
-            <%--<!-- Modal -->
+            <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
