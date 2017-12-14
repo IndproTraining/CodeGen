@@ -130,7 +130,7 @@
             ];
 
             for (var i = 0 ; i < images.length ; i++) {
-                $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px; "><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
                 $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
             }
           
@@ -143,13 +143,29 @@
                     return false;
                 
             });
+
+            var element_pos = -15;
+            
+            $('#btnHeader').click(function () {
+                    var dynamic_header = $(document.createElement('div'));
+                    dynamic_header.css({
+                        border: '1px solid',
+                        width: '96.2%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                    });
+                    $(dynamic_header).append('Header');
+                    $(dynamic_header).appendTo('#header');
+                    $('#btnHeader').prop('disabled', true);
+                    return false;
+                
+            });
+            
             $('#btnFooter').click(function () {
-                    var element_pos = -15;
+                    //var element_pos = -5;
                     var dynamic_footer = $(document.createElement('div'));
                     dynamic_footer.css({
-                        border: '1px solid', position: 'absolute', left: '16px',
-                        top: '590px',
-                        width: '819', height: '90', padding: '3', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                        border: '1px solid',
+                        top: '889px',
+                        width: '96.2%', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                     $(dynamic_footer).append('Footer');
                     $(dynamic_footer).appendTo('#Footer');
@@ -158,7 +174,7 @@
                 
             });
             $('#btnNavbar').click(function () {
-                    var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
+                var dynamic_nav = '<nav class="navbar navbar-default" style=" width: 100%; left:-15px;"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#">WebSiteName</a></div><ul class="nav navbar-nav"><li class="active"><a href="#">Home</a></li><li><a href="#">Page 1</a></li><li><a href="#">Page 2</a></li><li><a href="#">Page 3</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
                     $('#btnNavbar').prop('disabled', true);
             });
@@ -177,7 +193,7 @@
         </div>
         <br />
         <div class="container">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color: lightgray; height: 700px; border: 2px solid gray;">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color: lightgray; height: 1000px; border: 2px solid gray;">
                 <h3 style="text-align: center">Controls</h3>
                 <!--Accordion-->
                 <div class="bs-example">
@@ -202,18 +218,17 @@
                                                                 <span class="icon-bar"></span>
                                                                 <span class="icon-bar"></span>
                                                             </button>
-                                                            <span class="visible-xs navbar-brand">Sidebar menu</span>
                                                         </div>
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <button type="button" id="btnHeader" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">Header</button></li>
+                                                                    <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnFooter" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">Footer</button></li>
+                                                                    <button type="button" id="btnFooter" class="btn btn-info btn" >Footer</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">Carousel</button></li>
+                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" >Carousel</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">NavBar</button></li>
+                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn">NavBar</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
@@ -258,7 +273,7 @@
                 </div>
                 <!--End of Accordion-->
             </div>
-            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="border: 2px solid; height: 700px;">
+            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="border: 2px solid; height: 1000px;">
                 <div class="container" style="width: auto; border-bottom: 1px solid black;">
                     <h4 style="text-align: center">Working Area</h4>
                 </div>
@@ -294,9 +309,9 @@
     </div>
   </div>
 </div>--%>--%>
-        </div>
+</div>
         <br />
-        <div class="footer" style="background-color: gray; height: 100px;">
+        <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
         </div>
     </form>

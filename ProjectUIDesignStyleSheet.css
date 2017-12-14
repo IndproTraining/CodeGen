@@ -73,63 +73,128 @@
             }*/
 
 @media (max-width: 768px) {
-  #btn12 {
-	font-size:11px;
-    padding:2px 4px;
+ #btnHeader {
+width: 80px;
+margin-left:8px;
+margin-top: 3px;
+margin-bottom: 3px;
+
   }
-  #btn6 {
-	font-size:11px;
-    padding:2px 4px;
+   #btnFooter {
+   width: 80px;
+   margin-left:8px;
+margin-top: 3px;
+margin-bottom: 3px;
   }
-  #btn4 {
-	font-size:11px;
-    padding:2px 4px;
+    #btnCarousel {
+   width: 80px;
+   margin-left:8px;
+margin-top: 3px;
+margin-bottom: 3px;
+  }
+     #btnNavbar {
+   width: 80px;
+   margin-left:8px;
+margin-top: 3px;
+margin-bottom: 3px;
+  }
+      #btnMap {
+   width: 80px;
+   margin-left:8px;
+margin-top: 3px;
+margin-bottom: 3px;
   }
 }
 
 @media (min-width: 768px) {
-  #btn12 {
-	font-size:11px;
-    padding:6px 12px;
+  #btnHeader {
+width: 130px; 
+margin-top: 5px;
+margin-bottom: 5px;
   }
-  #btn6 {
-	font-size:11px;
-    padding:6px 12px;
+   #btnFooter {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
-  #btn4 {
-	font-size:11px;
-    padding:6px 12px;
+    #btnCarousel {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+     #btnNavbar {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+      #btnMap {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
 }
   
 @media (min-width: 992px) {
-  #btn12 {
-	font-size:12px;
-    padding:8px 10px;
+ #btnHeader {
+width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
-   #btn6 {
-	font-size:12px;
-    padding:8px 10px;
+   #btnFooter {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
-    #btn4 {
-	font-size:12px;
-    padding:8px 10px;
+    #btnCarousel {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+     #btnNavbar {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+      #btnMap {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
 }
  
 @media (min-width: 1200px) {
-  #btn12 {
-    padding:6px 12px;
-	font-size:14px;
+  #btnHeader {
+width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
-   #btn6 {
-    padding:6px 12px;
-	font-size:14px;
+   #btnFooter {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
-    #btn4 {
-    padding:6px 12px;
-	font-size:14px;
+    #btnCarousel {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
   }
+     #btnNavbar {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+      #btnMap {
+   width: 130px;
+margin-top: 5px;
+margin-bottom: 5px;
+  }
+}
+
+@media  (max-width: 786px) {
+    html, body {
+min-width: 680px !important;
+}
+    }
 }
 
 #map {
