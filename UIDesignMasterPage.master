@@ -12,8 +12,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
-
-        function generateMap() {
+        function generateMap()
+        {
+            var mapFlag = 1;
             document.getElementById('map').style.display = 'block';
             var location = { lat: 22.711447, lng: 88.475216 };
             var noticeBoard = '-: Our Office :-';
@@ -32,6 +33,7 @@
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
             });
+            document.getElementById("hiddenFieldMapFlag").value = mapFlag;
             $('#btnMap').prop('disabled', true);
         }
     </script>
@@ -210,7 +212,9 @@
                                                                 <li>
                                                                     <button type="button" id="btnNavbar" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;">NavBar</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button></li>
+                                                                    <button type="button" id="btnMap" class="btn btn-info btn" style="width: 130px; margin-top: 5px; margin-bottom: 5px;" onclick="generateMap()">Map</button>
+                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                         <!--/.nav-collapse -->
@@ -264,8 +268,9 @@
                 <!--End of Content-->
             </div>
         </div>
+        <br />
         <div class="container">
-             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float:right">Generate Page</button>
+                <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" style="float:right" runat="server" OnClick="btnPageGenerate_Click" />
           <%--  <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

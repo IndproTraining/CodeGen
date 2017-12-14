@@ -7,7 +7,7 @@
         <%--Header--%>
         <div id="header">
                 <asp:Label ID="lblheader" runat="server" Text="Header" Style="position:absolute;top:80px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
-                <span class="label label-success" Style="position:absolute;top:65px;z-index:10;" id="apply">Apply</span><span class="label label-danger" Style="position:absolute;top:65px;left:75px; z-index:10;" id="remove">Remove</span>
+                <span class="label label-success" style="position:absolute;top:65px;z-index:10;" id="apply">Apply</span><span class="label label-danger" Style="position:absolute;top:65px;left:75px; z-index:10;" id="remove">Remove</span>
         </div>
         <%--  NavBar--%>
         <div id="navbarContain" style="position:absolute; top:151px;"></div>
