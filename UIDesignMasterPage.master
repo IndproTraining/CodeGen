@@ -37,27 +37,7 @@
             $('#btnMap').prop('disabled', true);
         }
     </script>
-    <%-- <script type="text/javascript">
-         $(document).on('click', 'a[href^="#"]', function (event) {
-             event.preventDefault();
-
-             $('html, body').animate({
-                 scrollTop: $($.attr(this, 'href')).offset().top
-             }, 500);
-         });
-         function resizeToMinimum() {
-             var minimum = [640, 480];
-             var current = [window.outerWidth, window.outerHeight];
-             var restricted = [];
-             var i = 2;
-
-             while (i-- > 0) {
-                 restricted[i] = minimum[i] > current[i] ? minimum[i] : current[i];
-             }
-
-             window.resizeTo(current[0], current[1]);
-         }
-     </script>--%>
+   
     <script type="text/javascript">
         
         $(document).ready(function () {
@@ -87,7 +67,6 @@
                     var dynamic_header = $(document.createElement('div'));
                     dynamic_header.css({
                         border: '1px solid', position: 'relative', left: element_pos,
-
                         width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                     //$(dynamic_header).append('Header');
@@ -139,21 +118,6 @@
                     $('.carousel-indicators > li').first().addClass('active');
                 //$('#carousel-example-generic').carousel();
                     $('#btnCarousel').prop('disabled', true);
-                    return false;
-                
-            });
-
-            var element_pos = -15;
-            
-            $('#btnHeader').click(function () {
-                    var dynamic_header = $(document.createElement('div'));
-                    dynamic_header.css({
-                        border: '1px solid',
-                        width: '96.2%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                    });
-                    $(dynamic_header).append('Header');
-                    $(dynamic_header).appendTo('#header');
-                    $('#btnHeader').prop('disabled', true);
                     return false;
                 
             });
