@@ -12,7 +12,7 @@
         <%--  NavBar--%>
         <div id="navbarContain" style="position:absolute; top:151px; width:96.3%;"></div>
         <%--Carousel--%>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute; top: 200px; left: 16px">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute;  top: 200px; left: 16px">
             <!-- Indicators -->
             <ol class="carousel-indicators">
             </ol>
