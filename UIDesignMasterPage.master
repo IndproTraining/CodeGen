@@ -21,11 +21,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <%--<script src="jquery-1.11.1.min.js"></script>--%>
     <script type="text/javascript">
-        function generateMap()
+        function generateMap(lat,long)
         {
+            debugger;
+            var latitude = parseFloat(lat);
+            var longitude = parseFloat(long);
             var mapFlag = 1;
             document.getElementById('map').style.display = 'block';
-            var location = { lat: 22.711447, lng: 88.475216 };
+            var location = { lat: latitude, lng: longitude };
             var noticeBoard = '-: Our Office :-';
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 17,
@@ -47,15 +50,35 @@
         }
 
         function NavigationPopup() {
-            debugger;
             $("#winHeader").html('Menu Headers');
-            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="350" height="407" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '420', width: '350', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="450" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '450', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
             $("#jqxwindow").jqxWindow('open');
         }
+
+        function GoogleMapPopup() {
+            $("#winHeader").html('Map Lat Lang');
+            $("#wincontent").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindow").jqxWindow('open');
+        }
+
+        function CarouselPopup() {
+            $("#winHeader").html('Carousel Image Insert Form');
+            $("#wincontent").html('<iframe src="Carousel.aspx" width="730" height="450" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '450', width: '730', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindow").jqxWindow('open');
+        }
+        
         function ReceiveNavigationHeaders(a, b, c, d) {
             var a1 = a;
             var b1 = b;
@@ -136,27 +159,27 @@
                 // $('#lblheader').val(useredited);
                 return false;
             });
-            $('#btnCarousel').click(function () {
-            var images = [
-         "1.jpg",
-         "2.jpg",
-         "3.jpg"
-            ];
+         //   $('#btnCarousel').click(function () {
+         //   var images = [
+         //"1.jpg",
+         //"2.jpg",
+         //"3.jpg"
+         //   ];
 
-            for (var i = 0 ; i < images.length ; i++) {
-                $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px; "><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-                $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
-            }
+         //   for (var i = 0 ; i < images.length ; i++) {
+         //       $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px; "><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+         //       $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+         //   }
           
-                    $('#pre').show();
-                    $('#nxt').show();
-                    $('.item').first().addClass('active');
-                    $('.carousel-indicators > li').first().addClass('active');
-                //$('#carousel-example-generic').carousel();
-                    $('#btnCarousel').prop('disabled', true);
-                    return false;
+         //           $('#pre').show();
+         //           $('#nxt').show();
+         //           $('.item').first().addClass('active');
+         //           $('.carousel-indicators > li').first().addClass('active');
+         //       //$('#carousel-example-generic').carousel();
+         //           $('#btnCarousel').prop('disabled', true);
+         //           return false;
                 
-            });
+         //   });
             
             $('#btnFooter').click(function () {
                 debugger;
@@ -241,11 +264,11 @@
                                                                 <li>
                                                                     <button type="button" id="btnFooter" class="btn btn-info btn" >Footer</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" >Carousel</button></li>
+                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Carousel</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="generateMap()">Map</button>
+                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="GoogleMapPopup()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
                                                                 </li>
                                                             </ul>
