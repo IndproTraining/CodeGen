@@ -61,7 +61,7 @@
             var b1 = b;
             var c1 = c;
             var d1 = d;
-            var dynamic_nav = '<nav class="navbar navbar-default" style="width:819px; left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
                    $('#btnNavbar').prop('disabled', true);
             debugger;
@@ -102,7 +102,7 @@
                     var dynamic_header = $(document.createElement('div'));
                     dynamic_header.css({
                         border: '1px solid', position: 'relative', left: element_pos,
-                        width: '819', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                        width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
                     //$(dynamic_header).append('Header');
                     $(dynamic_header).appendTo('#header');
