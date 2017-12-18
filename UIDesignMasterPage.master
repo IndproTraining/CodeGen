@@ -23,7 +23,6 @@
         function generateMap(lat, long) {
             var latitude = parseFloat(lat);
             var longitude = parseFloat(long);
-            var mapFlag = 1;
             document.getElementById('map').style.display = 'block';
             var location = { lat: latitude, lng: longitude };
             var noticeBoard = '-: Our Office :-';
@@ -42,7 +41,8 @@
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
             });
-            document.getElementById("hiddenFieldMapFlag").value = mapFlag;
+            document.getElementById("hiddenFieldMapLatitude").value = latitude;
+            document.getElementById("hiddenFieldMapLongitude").value = longitude;
             $('#btnMap').prop('disabled', true);
         }
 
@@ -79,8 +79,12 @@
         function ReceiveNavigationHeaders(a, b, c, d) {
             a1 = a;
             b1 = b;
-             c1 = c;
-             d1 = d;
+            c1 = c;
+            d1 = d;
+            $('#hiddenFieldNav1Value').val(a1);
+            $('#hiddenFieldNav2Value').val(b1);
+            $('#hiddenFieldNav3Value').val(c1);
+            $('#hiddenFieldNav4Value').val(d1);
             var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">' + a1 + '</a></li><li><a href="#">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
             $("#navbarContain").append(dynamic_nav);
             $('#btnNavbar').prop('disabled', true);
@@ -143,6 +147,7 @@
             var element_pos = -15;
 
             $('#btnHeader').click(function () {
+                $('#hiddenFieldHeaderValue').val('Header');
                 $('#lblheader').show();
                 var dynamic_header = $(document.createElement('div'));
                 dynamic_header.css({
@@ -171,10 +176,12 @@
                 document.getElementById('lblheader').innerHTML = "Header";
                 $('#apply').hide();
                 $('#remove').hide();
+                $('#hiddenFieldHeaderValue').val('Header');
                 return false;
             });
 
             $('#btnFooter').click(function () {
+                $('#hiddenFieldFooterValue').val('Footer');
                 $('#lblfooter').show();
                 var dynamic_footer = $(document.createElement('div'));
                 dynamic_footer.css({
@@ -192,6 +199,7 @@
             $('#apply1').click(function () {
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
+                $('#hiddenFieldFooterValue').val(useredited);
                 $('#apply1').hide();
                 $('#remove1').hide();
                 return false;
@@ -200,6 +208,7 @@
                 document.getElementById('lblfooter').innerHTML = "Footer";
                 $('#apply1').hide();
                 $('#remove1').hide();
+                $('#hiddenFieldFooterValue').val('Footer');
                 return false;
             });
         });
@@ -209,6 +218,13 @@
     <form id="form1" runat="server">
         <%-- //Hidden Field //--%>
         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldFooterValue" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldNav1Value" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldNav2Value" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldNav3Value" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldNav4Value" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldMapLatitude" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldMapLongitude" runat="server" ClientIDMode="Static" />
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
