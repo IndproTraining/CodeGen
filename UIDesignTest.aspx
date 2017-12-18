@@ -29,8 +29,8 @@
             </a>
         </div>
     
-        <div class="container" style="height:381px; border:1px solid gray;  width: 96.2%; left:0px; right:0px; position:absolute; top:350px;">
-            <h4 style="text-align:center">Content Area</h4>
+        <div class="container" id="pageContent" style="height:381px; border:1px solid gray;  width: 96.2%; left:0px; right:0px; position:absolute; top:350px;">
+            <%--<h4 style="text-align:center">Content Area</h4>--%>
         </div>
     <%--Map--%>
     <div id="map" style="display: none; position: absolute; top: 731px; left: 16.5px"></div>

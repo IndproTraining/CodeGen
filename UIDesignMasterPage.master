@@ -21,6 +21,12 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <%--<script src="jquery-1.11.1.min.js"></script>--%>
     <script type="text/javascript">
+        var dynamic_nav = '';
+        var a1 = '';
+        var b1 = '';
+        var c1 = '';
+        var d1 = '';
+
         function generateMap()
         {
             var mapFlag = 1;
@@ -57,17 +63,42 @@
             $("#jqxwindow").jqxWindow('open');
         }
         function ReceiveNavigationHeaders(a, b, c, d) {
-            var a1 = a;
-            var b1 = b;
-            var c1 = c;
-            var d1 = d;
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
+            a1 = a;
+            b1 = b;
+            c1 = c;
+            d1 = d;
+            dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
                    $('#btnNavbar').prop('disabled', true);
             debugger;
-
         }
 
+        function LoadNavContents()
+        {
+            var a = 'Home.aspx';
+            var b = 'AboutUs.aspx';
+            nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="' + a + '" onclick="NavClick(\'' + a + '\'); return false;">' + a1 + '</a></li><li><a href="' + b + '" onclick="NavClick(\'' + b + '\'); return false;">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
+            $("#navbarContain").empty();
+            $("#navbarContain").append(nav);
+            $('#btnNavbar').prop('enabled', true);
+        }
+
+        function NavClick(test)
+        {
+            $("#pageContent").load(test);
+            return false;
+        }
+        //$(document).ready(function () {
+        //    console.log("ready!");
+        //});
+        //$(function () {
+        //    var navMain = $(".container-fluid");
+        //    navMain.on("click", "a", null, function () {
+        //        debugger;
+        //        alert('hello');
+        //        //navMain.collapse('hide');
+        //    });
+        //});
     </script>
    
     <script type="text/javascript">
@@ -194,6 +225,26 @@
                 // $('#lblheader').val(useredited);
                 return false;
             });
+
+            //$(function () {
+                //$(document).ready(function () {
+                //$(".active a").click(function () {
+                //    debugger;
+                //    $(".container").load($(this).attr("href"));
+                //    return false;
+                //});
+            //});
+            //var navMain = $(".navbar-default .navbar-nav");
+            //navMain.on("click", "a", null, function () {
+            //    debugger;
+            //    navMain.collapse('hide');
+            //});
+
+            //$(".navbar navbar-default").find("li").on("click", "a", function () {
+            //    //$('.navbar-collapse.in').collapse('hide');
+            //    alert('hello');
+            //    return false;
+            //});
         });
     </script>
 </head>
@@ -248,6 +299,11 @@
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" onclick="generateMap()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
                                                                 </li>
+                                                                <%--Testing Nav--%>
+                                                                <li>
+                                                                    <button type="button" id="btnTest" class="btn btn-info btn" onclick="LoadNavContents();">TestNav</button>
+                                                                </li>
+                                                                <%---------------------%>
                                                             </ul>
                                                         </div>
                                                         <!--/.nav-collapse -->
