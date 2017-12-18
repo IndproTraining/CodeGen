@@ -16,10 +16,10 @@
     <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
-    <%--<script src="jquery-1.11.1.min.js"></script>--%>
+    
     <script type="text/javascript">
         function generateMap()
         {
@@ -45,9 +45,7 @@
             document.getElementById("hiddenFieldMapFlag").value = mapFlag;
             $('#btnMap').prop('disabled', true);
         }
-
         function NavigationPopup() {
-            debugger;
             $("#winHeader").html('Menu Headers');
             $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="350" height="407" style="border:none;"></iframe>');
             $("#jqxwindow").jqxWindow({ height: '420', width: '350', resizable: false, isModal: true, draggable: false, showCloseButton: true });
@@ -63,77 +61,69 @@
             var d1 = d;
             var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
-                   $('#btnNavbar').prop('disabled', true);
-            debugger;
-
+                    $('#btnNavbar').prop('disabled', true);
+                    $('#content').show();
+                    $('#btnItem1').text(a1);
+                    $('#btnItem2').text(b1);
+                    $('#btnItem3').text(c1);
+                    $('#btnItem4').text(d1);
         }
-
-    </script>
-   
+    </script> 
     <script type="text/javascript">
         
         $(document).ready(function () {
-            debugger;
             $('#apply').hide();
             $('#remove').hide();
             $('#lblheader').hide();
             $('#apply1').hide();
             $('#remove1').hide();
             $('#lblfooter').hide();
+            $('#content').hide();
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
             });
-
             // Toggle plus minus icon on show hide of collapse element
             $(".collapse").on('show.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
             }).on('hide.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
             });
-
-           
-           
-
-            var element_pos = -15;
-            
+            var element_pos = 16;
             $('#btnHeader').click(function () {
+               
                 $('#lblheader').show();
-                    var dynamic_header = $(document.createElement('div'));
+                var dynamic_header = $(document.createElement('div'));
+                dynamic_header.id = "insideHeader";
                     dynamic_header.css({
-                        border: '1px solid', position: 'relative', left: element_pos,
-                        width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                        border: '1px solid', position: 'absolute', left: element_pos,
+                        width: '96.3%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
-                    //$(dynamic_header).append('Header');
                     $(dynamic_header).appendTo('#header');
-                    
                     $('#btnHeader').prop('disabled', true);
                     return false;
-                
             });
             $('#lblheader').click(function () {
-                debugger;
+                
                 $('#apply').show();
                 $('#remove').show();
                 return false;
             });
             $('#apply').click(function () {
-                debugger;
+               
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
                 $('#hiddenFieldHeaderValue').val(useredited);
                 $('#apply').hide();
                 $('#remove').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
             $('#remove').click(function () {
-                debugger;
-               // $('#lblheader').text('Header');
+               
+               
                 document.getElementById('lblheader').innerHTML ="Header";
                 $('#apply').hide();
                 $('#remove').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
             $('#btnCarousel').click(function () {
@@ -152,14 +142,12 @@
                     $('#nxt').show();
                     $('.item').first().addClass('active');
                     $('.carousel-indicators > li').first().addClass('active');
-                //$('#carousel-example-generic').carousel();
                     $('#btnCarousel').prop('disabled', true);
                     return false;
                 
             });
-            
             $('#btnFooter').click(function () {
-                debugger;
+               
                 $('#lblfooter').show();
                     var dynamic_footer = $(document.createElement('div'));
                     dynamic_footer.css({
@@ -171,13 +159,13 @@
                     return false;
             });
             $('#lblfooter').click(function () {
-                debugger;
+              
                 $('#apply1').show();
                 $('#remove1').show();
                 return false;
             });
             $('#apply1').click(function () {
-                debugger;
+               
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
                 $('#apply1').hide();
@@ -186,7 +174,7 @@
                 return false;
             });
             $('#remove1').click(function () {
-                debugger;
+               
                 // $('#lblheader').text('Header');
                 document.getElementById('lblfooter').innerHTML = "Footer";
                 $('#apply1').hide();
@@ -268,22 +256,41 @@
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse in">
                                 <div class="panel-body">
+                                    <div class="container" style="width: inherit;">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="sidebar-nav">
+                                                    <div class="navbar navbar-default" role="navigation" id="content">
+                                                        <div class="navbar-header">
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                                                <span>Contents</span>
+                                                                 <span class="caret"></span>
+                                                                 <span class="sr-only">Toggle navigation</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                            <ul class="nav navbar-nav">
+                                                                <li class="active">
+                                                                    <button type="button" id="btnItem1" class="btn btn-info btn"></button></li>
+                                                                <li>
+                                                                    <button type="button" id="btnItem2" class="btn btn-info btn"></button></li>
+                                                                <li>
+                                                                    <button type="button" id="btnItem3" class="btn btn-info btn"></button></li>
+                                                                <li>
+                                                                    <button type="button" id="btnItem4" class="btn btn-info btn"></button></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!--/.nav-collapse -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                     <hr />
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-                 <hr />
-            </div>
-        </div>
-    </div>--%>
                     </div>
                 </div>
                 <!--End of Accordion-->
@@ -304,33 +311,13 @@
         <br />
         <div class="container">
                 <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" style="float:right" runat="server" OnClick="btnPageGenerate_Click" />
-          <%--  <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"> Add New Page</h4>
-      </div>
-      <div class="modal-body">
-          <asp:Label ID="lblPageName" runat="server" Text="Insert Name of the Page: "></asp:Label>
-          <asp:TextBox ID="txtnewpage" runat="server"></asp:TextBox>
-          <asp:Button ID="btnCreate" runat="server" Text="Create" />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>--%>
         </div>
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
         </div>
         <%--JQX Window--%>
-         <div id="jqxwindow">
+        <div id="jqxwindow">
             <div id="winHeader"></div>
             <div id="wincontent"></div>
         </div>
