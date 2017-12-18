@@ -3,18 +3,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-    <div class="container" style="width: inherit; border: 1px solid gray; height: 920px;">
+    <div class="container" id="mycontainer">
         <%--Header--%>
         <div id="header">
                 <asp:Label ID="lblheader" runat="server" Text="Header" Style="position:absolute;top:80px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
                 <a href="#"<span class="label label-success" Style="position:absolute;top:65px;z-index:10;" id="apply">Change</span></a><a href="#"<span class="label label-danger" Style="position:absolute;top:65px;left:85px; z-index:10;" id="remove">Cancle</span></a>
         </div>
         <%--  NavBar--%>
-        <div id="navbarContain" style="position:absolute; top:151px; width:96.3%;"></div>
-        <%--Carousel--%>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute; top: 200px; left: 16px" runat="server">
+        <div id="navbarContain"></div>
+         <%--Carousel--%>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators" runat="server">
+            <ol class="carousel-indicators">
             </ol>
             <!-- Wrapper for slides -->
             <div class="carousel-inner" runat="server">
@@ -29,7 +29,7 @@
             </a>
         </div>
   <%--  Content Area--%>
-        <div class="container" style="height:381px; border:1px solid gray;  width: 96.2%; left:0px; right:0px; position:absolute; top:350px;">
+         <div id="ContentArea" class="container">
             <h4 style="text-align:center">Content Area</h4>
         </div>
     <%--Map--%>
@@ -41,6 +41,12 @@
     </div>
     </div>
 </asp:Content>
+
+
+
+   
+    
+
 
 
 
