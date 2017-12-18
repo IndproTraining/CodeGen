@@ -19,6 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script type="text/javascript">
+        var a1, b1, c1, d1;
         function generateMap(lat, long) {
             var latitude = parseFloat(lat);
             var longitude = parseFloat(long);
@@ -76,10 +77,10 @@
         }
 
         function ReceiveNavigationHeaders(a, b, c, d) {
-            var a1 = a;
-            var b1 = b;
-            var c1 = c;
-            var d1 = d;
+            a1 = a;
+            b1 = b;
+             c1 = c;
+             d1 = d;
             var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">' + a1 + '</a></li><li><a href="#">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
             $("#navbarContain").append(dynamic_nav);
             $('#btnNavbar').prop('disabled', true);
@@ -101,6 +102,20 @@
             $('#btnCarousel').prop('disabled', true);
             return false;
         }
+
+        function ContentAreaPopup() {
+            $("#winHeaderCA").html('Content Area Insert Form');
+            $("#wincontentCA").html('<iframe src="ContentArea.aspx?nav1=' + a1 + '&nav2='+b1 +'&nav3='+ c1 +'&nav4='+ d1 +'" width="854" height="450" style="border:none;"></iframe>');
+            $("#jqxwindowCA").jqxWindow({ height: '435', width: '838', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindowCA").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindowCA").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindowCA").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindowCA").jqxWindow('open');
+            $('#btnPageContent').prop('disabled', true);
+        }
+
+
+
     </script>
 
     <script type="text/javascript">
@@ -276,7 +291,7 @@
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <button type="button" id="btnPageContent" class="btn btn-info btn">Set Page Content</button></li>                                                            
+                                                                    <button type="button" id="btnPageContent" class="btn btn-info btn" onclick="ContentAreaPopup();">Set Page Content</button></li>                                                            
                                                             </ul>
                                                         </div>
                                                         <!--/.nav-collapse -->
@@ -329,6 +344,11 @@
         <div id="jqxwindowCar">
             <div id="winHeaderCar"></div>
             <div id="wincontentCar"></div>
+        </div>
+         <%--JQX Window Content Area--%>
+        <div id="jqxwindowCA">
+            <div id="winHeaderCA"></div>
+            <div id="wincontentCA"></div>
         </div>
     </form>
 </body>
