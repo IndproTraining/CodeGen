@@ -17,15 +17,15 @@
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
-    
+    <%--<script src="jquery-1.11.1.min.js"></script>--%>
     <script type="text/javascript">
-        function generateMap()
-        {
+        function generateMap(lat, long) {
+            var latitude = parseFloat(lat);
+            var longitude = parseFloat(long);
             var mapFlag = 1;
             document.getElementById('map').style.display = 'block';
-            var location = { lat: 22.711447, lng: 88.475216 };
+            var location = { lat: latitude, lng: longitude };
             var noticeBoard = '-: Our Office :-';
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 17,
@@ -47,28 +47,60 @@
         }
         function NavigationPopup() {
             $("#winHeader").html('Menu Headers');
-            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="350" height="407" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '420', width: '350', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="450" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '450', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
             $("#jqxwindow").jqxWindow('open');
         }
+
+        function GoogleMapPopup() {
+            $("#winHeader").html('Map Lat Lang');
+            $("#wincontent").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindow").jqxWindow('open');
+        }
+
+        function CarouselPopup() {
+            $("#winHeader").html('Carousel Image Insert Form');
+            $("#wincontent").html('<iframe src="Carousel.aspx" width="700" height="610" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindow").jqxWindow('open');
+        }
+
         function ReceiveNavigationHeaders(a, b, c, d) {
             var a1 = a;
             var b1 = b;
             var c1 = c;
             var d1 = d;
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">' + a1 + '</a></li><li><a href="#">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
                     $("#navbarContain").append(dynamic_nav);
-                    $('#btnNavbar').prop('disabled', true);
-                    $('#content').show();
-                    $('#btnItem1').text(a1);
-                    $('#btnItem2').text(b1);
-                    $('#btnItem3').text(c1);
-                    $('#btnItem4').text(d1);
+                   $('#btnNavbar').prop('disabled', true);
         }
-    </script> 
+
+        function ReceiveCarouselImages(result) {
+            var image = result.substring(0, result.length - 1)
+            imagesplit = image.split(',');
+            for (var i = 0 ; i < imagesplit.length ; i++) {
+                $('<li data-target="#myCarousel" data-slide-to="' + i + '" runat="server"></li>').appendTo('.carousel-indicators');
+                $('<div class="item" runat="server"><img src="' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
+            }
+            $('.carousel-indicators > li').first().addClass('active');
+            $('.item').first().addClass('active');
+            $('#myCarousel').carousel();
+            $('#pre').show();
+            $('#nxt').show();
+            $('#btnCarousel').prop('disabled', true);
+            return false;
+        }
+    </script>
     <script type="text/javascript">
         
         $(document).ready(function () {
@@ -93,7 +125,7 @@
             $('#btnHeader').click(function () {
                
                 $('#lblheader').show();
-                var dynamic_header = $(document.createElement('div'));
+                    var dynamic_header = $(document.createElement('div'));
                 dynamic_header.id = "insideHeader";
                     dynamic_header.css({
                         border: '1px solid', position: 'absolute', left: element_pos,
@@ -119,19 +151,11 @@
                 return false;
             });
             $('#remove').click(function () {
-               
-               
-                document.getElementById('lblheader').innerHTML ="Header";
+                document.getElementById('lblheader').innerHTML = "Header";
                 $('#apply').hide();
                 $('#remove').hide();
                 return false;
             });
-            $('#btnCarousel').click(function () {
-            var images = [
-         "1.jpg",
-         "2.jpg",
-         "3.jpg"
-            ];
 
             for (var i = 0 ; i < images.length ; i++) {
                 $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px; "><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
@@ -142,10 +166,12 @@
                     $('#nxt').show();
                     $('.item').first().addClass('active');
                     $('.carousel-indicators > li').first().addClass('active');
+                //$('#carousel-example-generic').carousel();
                     $('#btnCarousel').prop('disabled', true);
                     return false;
                 
             });
+            
             $('#btnFooter').click(function () {
                
                 $('#lblfooter').show();
@@ -153,7 +179,6 @@
                     dynamic_footer.css({
                         border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                     });
-                   // $(dynamic_footer).append('Footer');
                     $(dynamic_footer).appendTo('#Footer');
                     $('#btnFooter').prop('disabled', true);
                     return false;
@@ -170,7 +195,6 @@
                 var useredited = edited.innerHTML;
                 $('#apply1').hide();
                 $('#remove1').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
             $('#remove1').click(function () {
@@ -179,7 +203,6 @@
                 document.getElementById('lblfooter').innerHTML = "Footer";
                 $('#apply1').hide();
                 $('#remove1').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
         });
@@ -188,7 +211,7 @@
 <body>
     <form id="form1" runat="server">
        <%-- //Hidden Field //--%>
-         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static"/>
+        <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static" />
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
@@ -227,14 +250,14 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnFooter" class="btn btn-info btn" >Footer</button></li>
+                                                                    <button type="button" id="btnFooter" class="btn btn-info btn">Footer</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" >Carousel</button></li>
+                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Carousel</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="generateMap()">Map</button>
-                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
+                                                                    <button type="button" id="btnMap" class="btn btn-info btn" onclick="GoogleMapPopup()">Map</button>
+                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static" />
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -282,15 +305,9 @@
                                                         </div>
                                                         <!--/.nav-collapse -->
                                                     </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr />
                                 </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
                     </div>
                 </div>
                 <!--End of Accordion-->
@@ -317,7 +334,7 @@
             <h3 style="text-align: center">Footer</h3>
         </div>
         <%--JQX Window--%>
-        <div id="jqxwindow">
+         <div id="jqxwindow">
             <div id="winHeader"></div>
             <div id="wincontent"></div>
         </div>

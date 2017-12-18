@@ -13,10 +13,10 @@
         <%--Carousel--%>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" runat="server">
             </ol>
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" runat="server">
             </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="display: none" id="pre">
                 <span class="glyphicon glyphicon-chevron-left"></span>
