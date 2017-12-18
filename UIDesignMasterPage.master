@@ -56,23 +56,23 @@
         }
 
         function GoogleMapPopup() {
-            $("#winHeader").html('Map Lat Lang');
-            $("#wincontent").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
-            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
-            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
-            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
-            $("#jqxwindow").jqxWindow('open');
+            $("#winHeaderMap").html('Map Lat Lang');
+            $("#wincontentMap").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
+            $("#jqxwindowMap").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindowMap").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindowMap").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindowMap").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindowMap").jqxWindow('open');
         }
 
         function CarouselPopup() {
-            $("#winHeader").html('Carousel Image Insert Form');
-            $("#wincontent").html('<iframe src="Carousel.aspx" width="700" height="610" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
-            var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
-            var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
-            $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
-            $("#jqxwindow").jqxWindow('open');
+            $("#winHeaderCar").html('Carousel Image Insert Form');
+            $("#wincontentCar").html('<iframe src="Carousel.aspx" width="745" height="610" style="border:none;"></iframe>');
+            $("#jqxwindowCar").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindowCar").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindowCar").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindowCar").jqxWindow({ position: { x: x, y: y } });
+            $("#jqxwindowCar").jqxWindow('open');
         }
 
         function ReceiveNavigationHeaders(a, b, c, d) {
@@ -288,10 +288,20 @@
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
         </div>
-        <%--JQX Window--%>
+        <%--JQX Window Navigation--%>
         <div id="jqxwindow">
             <div id="winHeader"></div>
             <div id="wincontent"></div>
+        </div>
+         <%--JQX Window Map--%>
+        <div id="jqxwindowMap">
+            <div id="winHeaderMap"></div>
+            <div id="wincontentMap"></div>
+        </div>
+         <%--JQX Window Carousel--%>
+        <div id="jqxwindowCar">
+            <div id="winHeaderCar"></div>
+            <div id="wincontentCar"></div>
         </div>
     </form>
 </body>

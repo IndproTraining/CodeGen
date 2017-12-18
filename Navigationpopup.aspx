@@ -38,6 +38,10 @@
             window.parent.ReceiveNavigationHeaders(item1, item2, item3, item4);
             window.parent.$('#jqxwindow').jqxWindow('close');
         }
+
+        function closewindow() {
+            window.parent.$('#jqxwindow').jqxWindow('close');
+        }
     </script>
 </head>
 <body>
@@ -77,7 +81,8 @@
                 </div>
             </div>
             <br />
-            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn-lg" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 40px" />
+            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 20px" />
+            <button type="button" id="btncancle" class="btn btn-info btn" onclick="closewindow();">Cancel</button>
         </div>
     </form>
 </body>
