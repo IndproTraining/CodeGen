@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
-     <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
@@ -16,14 +16,10 @@
     <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
-    <%--<script src="jquery-1.11.1.min.js"></script>--%>
     <script type="text/javascript">
-        function generateMap(lat,long)
-        {
-            debugger;
+        function generateMap(lat, long) {
             var latitude = parseFloat(lat);
             var longitude = parseFloat(long);
             var mapFlag = 1;
@@ -71,32 +67,44 @@
 
         function CarouselPopup() {
             $("#winHeader").html('Carousel Image Insert Form');
-            $("#wincontent").html('<iframe src="Carousel.aspx" width="730" height="450" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '450', width: '730', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            $("#wincontent").html('<iframe src="Carousel.aspx" width="700" height="610" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
             $("#jqxwindow").jqxWindow('open');
         }
-        
+
         function ReceiveNavigationHeaders(a, b, c, d) {
             var a1 = a;
             var b1 = b;
             var c1 = c;
             var d1 = d;
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">'+a1+'</a></li><li><a href="#">'+b1+'</a></li><li><a href="#">'+c1+'</a></li><li><a href="#">'+d1+'</a></li></ul></div></nav>';
-                    $("#navbarContain").append(dynamic_nav);
-                   $('#btnNavbar').prop('disabled', true);
-            debugger;
-
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">' + a1 + '</a></li><li><a href="#">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
+            $("#navbarContain").append(dynamic_nav);
+            $('#btnNavbar').prop('disabled', true);
         }
 
+        function ReceiveCarouselImages(result) {
+            var image = result.substring(0, result.length - 1)
+            imagesplit = image.split(',');
+            for (var i = 0 ; i < imagesplit.length ; i++) {
+                $('<li data-target="#myCarousel" data-slide-to="' + i + '" runat="server"></li>').appendTo('.carousel-indicators');
+                $('<div class="item" runat="server"><img src="' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
+            }
+            $('.carousel-indicators > li').first().addClass('active');
+            $('.item').first().addClass('active');
+            $('#myCarousel').carousel();
+            $('#pre').show();
+            $('#nxt').show();
+            $('#btnCarousel').prop('disabled', true);
+            return false;
+        }
     </script>
-   
+
     <script type="text/javascript">
-        
+
         $(document).ready(function () {
-            debugger;
             $('#apply').hide();
             $('#remove').hide();
             $('#lblheader').hide();
@@ -115,106 +123,66 @@
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
             });
 
-           
-           
-
             var element_pos = -15;
-            
+
             $('#btnHeader').click(function () {
                 $('#lblheader').show();
-                    var dynamic_header = $(document.createElement('div'));
-                    dynamic_header.css({
-                        border: '1px solid', position: 'relative', left: element_pos,
-                        width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                    });
-                    //$(dynamic_header).append('Header');
-                    $(dynamic_header).appendTo('#header');
-                    
-                    $('#btnHeader').prop('disabled', true);
-                    return false;
-                
+                var dynamic_header = $(document.createElement('div'));
+                dynamic_header.css({
+                    border: '1px solid', position: 'relative', left: element_pos,
+                    width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                });
+                $(dynamic_header).appendTo('#header');
+                $('#btnHeader').prop('disabled', true);
+                return false;
+
             });
             $('#lblheader').click(function () {
-                debugger;
                 $('#apply').show();
                 $('#remove').show();
                 return false;
             });
             $('#apply').click(function () {
-                debugger;
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
                 $('#hiddenFieldHeaderValue').val(useredited);
                 $('#apply').hide();
                 $('#remove').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
             $('#remove').click(function () {
-                debugger;
-               // $('#lblheader').text('Header');
-                document.getElementById('lblheader').innerHTML ="Header";
+                document.getElementById('lblheader').innerHTML = "Header";
                 $('#apply').hide();
                 $('#remove').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
-         //   $('#btnCarousel').click(function () {
-         //   var images = [
-         //"1.jpg",
-         //"2.jpg",
-         //"3.jpg"
-         //   ];
 
-         //   for (var i = 0 ; i < images.length ; i++) {
-         //       $('<div class="item"><img src="' + images[i] + '"  style="width: 820px; height: 150px; "><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-         //       $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
-         //   }
-          
-         //           $('#pre').show();
-         //           $('#nxt').show();
-         //           $('.item').first().addClass('active');
-         //           $('.carousel-indicators > li').first().addClass('active');
-         //       //$('#carousel-example-generic').carousel();
-         //           $('#btnCarousel').prop('disabled', true);
-         //           return false;
-                
-         //   });
-            
             $('#btnFooter').click(function () {
-                debugger;
                 $('#lblfooter').show();
-                    var dynamic_footer = $(document.createElement('div'));
-                    dynamic_footer.css({
-                        border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                    });
-                   // $(dynamic_footer).append('Footer');
-                    $(dynamic_footer).appendTo('#Footer');
-                    $('#btnFooter').prop('disabled', true);
-                    return false;
+                var dynamic_footer = $(document.createElement('div'));
+                dynamic_footer.css({
+                    border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                });
+                $(dynamic_footer).appendTo('#Footer');
+                $('#btnFooter').prop('disabled', true);
+                return false;
             });
             $('#lblfooter').click(function () {
-                debugger;
                 $('#apply1').show();
                 $('#remove1').show();
                 return false;
             });
             $('#apply1').click(function () {
-                debugger;
                 var edited = document.getElementById('lblheader');
                 var useredited = edited.innerHTML;
                 $('#apply1').hide();
                 $('#remove1').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
             $('#remove1').click(function () {
-                debugger;
-                // $('#lblheader').text('Header');
                 document.getElementById('lblfooter').innerHTML = "Footer";
                 $('#apply1').hide();
                 $('#remove1').hide();
-                // $('#lblheader').val(useredited);
                 return false;
             });
         });
@@ -222,8 +190,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <%-- //Hidden Field //--%>
-         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static"/>
+        <%-- //Hidden Field //--%>
+        <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static" />
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
@@ -253,8 +221,8 @@
                                                         <div class="navbar-header">
                                                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
                                                                 <span>Menu</span>
-                                                                 <span class="caret"></span>
-                                                                 <span class="sr-only">Toggle navigation</span>
+                                                                <span class="caret"></span>
+                                                                <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
@@ -262,14 +230,14 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnFooter" class="btn btn-info btn" >Footer</button></li>
+                                                                    <button type="button" id="btnFooter" class="btn btn-info btn">Footer</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Carousel</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" onclick="GoogleMapPopup()">Map</button>
-                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static"/>
+                                                                    <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static" />
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -295,18 +263,6 @@
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-                 <hr />
-            </div>
-        </div>
-    </div>--%>
                     </div>
                 </div>
                 <!--End of Accordion-->
@@ -326,34 +282,14 @@
         </div>
         <br />
         <div class="container">
-                <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" style="float:right" runat="server" OnClick="btnPageGenerate_Click" />
-          <%--  <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"> Add New Page</h4>
-      </div>
-      <div class="modal-body">
-          <asp:Label ID="lblPageName" runat="server" Text="Insert Name of the Page: "></asp:Label>
-          <asp:TextBox ID="txtnewpage" runat="server"></asp:TextBox>
-          <asp:Button ID="btnCreate" runat="server" Text="Create" />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>--%>
+            <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" Style="float: right" runat="server" OnClick="btnPageGenerate_Click" />
         </div>
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>
         </div>
         <%--JQX Window--%>
-         <div id="jqxwindow">
+        <div id="jqxwindow">
             <div id="winHeader"></div>
             <div id="wincontent"></div>
         </div>

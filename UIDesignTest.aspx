@@ -12,12 +12,12 @@
         <%--  NavBar--%>
         <div id="navbarContain" style="position:absolute; top:151px; width:96.3%;"></div>
         <%--Carousel--%>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute; top: 200px; left: 16px">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:96.3%; position: absolute; top: 200px; left: 16px" runat="server">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" runat="server">
             </ol>
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" runat="server">
             </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="display: none" id="pre">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -28,7 +28,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    
+  <%--  Content Area--%>
         <div class="container" style="height:381px; border:1px solid gray;  width: 96.2%; left:0px; right:0px; position:absolute; top:350px;">
             <h4 style="text-align:center">Content Area</h4>
         </div>

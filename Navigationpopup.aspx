@@ -31,7 +31,6 @@
         }
 
         function addmenudata() {
-            debugger;
             var item1 = $('#txtitem1').val();
             var item2 = $('#txtitem2').val();
             var item3 = $('#txtitem3').val();
@@ -43,7 +42,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 94%; font-size: 13px; padding-left: 30px; border-color: red; background-color: lightyellow; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>"/>
+        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 94%; font-size: 13px; padding-left: 30px; border-color: red; background-color: lightyellow; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         <div class="container" style="margin-left: 70px; margin-top: 30px; height: 300px; width: 250px;">
             <div>
                 <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size: large">Insert Menu Names</asp:Label>
@@ -55,7 +54,7 @@
                         <asp:Label ID="lblItem1" CssClass="lblstyle" runat="server" Text="">Item 1:<span style="color:red">*</span></asp:Label>
                         <div style="height: 6px;"></div>
                         <asp:TextBox ID="txtitem1" runat="server" CssClass="inputbox"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvtxtitem1" runat="server" Display="None"  ErrorMessage="Item 1 Is Empty" ControlToValidate="txtitem1"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvtxtitem1" runat="server" Display="None" ErrorMessage="Item 1 Is Empty" ControlToValidate="txtitem1"></asp:RequiredFieldValidator>
                     </div>
                     <div>
                         <asp:Label ID="lblitem2" CssClass="lblstyle" runat="server" Text="">Item2:<span style="color:red">*</span></asp:Label>
@@ -78,7 +77,7 @@
                 </div>
             </div>
             <br />
-            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn-lg" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 40px"/>
+            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn-lg" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 40px" />
         </div>
     </form>
 </body>
