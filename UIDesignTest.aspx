@@ -3,8 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-    <div class="container" id="mycontainer">
-        <%--Header--%>
+    <div class="container" id="mycontainer">        <%--Header--%>
         <div id="header">
                 <asp:Label ID="lblheader" runat="server" Text="Header" Style="position:absolute;top:80px;z-index:10;" contenteditable="true" ClientIDMode="Static"></asp:Label>
                 <a href="#"<span class="label label-success" Style="position:absolute;top:65px;z-index:10;" id="apply">Change</span></a><a href="#"<span class="label label-danger" Style="position:absolute;top:65px;left:85px; z-index:10;" id="remove">Cancle</span></a>
