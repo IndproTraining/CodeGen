@@ -85,11 +85,28 @@
             $('#hiddenFieldNav2Value').val(b1);
             $('#hiddenFieldNav3Value').val(c1);
             $('#hiddenFieldNav4Value').val(d1);
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a href="#">' + a1 + '</a></li><li><a href="#">' + b1 + '</a></li><li><a href="#">' + c1 + '</a></li><li><a href="#">' + d1 + '</a></li></ul></div></nav>';
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a id="id1" href="#">' + a1 + '</a></li><li><a id="id2" href="#">' + b1 + '</a></li><li><a id="id3" href="#">' + c1 + '</a></li><li><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
             $("#navbarContain").append(dynamic_nav);
             $('#btnNavbar').prop('disabled', true);
             $('#content').show();
         }
+
+        function navDataLoad() {            
+                $('#ContentArea').load("" + a1 + ".html");
+                $('#id1').click(function () {
+                    $('#ContentArea').load("" + a1 + ".html");
+                });
+                $('#id2').click(function () {
+                    $('#ContentArea').load("" + b1 + ".html");
+                });
+                $('#id3').click(function () {
+                    $('#ContentArea').load("" + c1 + ".html");
+                });
+                $('#id4').click(function () {
+                    $('#ContentArea').load("" + d1 + ".html");
+                });
+            }    
+        
 
         function ReceiveCarouselImages(result) {
             var image = result.substring(0, result.length - 1)
@@ -108,6 +125,7 @@
         }
 
         function ContentAreaPopup() {
+            debugger;
             $("#winHeaderCA").html('Content Area Insert Form');
             $("#wincontentCA").html('<iframe src="ContentArea.aspx?nav1=' + a1 + '&nav2='+b1 +'&nav3='+ c1 +'&nav4='+ d1 +'" width="854" height="450" style="border:none;"></iframe>');
             $("#jqxwindowCA").jqxWindow({ height: '435', width: '838', resizable: false, isModal: true, draggable: false, showCloseButton: true });
@@ -118,6 +136,10 @@
             $('#btnPageContent').prop('disabled', true);
         }
 
+        function partialPostBack()
+        {
+            $('#btnPageGenerate').click();
+        }
 
 
     </script>
@@ -197,9 +219,10 @@
                 return false;
             });
             $('#apply1').click(function () {
-                var edited = document.getElementById('lblheader');
-                var useredited = edited.innerHTML;
-                $('#hiddenFieldFooterValue').val(useredited);
+                debugger;
+                var edited = document.getElementById('lblfooter');
+                var useredited1 = edited.innerHTML;
+                $('#hiddenFieldFooterValue').val(useredited1);
                 $('#apply1').hide();
                 $('#remove1').hide();
                 return false;
@@ -217,6 +240,7 @@
 <body>
     <form id="form1" runat="server">
         <%-- //Hidden Field //--%>
+        
         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldFooterValue" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldNav1Value" runat="server" ClientIDMode="Static" />
@@ -225,13 +249,15 @@
         <asp:HiddenField ID="hiddenFieldNav4Value" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldMapLatitude" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldMapLongitude" runat="server" ClientIDMode="Static" />
-        <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
+       
+        
+         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
                 <a style="color: aliceblue; font-family: Verdana; font-size: 24px;">Tagline here!!</a>
             </div>
         </div>
-        <br />
+        <br />         
         <div class="container">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color: lightgray; height: 1000px; border: 2px solid gray;">
                 <h3 style="text-align: center">Controls</h3>
@@ -338,9 +364,19 @@
                 <!--End of Content-->
             </div>
         </div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>        
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <asp:Label ID="Label1" runat="server" Text="Label" Style="display:none"></asp:Label>
+             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnPageGenerate" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
         <br />
         <div class="container">
-            <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" Style="float: right" runat="server" OnClick="btnPageGenerate_Click" />
+            <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" Style="float: right; display:none" runat="server" OnClick="btnPageGenerate_Click" ClientIDMode="Static" />
+            <input id="btnClientGeneratePage" type="button" class="btn btn-info btn-lg" value="Generate Page" style="float: right;" onclick="partialPostBack();"  />
         </div>
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">

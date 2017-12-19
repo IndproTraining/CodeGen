@@ -23,11 +23,11 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         string gMapConvertFunction = "";
         string footerValue = hiddenFieldFooterValue.Value;
         string footerDivCode = "";
-
+        Label1.Text = "hello";
 
         if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
         {
-            string[] headerCode = {"<div class=\"header\" style=\" position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color: #fc036e; height: 80px;\">",
+            string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:lightgrey; height: 80px;\">",
       "<h3 style=\"text-align: left\">"+headerValue+"</h3>",
       "</div>"};
             headerDivCode = String.Join("\n", headerCode);
@@ -68,66 +68,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
    "</script>" };
             navFunction = string.Join("\n", navPagesFunction);
 
-            string[] navPage1 ={"<!DOCTYPE html>",
-        "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-        "<head>",
-        "<title></title>",
-        "</head>",
-        "<body>",
-        "<h1> </h1>",
-        "<p>",
-        ""+hiddenFieldNav1Value.Value+"",
-        "</p>",
-        "</body>",
-        "</html>"};
-            File.WriteAllLines(Server.MapPath("" + hiddenFieldNav1Value.Value + ".html"), navPage1);
-
-            string[] navPage2 ={"<!DOCTYPE html>",
-        "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-        "<head>",
-        "<title></title>",
-        "</head>",
-        "<body>",
-        "<h1> </h1>",
-        "<p>",
-        ""+hiddenFieldNav2Value.Value+"",
-        "</p>",
-        "</body>",
-        "</html>"};
-            File.WriteAllLines(Server.MapPath("" + hiddenFieldNav2Value.Value + ".html"), navPage2);
-
-            string[] navPage3 ={"<!DOCTYPE html>",
-        "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-        "<head>",
-        "<title></title>",
-        "</head>",
-        "<body>",
-        "<h1> </h1>",
-        "<p>",
-        ""+hiddenFieldNav3Value.Value+"",
-        "</p>",
-        "</body>",
-        "</html>"};
-            File.WriteAllLines(Server.MapPath("" + hiddenFieldNav3Value.Value + ".html"), navPage3);
-
-            string[] navPage4 ={"<!DOCTYPE html>",
-        "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-        "<head>",
-        "<title></title>",
-        "</head>",
-        "<body>",
-        "<h1> </h1>",
-        "<p>",
-        ""+hiddenFieldNav4Value.Value+"",
-        "</p>",
-        "</body>",
-        "</html>"};
-            File.WriteAllLines(Server.MapPath("" + hiddenFieldNav4Value.Value + ".html"), navPage4);
-
-
         }
-
-
         ////Waiting for Image data//
         //        if (!string.IsNullOrEmpty(Convert.ToString(caraa)))
         //        {
@@ -164,14 +105,11 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
         //            carouselDivCode = String.Join("\n", carouselCode);
         //        }
-
-
-
-
+        
         if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
         {
-            string[] footerCode = {"<div class=\"footer\" style=\" position:absolute; bottom:0px; width:100%; left:0px; background-color: #f76eb0; height: 80px;\">",
-       "<h3 style=\"text-align: center\">"+footerValue+"</h3>",
+            string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px; width:100%; left:0px; padding-left:15px; background-color: lightgrey; height: 80px;\">",
+       "<h3 style=\"text-align: left\">"+footerValue+"</h3>",
        "</div>"};
             footerDivCode = String.Join("\n", footerCode);
         }
