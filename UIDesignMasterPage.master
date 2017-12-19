@@ -57,7 +57,7 @@
         }
 
         function GoogleMapPopup() {
-            $("#winHeaderMap").html('Map Lat Lang');
+            $("#winHeaderMap").html('Location');
             $("#wincontentMap").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
             $("#jqxwindowMap").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowMap").jqxWindow('width')) / 2 + $(window).scrollLeft();
@@ -67,7 +67,7 @@
         }
 
         function CarouselPopup() {
-            $("#winHeaderCar").html('Carousel Image Insert Form');
+            $("#winHeaderCar").html('Image Slider');
             $("#wincontentCar").html('<iframe src="Carousel.aspx" width="745" height="610" style="border:none;"></iframe>');
             $("#jqxwindowCar").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowCar").jqxWindow('width')) / 2 + $(window).scrollLeft();
