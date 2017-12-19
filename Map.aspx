@@ -74,19 +74,19 @@
 
 </head>
 <body onload="initialize();">
-    <asp:Label ID="lblHeader" runat="server" Text="" Style="font-family: Verdana; font-size: large; position: absolute; left: 250px">Drag The Marker And Set The Location</asp:Label>
+    <br />
+    <asp:Label ID="lblHeader" runat="server" Text="" Style="font-family: Verdana; font-size:small; position: absolute; left:55px">Drag The Marker And Set The Location</asp:Label>
     <form runat="server">
         <br />
-        <br />
-        <div id="gmap" style="width: 500px; height: 450px; border: 2px solid; box-shadow: 10px 10px 10px"></div>
-        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="position: absolute; top: 30px; left: 500px; border: 2px solid; width: 40%; font-size: 13px; padding-left: 30px; border-color: red; background-color: lightyellow; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
-        <div id="latlong" style="position: absolute; top: 120px; left: 575px; background-color: lightgray; box-shadow: 10px 10px 10px">
+        <div id="gmap" style="width: 500px; height: 450px; border: 2px solid;margin-left:55px"></div>
+        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="position: absolute; top: 30px; left: 570px; border: 2px solid; width: 30%; font-size: 13px; padding-left: 15px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
+        <div id="latlong" style="position: absolute; top: 120px; left: 580px">
             <table runat="server">
                 <tr>
                     <td>
                         <p>
-                            Latitude:&nbsp&nbsp&nbsp
-                            <asp:TextBox ID="txtlat" runat="server"></asp:TextBox>
+                           <label>Latitude:&nbsp&nbsp&nbsp</label> 
+                            <asp:TextBox ID="txtlat" runat="server" Style="width:200px"></asp:TextBox>
                         </p>
                         <asp:RequiredFieldValidator ID="rfvLatitude" runat="server" ErrorMessage="Please Specify The Latitude" ControlToValidate="txtlat" Display="None"></asp:RequiredFieldValidator>
                     </td>
@@ -94,15 +94,15 @@
                 <tr>
                     <td>
                         <p>
-                            Longitude:
-                            <asp:TextBox ID="txtlong" runat="server"></asp:TextBox>
+                           <label>Longitude:</label> 
+                            <asp:TextBox ID="txtlong" runat="server" Style="width:200px"></asp:TextBox>
                         </p>
                         <asp:RequiredFieldValidator ID="rfvLongitude" runat="server" ErrorMessage="Please Specify the Longitude" ControlToValidate="txtlong" Display="None"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </table>
         </div>
-        <div id="buttonholder" style="position: absolute; top: 240px; left: 630px">
+        <div id="buttonholder" style="position: absolute; top: 200px; left: 718px">
             <button type="button" id="btnsave" class="btn btn-info btn" onclick="ValidatePage();">Save</button>
             <button type="button" id="btncancle" class="btn btn-info btn" onclick="closewindow();">Cancel</button>
         </div>
