@@ -75,10 +75,10 @@
 </head>
 <body onload="initialize();">
     <br />
-    <asp:Label ID="lblHeader" runat="server" Text="" Style="font-family: Verdana; font-size:small; position: absolute; left:55px">Drag The Marker And Set The Location</asp:Label>
+    <asp:Label ID="lblHeader" runat="server" Text="" Style="font-family: Verdana; font-size:small; position: absolute; left:49px;top:14px"><b>Drag The Marker And Set The Location</b></asp:Label>
     <form runat="server">
         <br />
-        <div id="gmap" style="width: 500px; height: 450px; border: 2px solid;margin-left:55px"></div>
+        <div id="gmap" style="width: 500px; height: 450px; border: 2px solid;margin-left:49px"></div>
         <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="position: absolute; top: 30px; left: 570px; border: 2px solid; width: 30%; font-size: 13px; padding-left: 15px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         <div id="latlong" style="position: absolute; top: 120px; left: 580px">
             <table runat="server">
@@ -102,7 +102,7 @@
                 </tr>
             </table>
         </div>
-        <div id="buttonholder" style="position: absolute; top: 200px; left: 718px">
+        <div id="buttonholder" style="position: absolute; top: 200px; left: 723px">
             <button type="button" id="btnsave" class="btn btn-info btn" onclick="ValidatePage();">Save</button>
             <button type="button" id="btncancle" class="btn btn-info btn" onclick="closewindow();">Cancel</button>
         </div>
