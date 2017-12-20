@@ -188,6 +188,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 "</body>",
 "</html>"};
         File.WriteAllLines(Server.MapPath("IndexPage.html"), indexPage);
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "SuccessMsg();", true);
      
     }
     protected void btnDemoDisplay_Click(object sender, EventArgs e)
@@ -364,14 +365,9 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 "</body>",
 "</html>"};
         File.WriteAllLines(Server.MapPath("IndexPage.html"), indexPage);
-
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "SuccessMsg();", true);
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "window.parent.newPageLoad();", true);
-
-
         //Delete the file //
         //string FileToDelete = Server.MapPath("m2.html");
-        //File.Delete(FileToDelete);
-       
+        //File.Delete(FileToDelete);       
     }
 }
