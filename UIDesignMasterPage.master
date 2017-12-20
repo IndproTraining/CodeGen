@@ -91,19 +91,20 @@
             $('#content').show();
         }
 
-        function navDataLoad() {            
-                $('#ContentArea').load("" + a1 + ".html");
+        function navDataLoad(page1, page2, page3, page4) {
+            debugger;
+                $('#ContentArea').load("" + page1 + ".html");
                 $('#id1').click(function () {
-                    $('#ContentArea').load("" + a1 + ".html");
+                    $('#ContentArea').load("" + page1 + ".html");
                 });
                 $('#id2').click(function () {
-                    $('#ContentArea').load("" + b1 + ".html");
+                    $('#ContentArea').load("" + page2 + ".html");
                 });
                 $('#id3').click(function () {
-                    $('#ContentArea').load("" + c1 + ".html");
+                    $('#ContentArea').load("" + page3 + ".html");
                 });
                 $('#id4').click(function () {
-                    $('#ContentArea').load("" + d1 + ".html");
+                    $('#ContentArea').load("" + page4 + ".html");
                 });
             }    
         
@@ -111,6 +112,7 @@
         function ReceiveCarouselImages(result) {
             var image = result.substring(0, result.length - 1)
             imagesplit = image.split(',');
+            $('#hiddenFieldImagesSplit').val(imagesplit);
             for (var i = 0 ; i < imagesplit.length ; i++) {
                 $('<li data-target="#myCarousel" data-slide-to="' + i + '" runat="server"></li>').appendTo('.carousel-indicators');
                 $('<div class="item" runat="server"><img src="' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
@@ -140,7 +142,15 @@
         {
             $('#btnPageGenerate').click();
         }
+        function partialPostBackDemo()
+        {
+            $('#btnDemoDisplay').click();
+        }
 
+        function newPageLoad()
+        {
+           window.open('IndexPage.html');
+        }
 
     </script>
 
@@ -249,7 +259,7 @@
         <asp:HiddenField ID="hiddenFieldNav4Value" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldMapLatitude" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldMapLongitude" runat="server" ClientIDMode="Static" />
-       
+        <asp:HiddenField ID="hiddenFieldImagesSplit" runat="server" ClientIDMode="Static" />
         
          <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -333,7 +343,7 @@
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <button type="button" id="btnPageContent" class="btn btn-info btn" onclick="ContentAreaPopup();">Set Page Content</button></li>                                                            
+                                                                    <button type="button" id="btnPageContent" class="btn btn-info btn" onclick="ContentAreaPopup();">Set Page Content</button></li>                                                                                                                             
                                                             </ul>
                                                         </div>
                                                         <!--/.nav-collapse -->
@@ -347,7 +357,46 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <!-- Demo -->
+                            <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">3.Display Page</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="container" style="width: inherit;">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="sidebar-nav">
+                                                    <div class="navbar navbar-default" role="navigation" id="demo">
+                                                        <div class="navbar-header">
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                                                <span>Display</span>
+                                                                 <span class="caret"></span>
+                                                                 <span class="sr-only">Toggle navigation</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                            <ul class="nav navbar-nav">
+                                                                <li class="active">
+                                                                    <button type="button" id="btnDemo" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button></li>                                                                                                                             
+                                                                    <asp:Button ID="btnDemoDisplay" Style="display:none" runat="server" OnClick="btnDemoDisplay_Click" ClientIDMode="Static" />
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Demo-->
+                      </div>
                 </div>
                 <!--End of Accordion-->
             </div>
@@ -371,6 +420,7 @@
              </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnPageGenerate" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btnDemoDisplay" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
         <br />
