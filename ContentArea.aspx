@@ -19,6 +19,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+      
+            $(function () {
+                $("#txtArea1").focus();
+            });
             var nav1 =decodeURIComponent(location.search.match(new RegExp('nav1' + "=(.*?)($|\&)", "i"))[1]);
             var nav2 =decodeURIComponent( location.search.match(new RegExp('nav2' + "=(.*?)($|\&)", "i"))[1]);
             var nav3 = decodeURIComponent(location.search.match(new RegExp('nav3' + "=(.*?)($|\&)", "i"))[1]);
@@ -32,28 +36,33 @@
         });
         function change() {
             $('#tabs').jqxTabs('select', 1);
-
+            $("#txtArea2").focus();
         }
         function change1() {
             $('#tabs').jqxTabs('select', 2);
-
+            $("#txtArea3").focus();
         }
         function change2() {
             $('#tabs').jqxTabs('select', 3);
-
+            $("#txtArea4").focus();
         }
         function prev() {
             $('#tabs').jqxTabs('select', 0);
+            $("#txtArea1").focus();
         }
         function prev1() {
             $('#tabs').jqxTabs('select', 1);
+            $("#txtArea2").focus();
         }
         function prev2() {
             $('#tabs').jqxTabs('select', 2);
+            $("#txtArea3").focus();
         }
         function closewindow() {
             window.parent.$('#jqxwindowCA').jqxWindow('close');
+            window.parent.$('#btnPageContent').prop('disabled', false);
         }       
+
     </script>
 </head>
 <body class='default'>
@@ -68,27 +77,27 @@
             </ul>
             <div>
                 <br /><br />
-              <textarea id="txtArea1" rows="19" cols="70" style="margin-left:120px" runat="server"></textarea><br /><br />
-                <asp:Button ID="btnNext1" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change();return false;"  Style="margin-left:630px;width:75px"/>
+              <textarea id="txtArea1" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
+                <asp:Button ID="btnNext1" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change();return false;"  Style="margin-left:640px;width:75px"/>
             </div>
             <div>
                 <br /><br />
-               <textarea id="txtArea2" rows="19" cols="70" style="margin-left:120px" runat="server"></textarea><br /><br />
-                <asp:Button ID="Button2" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:120px;width:90px"  OnClientClick="prev();return false;"/>
-                <asp:Button ID="btnNext2" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change1();return false;"  Style="margin-left:630px;width:75px;margin-top:-52px"/>
+               <textarea id="txtArea2" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
+                <asp:Button ID="Button2" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:130px;width:90px"  OnClientClick="prev();return false;"/>
+                <asp:Button ID="btnNext2" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change1();return false;"  Style="margin-left:640px;width:75px;margin-top:-52px"/>
             </div>
             <div>
                 <br /><br />
-               <textarea id="txtArea3" rows="19" cols="70" style="margin-left:120px" runat="server"></textarea><br /><br />
-                <asp:Button ID="Button1" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:120px;width:90px"  OnClientClick="prev1();return false;"/>
-                <asp:Button ID="btnNext3" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change2();return false;"  Style="margin-left:630px;width:75px;margin-top:-52px"/>
+               <textarea id="txtArea3" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
+                <asp:Button ID="Button1" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:130px;width:90px"  OnClientClick="prev1();return false;"/>
+                <asp:Button ID="btnNext3" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change2();return false;"  Style="margin-left:640px;width:75px;margin-top:-52px"/>
             </div>
             <div>
                  <br /><br />
-               <textarea id="txtArea4" rows="19" cols="70" style="margin-left:120px" runat="server"></textarea><br /><br />
-                 <asp:Button ID="btnPrev" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:120px;width:90px" OnClientClick="prev2();return false;"/>
-                <asp:Button ID="btnSave" runat="server" class="btn btn-info btn" Text="Save" OnClick="btnSave_Click1" Style="margin-left:335px;width:75px"/>
-                <asp:Button ID="btncancel" runat="server" class="btn btn-info btn" Text="Cancel" OnClientClick="closewindow();"  Style="margin-left:630px;width:75px;margin-top:-52px"/>
+               <textarea id="txtArea4" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
+                 <asp:Button ID="btnPrev" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:130px;width:90px" OnClientClick="prev2();return false;"/>
+                <asp:Button ID="btnSave" runat="server" class="btn btn-info btn" Text="Save" OnClick="btnSave_Click1" Style="margin-left:125px;width:75px"/>
+                <asp:Button ID="btncancel" runat="server" class="btn btn-info btn" Text="Cancel" OnClientClick="closewindow();"  Style="margin-left:4px;width:75px;margin-top:-1px"/>
             </div>
                 
         </div>   

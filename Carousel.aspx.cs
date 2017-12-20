@@ -11,7 +11,11 @@ public partial class Carousel : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
+        fileupload2.Enabled = false;
+        fileupload3.Enabled = false;
+        fileupload4.Enabled = false;
+        fileupload5.Enabled = false;
         Imageshow1.Attributes["src"] = ResolveUrl("Numbers/1.jpg");
         Imageshow2.Attributes["src"] = ResolveUrl("Numbers/2.jpg");
         Imageshow3.Attributes["src"] = ResolveUrl("Numbers/3.jpg");

@@ -14,6 +14,8 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
     }
     protected void btnPageGenerate_Click(object sender, EventArgs e)
     {
+       //ScriptManager.RegisterStartupScript(this, this.GetType(), "", "window.parent.notification();", true);
+
         string headerValue = hiddenFieldHeaderValue.Value;
         string headerDivCode = "";
         string navDivCode = "";
@@ -271,7 +273,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                     divCarousel = divCarousel + "<div class=\"item\"> \n <img src=\"" + imageName + "\" style=\"width: 100%; height: 210px\"> \n </div>\n";
                 }
                 i = i + 1;
-            }
+        }
             string[] carouselCode = {"<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"top:130px; width:102%; left:-16px\">",
                        "<ol class=\"carousel-indicators\">",
                        ""+listCarousel+"",
@@ -291,7 +293,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
             carouselDivCode = String.Join("\n", carouselCode);
         }
-
+        
         if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
         {
             string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px; width:100%; left:0px; padding-left:15px; background-color: lightgrey; height: 80px;\">",
@@ -362,6 +364,8 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 "</body>",
 "</html>"};
         File.WriteAllLines(Server.MapPath("IndexPage.html"), indexPage);
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "SuccessMsg();", true);
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "window.parent.newPageLoad();", true);
 
 

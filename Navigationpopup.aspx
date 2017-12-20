@@ -46,46 +46,46 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 94%; font-size: 13px; padding-left: 30px; border-color: red; background-color: lightyellow; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
+        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 94%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         <div class="container" style="margin-left: 70px; margin-top: 30px; height: 300px; width: 250px;">
             <div>
-                <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size:initial;font-family:Verdana">Insert Menu Names</asp:Label>
-                <hr style="width: 172px; margin-left: 0px"></hr>
+                <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size:initial;font-family:Verdana;margin-left:10px">Insert Menu Names</asp:Label>
+                <hr style="width: 172px; margin-left: 7px">
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-                    <div>
-                        <asp:Label ID="lblItem1" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:inherit">Item 1:<span style="color:red">*</span></asp:Label>
-                        <div style="height: 6px;"></div>
+                    <div style="margin-left:7px">
+                        <asp:Label ID="lblItem1" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:11px">Item 1:<span style="color:red">*</span></asp:Label>
+                        <div style="height: 2px;"></div>
                         <asp:TextBox ID="txtitem1" runat="server" CssClass="inputbox" Style="border-radius:3px" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvtxtitem1" runat="server" Display="None" ErrorMessage="Item 1 Is Empty" ControlToValidate="txtitem1"></asp:RequiredFieldValidator>
                     </div>
-                    <br />
-                    <div>
-                        <asp:Label ID="lblitem2" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:inherit">Item2:<span style="color:red">*</span></asp:Label>
-                        <div style="height: 6px;"></div>
+                     <div style="height: 8px;"></div>
+                    <div style="margin-left:7px">
+                        <asp:Label ID="lblitem2" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:11px">Item2:<span style="color:red">*</span></asp:Label>
+                        <div style="height: 2px;"></div>
                         <asp:TextBox ID="txtitem2" runat="server" CssClass="inputbox" Style="border-radius:3px" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvtxtitem2" runat="server" Display="None" ErrorMessage="Item 2 Is Empty" ControlToValidate="txtitem2"></asp:RequiredFieldValidator>
                     </div>
-                    <br />
-                    <div>
-                        <asp:Label ID="lblitem3" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:inherit">Item3:<span style="color:red">*</span></asp:Label>
-                        <div style="height: 6px;"></div>
+                    <div style="height: 8px;"></div>
+                    <div style="margin-left:7px">
+                        <asp:Label ID="lblitem3" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:11px">Item3:<span style="color:red">*</span></asp:Label>
+                        <div style="height: 2px;"></div>
                         <asp:TextBox ID="txtitem3" runat="server" CssClass="inputbox" Style="border-radius:3px" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvtxtitem3" runat="server" Display="None" ErrorMessage="Item 3 Is Empty" ControlToValidate="txtitem3"></asp:RequiredFieldValidator>
                     </div>
-                    <br />
-                    <div>
-                        <asp:Label ID="lblitem4" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:inherit">Item4:<span style="color:red">*</span></asp:Label>
-                        <div style="height: 6px;"></div>
+                   <div style="height: 8px;"></div>
+                    <div style="margin-left:7px">
+                        <asp:Label ID="lblitem4" CssClass="lblstyle" runat="server" Text="" Style="font-family:Verdana;font-weight:bold;font-size:11px">Item4:<span style="color:red">*</span></asp:Label>
+                        <div style="height: 2px;"></div>
                         <asp:TextBox ID="txtitem4" runat="server" CssClass="inputbox" Style="border-radius:3px" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvtxtitem4" runat="server" Display="None" ErrorMessage="Item 4 Is Empty" ControlToValidate="txtitem4"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
             <br />
-            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 17px" />
-            <button type="button" id="btncancle" class="btn btn-info btn" onclick="closewindow();">Cancel</button>
+            <asp:Button ID="btnmenusubmit" runat="server" Text="Submit" class="btn btn-info btn" OnClientClick="ValidatePage();" ClientIDMode="Static" Style="margin-left: 22px;margin-top:8px" />
+            <button type="button" id="btncancle" class="btn btn-info btn" onclick="closewindow();" Style="margin-top:8px">Cancel</button>
         </div>
     </form>
 </body>
