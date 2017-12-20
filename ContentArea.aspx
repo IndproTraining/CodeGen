@@ -19,6 +19,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+      
+            $(function () {
+                $("#txtArea1").focus();
+            });
             var nav1 =decodeURIComponent(location.search.match(new RegExp('nav1' + "=(.*?)($|\&)", "i"))[1]);
             var nav2 =decodeURIComponent( location.search.match(new RegExp('nav2' + "=(.*?)($|\&)", "i"))[1]);
             var nav3 = decodeURIComponent(location.search.match(new RegExp('nav3' + "=(.*?)($|\&)", "i"))[1]);
@@ -32,28 +36,32 @@
         });
         function change() {
             $('#tabs').jqxTabs('select', 1);
-
+            $("#txtArea2").focus();
         }
         function change1() {
             $('#tabs').jqxTabs('select', 2);
-
+            $("#txtArea3").focus();
         }
         function change2() {
             $('#tabs').jqxTabs('select', 3);
-
+            $("#txtArea4").focus();
         }
         function prev() {
             $('#tabs').jqxTabs('select', 0);
+            $("#txtArea1").focus();
         }
         function prev1() {
             $('#tabs').jqxTabs('select', 1);
+            $("#txtArea2").focus();
         }
         function prev2() {
             $('#tabs').jqxTabs('select', 2);
+            $("#txtArea3").focus();
         }
         function closewindow() {
             window.parent.$('#jqxwindowCA').jqxWindow('close');
-        }       
+        }
+
     </script>
 </head>
 <body class='default'>

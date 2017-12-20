@@ -14,6 +14,7 @@
     <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxtabs.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxnotification.js"></script>
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -68,7 +69,7 @@
 
         function CarouselPopup() {
             $("#winHeaderCar").html('Image Slider');
-            $("#wincontentCar").html('<iframe src="Carousel.aspx" width="745" height="610" style="border:none;"></iframe>');
+            $("#wincontentCar").html('<iframe src="Carousel.aspx" width="770" height="610" style="border:none;"></iframe>');
             $("#jqxwindowCar").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowCar").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindowCar").jqxWindow('height')) / 2 + $(window).scrollTop();
@@ -141,11 +142,22 @@
             $('#btnPageGenerate').click();
         }
 
+        function SuccessMsg()
+        {
+            //$("#jqxNotification").css('display:block');
+            $("#jqxNotification").jqxNotification("open");
+                $("#jqxNotification").jqxNotification({
+                    width: "50%", position: "top-right", opacity: 0.9,
+                    autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "success"
+                });
+        }
 
+        //function SuccessMsgOpen(){
+        //    $("#jqxNotification").jqxNotification("open");
+        //}
     </script>
 
     <script type="text/javascript">
-
         $(document).ready(function () {
             $('#apply').hide();
             $('#remove').hide();
@@ -167,7 +179,6 @@
             });
 
             var element_pos = -15;
-
             $('#btnHeader').click(function () {
                 $('#hiddenFieldHeaderValue').val('Header');
                 $('#lblheader').show();
@@ -201,7 +212,6 @@
                 $('#hiddenFieldHeaderValue').val('Header');
                 return false;
             });
-
             $('#btnFooter').click(function () {
                 $('#hiddenFieldFooterValue').val('Footer');
                 $('#lblfooter').show();
@@ -236,6 +246,8 @@
             });
         });
     </script>
+
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -377,7 +389,10 @@
         <div class="container">
             <asp:Button ID="btnPageGenerate" class="btn btn-info btn-lg" Text="Generate Page" Style="float: right; display:none" runat="server" OnClick="btnPageGenerate_Click" ClientIDMode="Static" />
             <input id="btnClientGeneratePage" type="button" class="btn btn-info btn-lg" value="Generate Page" style="float: right;" onclick="partialPostBack();"  />
-        </div>
+     <!--Notifications--> 
+    <div id="jqxNotification" style="display:none; position:absolute; left:370px;">
+        <h5 style="font-family:Verdana">New Page Generated.</h5></div>
+            </div>
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>

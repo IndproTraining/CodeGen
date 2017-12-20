@@ -29,7 +29,10 @@
         </div>
   <%--  Content Area--%>
          <div id="ContentArea" class="container">
+             <div style="width: auto; border-bottom: 1px solid black;">
             <h4 style="text-align:center">Content Area</h4>
+            
+                 </div>
         </div>
     <%--Map--%>
     <div id="map" style="display: none; position: absolute; top: 731px; left: 16.5px"></div>

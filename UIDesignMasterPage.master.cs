@@ -10,10 +10,12 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
     protected void btnPageGenerate_Click(object sender, EventArgs e)
     {
+       //ScriptManager.RegisterStartupScript(this, this.GetType(), "", "window.parent.notification();", true);
+
         string headerValue = hiddenFieldHeaderValue.Value;
         string headerDivCode = "";
         string navDivCode = "";
@@ -176,5 +178,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 "</body>",
 "</html>"};
         File.WriteAllLines(Server.MapPath("IndexPage.html"), indexPage);
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "SuccessMsg();", true);
     }
 }
