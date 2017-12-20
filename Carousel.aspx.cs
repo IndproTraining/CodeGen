@@ -43,19 +43,19 @@ public partial class Carousel : System.Web.UI.Page
             if (image3 != "")
             {
                 fileupload3.SaveAs(Server.MapPath(image3));
-                result = result + '"' + image3 + '"' + ',';
+                result = result + image3 + ',';
             }
             string image4 = (fileupload4.FileName);
             if (image4 != "")
             {
                 fileupload4.SaveAs(Server.MapPath(image4));
-                result = result + '"' + image4 + '"' + ',';
+                result = result + image4 + ',';
             }
             string image5 = (fileupload5.FileName);
             if (image5 != "")
             {
                 fileupload5.SaveAs(Server.MapPath(image5));
-                result = result + '"' + image5 + '"' + ',';
+                result = result + image5 + ',';
             }
             ScriptManager.RegisterStartupScript(this, this.GetType(), "", "closewindow();window.parent.ReceiveCarouselImages('" + result + "');", true);
         }
