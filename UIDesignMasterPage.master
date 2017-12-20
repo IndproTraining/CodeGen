@@ -43,13 +43,14 @@
             });
             document.getElementById("hiddenFieldMapLatitude").value = latitude;
             document.getElementById("hiddenFieldMapLongitude").value = longitude;
+            $('#destroymap').show();
             $('#btnMap').prop('disabled', true);
         }
 
         function NavigationPopup() {
-            $("#winHeader").html('Menu Headers');
-            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="450" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '450', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            $("#winHeader").html('Add menu items');
+            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="400" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '400', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
@@ -57,7 +58,7 @@
         }
 
         function GoogleMapPopup() {
-            $("#winHeaderMap").html('Location');
+            $("#winHeaderMap").html('Set your location');
             $("#wincontentMap").html('<iframe src="Map.aspx" width="900" height="530" style="border:none;"></iframe>');
             $("#jqxwindowMap").jqxWindow({ height: '530', width: '900', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowMap").jqxWindow('width')) / 2 + $(window).scrollLeft();
@@ -67,7 +68,7 @@
         }
 
         function CarouselPopup() {
-            $("#winHeaderCar").html('Image Slider');
+            $("#winHeaderCar").html('Add images for carousel');
             $("#wincontentCar").html('<iframe src="Carousel.aspx" width="745" height="610" style="border:none;"></iframe>');
             $("#jqxwindowCar").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowCar").jqxWindow('width')) / 2 + $(window).scrollLeft();
@@ -85,26 +86,37 @@
             $('#hiddenFieldNav2Value').val(b1);
             $('#hiddenFieldNav3Value').val(c1);
             $('#hiddenFieldNav4Value').val(d1);
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li class="active"><a id="id1" href="#">' + a1 + '</a></li><li><a id="id2" href="#">' + b1 + '</a></li><li><a id="id3" href="#">' + c1 + '</a></li><li><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
             $("#navbarContain").append(dynamic_nav);
+            $('#destroynav').show();
             $('#btnNavbar').prop('disabled', true);
             $('#content').show();
         }
 
         function navDataLoad() {            
-                $('#ContentArea').load("" + a1 + ".html");
-                $('#id1').click(function () {
+            $('#ContentArea').load("" + a1 + ".html");
+            $('#li1').addClass('active');
+            $('#id1').click(function () {
+                $('#li4').removeClass('active');
+                $('#li1').addClass('active');
                     $('#ContentArea').load("" + a1 + ".html");
                 });
-                $('#id2').click(function () {
+            $('#id2').click(function () {
+                $('#li1').removeClass('active');
+                $('#li2').addClass('active');
                     $('#ContentArea').load("" + b1 + ".html");
                 });
-                $('#id3').click(function () {
+            $('#id3').click(function () {
+                $('#li2').removeClass('active');
+                $('#li3').addClass('active');
                     $('#ContentArea').load("" + c1 + ".html");
                 });
-                $('#id4').click(function () {
+            $('#id4').click(function () {
+                $('#li3').removeClass('active');
+                $('#li4').addClass('active');
                     $('#ContentArea').load("" + d1 + ".html");
-                });
+            });
+            $('#btnPageContent').prop('disabled', true);
             }    
         
 
@@ -118,6 +130,7 @@
             $('.carousel-indicators > li').first().addClass('active');
             $('.item').first().addClass('active');
             $('#myCarousel').carousel();
+            $('#destroycar').show();
             $('#pre').show();
             $('#nxt').show();
             $('#btnCarousel').prop('disabled', true);
@@ -133,7 +146,6 @@
             var y = ($(window).height() - $("#jqxwindowCA").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindowCA").jqxWindow({ position: { x: x, y: y } });
             $("#jqxwindowCA").jqxWindow('open');
-            $('#btnPageContent').prop('disabled', true);
         }
 
         function partialPostBack()
@@ -153,6 +165,11 @@
             $('#apply1').hide();
             $('#remove1').hide();
             $('#lblfooter').hide();
+            $('#destroy').hide();
+            $('#destroy1').hide();
+            $('#destroycar').hide();
+            $('#destroynav').hide();
+            $('#destroymap').hide();
             $('#content').hide();
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
@@ -176,7 +193,9 @@
                     border: '1px solid', position: 'relative', left: element_pos,
                     width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                 });
+                $(dynamic_header).attr('id', 'headerdiv');
                 $(dynamic_header).appendTo('#header');
+                $('#destroy').show();
                 $('#btnHeader').prop('disabled', true);
                 return false;
 
@@ -209,7 +228,9 @@
                 dynamic_footer.css({
                     border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
                 });
+                $(dynamic_footer).attr('id', 'footerdiv');
                 $(dynamic_footer).appendTo('#Footer');
+                $('#destroy1').show();
                 $('#btnFooter').prop('disabled', true);
                 return false;
             });
@@ -232,6 +253,51 @@
                 $('#apply1').hide();
                 $('#remove1').hide();
                 $('#hiddenFieldFooterValue').val('Footer');
+                return false;
+            });
+            $('#destroy').click(function () {
+                $('#headerdiv').remove();
+                $('#apply').hide();
+                $('#remove').hide();
+                $('#lblheader').hide();
+                $('#destroy').hide();
+                $('#btnHeader').prop('disabled', false);
+                $('#hiddenFieldHeaderValue').val('');
+                return false;
+            });
+            $('#destroy1').click(function () {
+                $('#footerdiv').remove();
+                $('#apply1').hide();
+                $('#remove1').hide();
+                $('#lblfooter').hide();
+                $('#destroy1').hide();
+                $('#btnFooter').prop('disabled', false);
+                $('#hiddenFieldFooterValue').val('');
+                return false;
+            });
+            $('#destroycar').click(function () {
+                $('#myCarousel').remove();
+                $('#destroycar').hide();
+                $('#btnCarousel').prop('disabled', false);
+                //  $('#hiddenFieldImagesSplit').val(imagesplit);   Please Remove the comment after merging!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                return false;
+            });
+            $('#destroynav').click(function () {
+                $('#navbarContain').remove();
+                $('#destroynav').hide();
+                $('#hiddenFieldNav1Value').val('');
+                $('#hiddenFieldNav2Value').val('');
+                $('#hiddenFieldNav3Value').val('');
+                $('#hiddenFieldNav4Value').val('');
+                $('#btnNavbar').prop('disabled', false);
+                return false;
+            });
+            $('#destroymap').click(function () {
+                $('#map').remove();
+                $('#destroymap').hide();
+                $('#hiddenFieldMapLatitude').val('');
+                $('#hiddenFieldMapLongitude').val('');
+                $('#btnMap').prop('disabled', false);
                 return false;
             });
         });
