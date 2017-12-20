@@ -70,7 +70,7 @@
 
         function CarouselPopup() {
             $("#winHeaderCar").html('Add images for carousel');
-            $("#wincontentCar").html('<iframe src="Carousel.aspx" width="745" height="610" style="border:none;"></iframe>');
+            $("#wincontentCar").html('<iframe src="Carousel.aspx" width="770" height="610" style="border:none;"></iframe>');
             $("#jqxwindowCar").jqxWindow({ height: '610', width: '600', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindowCar").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindowCar").jqxWindow('height')) / 2 + $(window).scrollTop();
@@ -177,6 +177,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var useredited = '';
             $('#apply').hide();
             $('#remove').hide();
             $('#lblheader').hide();
@@ -224,7 +225,7 @@
             });
             $('#apply').click(function () {
                 var edited = document.getElementById('lblheader');
-                var useredited = edited.innerHTML;
+                useredited = edited.innerHTML;
                 $('#hiddenFieldHeaderValue').val(useredited);
                 $('#apply').hide();
                 $('#remove').hide();
@@ -276,6 +277,7 @@
                 $('#apply').hide();
                 $('#remove').hide();
                 $('#lblheader').hide();
+                document.getElementById('lblheader').innerHTML = 'Header';
                 $('#destroy').hide();
                 $('#btnHeader').prop('disabled', false);
                 $('#hiddenFieldHeaderValue').val('');
@@ -286,20 +288,25 @@
                 $('#apply1').hide();
                 $('#remove1').hide();
                 $('#lblfooter').hide();
+                document.getElementById('lblfooter').innerHTML = 'Footer';
                 $('#destroy1').hide();
                 $('#btnFooter').prop('disabled', false);
                 $('#hiddenFieldFooterValue').val('');
                 return false;
             });
             $('#destroycar').click(function () {
-                $('#myCarousel').remove();
+                $('.carousel-indicators').empty();
+                $('.carousel-inner').empty();
+                $('#pre').hide();
+                $('#nxt').hide();
                 $('#destroycar').hide();
                 $('#btnCarousel').prop('disabled', false);
                 //  $('#hiddenFieldImagesSplit').val(imagesplit);   Please Remove the comment after merging!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 return false;
         });
             $('#destroynav').click(function () {
-                $('#navbarContain').remove();
+                //$('#navbarContain').remove();
+                $('#navbarContain').empty();
                 $('#destroynav').hide();
                 $('#hiddenFieldNav1Value').val('');
                 $('#hiddenFieldNav2Value').val('');
@@ -309,7 +316,7 @@
                 return false;
             });
             $('#destroymap').click(function () {
-                $('#map').remove();
+                $('#map').empty();
                 $('#destroymap').hide();
                 $('#hiddenFieldMapLatitude').val('');
                 $('#hiddenFieldMapLongitude').val('');
