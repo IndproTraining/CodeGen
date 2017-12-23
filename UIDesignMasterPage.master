@@ -130,20 +130,28 @@
 
 
         function ReceiveCarouselImages(result) {
-            $('#slider').show();
+            debugger;
             var image = result.substring(0, result.length - 1)
             imagesplit = image.split(',');
             $('#hiddenFieldImagesSplit').val(imagesplit);
             for (var i = 0 ; i < imagesplit.length ; i++) {
-                $('<img src="Downloads/Images/' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('#slider');
+                    $("<li data-target='#myCarousel' data-slide-to=" + i + "></li>").appendTo('.carousel-indicators');
+                    $('<div class="item" runat="server"><img src="Downloads/Images/' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
             }
+            $('.carousel-indicators > li').first().addClass('active');
+            $('.item').first().addClass('active');
+            $('#myCarousel').carousel({
+                interval: 2000,
+                cycle: true
+            });
             $('#destroycar').show();
+            $('#pre').show();
+            $('#nxt').show();
             $('#btnCarousel').prop('disabled', true);
             return false;
         }
 
         function ContentAreaPopup() {
-            debugger;
             $("#winHeaderCA").html('Content Area Insert Form');
             $("#wincontentCA").html('<iframe src="ContentArea.aspx?nav1=' + a1 + ';nav2=' + b1 + ';nav3=' + c1 + ';nav4=' + d1 + '" width="854" height="450" style="border:none;"></iframe>');
             $("#jqxwindowCA").jqxWindow({ height: '435', width: '838', resizable: false, isModal: true, draggable: false, showCloseButton: true });
@@ -180,25 +188,30 @@
                 autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "info"
             });
         }
-       
-
     </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             var useredited = '';
+            $('#fontSizeHeader').hide();
+            $('#fontColorHeader').hide();
+            $('#fontFamilyHeader').hide();
+            $('#fontSizeFooter').hide();
+            $('#fontColorFooter').hide();
+            $('#fontFamilyFooter').hide();
             $('#apply').hide();
             $('#remove').hide();
             $('#lblheader').hide();
             $('#apply1').hide();
             $('#remove1').hide();
             $('#lblfooter').hide();
-            $('#destroy').hide();
-            $('#destroy1').hide();
+            $('#destroyHeader').hide();
+            $('#destroyFooter').hide();
             $('#destroycar').hide();
             $('#destroynav').hide();
             $('#destroymap').hide();
             $('#content').hide();
+            $('#divColorHeader').hide();
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
@@ -222,7 +235,8 @@
                 });
                 $(dynamic_header).attr('id', 'headerdiv');
                 $(dynamic_header).appendTo('#header');
-                $('#destroy').show();
+                $('#destroyHeader').show();
+                $('#divColorHeader').show();
                 $('#btnHeader').prop('disabled', true);
                 return false;
 
@@ -230,6 +244,9 @@
             $('#lblheader').click(function () {
                 $('#apply').show();
                 $('#remove').show();
+                $('#fontSizeHeader').show();
+                $('#fontColorHeader').show();
+                $('#fontFamilyHeader').show();
                 return false;
             });
             $('#apply').click(function () {
@@ -238,6 +255,12 @@
                 $('#hiddenFieldHeaderValue').val(useredited);
                 $('#apply').hide();
                 $('#remove').hide();
+                $('#fontSizeHeader').hide();
+                $('#fontColorHeader').hide();
+                $('#fontFamilyHeader').hide();
+                document.getElementById("fontSize1ListHeader").style.display = "none";
+                document.getElementById("fontcolorListHeader").style.display = "none";
+                document.getElementById("fontfamilyListHeader").style.display = "none";
                 return false;
             });
             $('#remove').click(function () {
@@ -245,6 +268,12 @@
                 $('#apply').hide();
                 $('#remove').hide();
                 $('#hiddenFieldHeaderValue').val('Header');
+                document.getElementById("fontSize1ListHeader").style.display = "none";
+                document.getElementById("fontcolorListHeader").style.display = "none";
+                document.getElementById("fontfamilyListHeader").style.display = "none";
+                document.getElementById("lblheader").style.fontSize = "14px";
+                document.getElementById("lblheader").style.fontFamily = "Calibri";
+                document.getElementById("lblheader").style.color = "black";
                 return false;
             });
             $('#btnFooter').click(function () {
@@ -256,22 +285,30 @@
                 });
                 $(dynamic_footer).attr('id', 'footerdiv');
                 $(dynamic_footer).appendTo('#Footer');
-                $('#destroy1').show();
+                $('#destroyFooter').show();
                 $('#btnFooter').prop('disabled', true);
                 return false;
             });
             $('#lblfooter').click(function () {
                 $('#apply1').show();
                 $('#remove1').show();
+                $('#fontSizeFooter').show();
+                $('#fontColorFooter').show();
+                $('#fontFamilyFooter').show();
                 return false;
             });
             $('#apply1').click(function () {
-                debugger;
                 var edited = document.getElementById('lblfooter');
                 var useredited1 = edited.innerHTML;
                 $('#hiddenFieldFooterValue').val(useredited1);
                 $('#apply1').hide();
                 $('#remove1').hide();
+                $('#fontSizeFooter').hide();
+                $('#fontColorFooter').hide();
+                $('#fontFamilyFooter').hide();
+                document.getElementById("fontSize1ListFooter").style.display = "none";
+                document.getElementById("fontcolorListFooter").style.display = "none";
+                document.getElementById("fontfamilyListFooter").style.display = "none";
                 return false;
             });
             $('#remove1').click(function () {
@@ -279,28 +316,55 @@
                 $('#apply1').hide();
                 $('#remove1').hide();
                 $('#hiddenFieldFooterValue').val('Footer');
+                $('#fontSizeFooter').hide();
+                $('#fontColorFooter').hide();
+                $('#fontFamilyFooter').hide();
+                document.getElementById("fontSize1ListFooter").style.display = "none";
+                document.getElementById("fontcolorListFooter").style.display = "none";
+                document.getElementById("fontfamilyListFooter").style.display = "none";
+                document.getElementById("lblfooter").style.fontSize = "14px";
+                document.getElementById("lblfooter").style.fontFamily = "Calibri";
+                document.getElementById("lblfooter").style.color = "black";
                 return false;
             });
-            $('#destroy').click(function () {
+            $('#destroyHeader').click(function () {
                 $('#headerdiv').remove();
                 $('#apply').hide();
                 $('#remove').hide();
                 $('#lblheader').hide();
                 document.getElementById('lblheader').innerHTML = 'Header';
-                $('#destroy').hide();
+                $('#destroyHeader').hide();
                 $('#btnHeader').prop('disabled', false);
                 $('#hiddenFieldHeaderValue').val('');
+                $('#fontSizeHeader').hide();
+                $('#fontColorHeader').hide();
+                $('#fontFamilyHeader').hide();
+                document.getElementById("fontSize1ListHeader").style.display = "none";
+                document.getElementById("fontcolorListHeader").style.display = "none";
+                document.getElementById("fontfamilyListHeader").style.display = "none";
+                document.getElementById('lblheader').style.fontFamily = "none";
+                document.getElementById('lblheader').style.fontSize = "14px";
+                document.getElementById('lblheader').style.color = "black";
                 return false;
             });
-            $('#destroy1').click(function () {
+            $('#destroyFooter').click(function () {
                 $('#footerdiv').remove();
                 $('#apply1').hide();
                 $('#remove1').hide();
                 $('#lblfooter').hide();
                 document.getElementById('lblfooter').innerHTML = 'Footer';
-                $('#destroy1').hide();
+                $('#destroyFooter').hide();
                 $('#btnFooter').prop('disabled', false);
                 $('#hiddenFieldFooterValue').val('');
+                $('#fontSizeFooter').hide();
+                $('#fontColorFooter').hide();
+                $('#fontFamilyFooter').hide();
+                document.getElementById("fontSize1ListFooter").style.display = "none";
+                document.getElementById("fontcolorListFooter").style.display = "none";
+                document.getElementById("fontfamilyListFooter").style.display = "none";
+                document.getElementById('lblfooter').style.fontFamily = "none";
+                document.getElementById('lblfooter').style.fontSize = "14px";
+                document.getElementById('lblfooter').style.color = "black";
                 return false;
             });
             $('#destroycar').click(function () {
@@ -334,7 +398,77 @@
                 $('#btnMap').prop('disabled', false);
                 return false;
             });
+            $('#fontSizeHeader').click(function () {
+                document.getElementById("fontSize1ListHeader").style.display = "block";
+                document.getElementById("fontcolorListHeader").style.display = "none";
+                document.getElementById("fontfamilyListHeader").style.display = "none";
+                return false;
+            });
+            $('#fontColorHeader').click(function () {
+                document.getElementById("fontSize1ListHeader").style.display = "none";
+                document.getElementById("fontcolorListHeader").style.display = "block";
+                document.getElementById("fontfamilyListHeader").style.display = "none";
+                return false;
+            });
+            $('#fontFamilyHeader').click(function () {
+                document.getElementById("fontSize1ListHeader").style.display = "none";
+                document.getElementById("fontcolorListHeader").style.display = "none";
+                document.getElementById("fontfamilyListHeader").style.display = "block";
+                return false;
+            });    
+            $('#fontSizeFooter').click(function ($e) {
+                $e.preventDefault();
+                document.getElementById("fontSize1ListFooter").style.display = "block";
+                document.getElementById("fontcolorListFooter").style.display = "none";
+                document.getElementById("fontfamilyListFooter").style.display = "none";
+            });
+            $('#fontColorFooter').click(function ($e) {
+                $e.preventDefault();
+                document.getElementById("fontSize1ListFooter").style.display = "none";
+                document.getElementById("fontcolorListFooter").style.display = "block";
+                document.getElementById("fontfamilyListFooter").style.display = "none";
+            });
+            $('#fontFamilyFooter').click(function ($e) {
+                $e.preventDefault();
+                document.getElementById("fontSize1ListFooter").style.display = "none";
+                document.getElementById("fontcolorListFooter").style.display = "none";
+                document.getElementById("fontfamilyListFooter").style.display = "block";
+            });    
         });
+        function headerSize(selectTag) {
+            debugger;
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblheader").style.fontSize = listValue;
+            $('#hiddenFieldHeaderSize').val(listValue);
+        }
+        function headerColor(selectTag) {
+            debugger;
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblheader").style.color = listValue;
+            $('#hiddenFieldHeaderColor').val(listValue);
+        }
+        function headerFamily(selectTag) {
+            debugger;
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblheader").style.fontFamily = listValue;
+            $('#hiddenFieldHeaderFamily').val(listValue);
+        }
+        function footerSize(selectTag) {
+            debugger;
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblfooter").style.fontSize = listValue;
+            $('#hiddenFieldFooterSize').val(listValue);
+        }
+        function footerColor(selectTag) {
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblfooter").style.color = listValue;
+            $('#hiddenFieldFooterColor').val(listValue);
+        }
+        function footerFamily(selectTag) {
+            var listValue = selectTag.options[selectTag.selectedIndex].text;
+            document.getElementById("lblfooter").style.fontFamily = listValue;
+            $('#hiddenFieldFooterFamily').val(listValue);
+        }
     </script>
 
 
@@ -352,6 +486,12 @@
         <asp:HiddenField ID="hiddenFieldMapLatitude" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldMapLongitude" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldImagesSplit" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldHeaderSize" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldHeaderColor" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldHeaderFamily" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldFooterSize" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldFooterColor" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldFooterFamily" runat="server" ClientIDMode="Static" />
 
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -380,13 +520,13 @@
                                                 <div class="sidebar-nav">
                                                     <div class="navbar navbar-default" role="navigation">
                                                         <div class="navbar-header">
-                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#attributes">
                                                                 <span>Menu</span>
                                                                 <span class="caret"></span>
                                                                 <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
-                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="attributes">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
                                                                     <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
@@ -426,13 +566,13 @@
                                                 <div class="sidebar-nav">
                                                     <div class="navbar navbar-default" role="navigation" id="content">
                                                         <div class="navbar-header">
-                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#pageContent">
                                                                 <span>Contents</span>
                                                                 <span class="caret"></span>
                                                                 <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
-                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="pageContent">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
                                                                     <button type="button" id="btnPageContent" class="btn btn-info btn" onclick="ContentAreaPopup();">Set Page Content</button></li>
@@ -453,7 +593,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">3.Preview Page</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3.Preview Page</a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse in">
@@ -462,15 +602,16 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="sidebar-nav">
-                                                    <div class="navbar navbar-default" role="navigation" id="demo">
+                                                    <div class="navbar navbar-default" role="navigation">
                                                         <div class="navbar-header">
-                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#display">
                                                                 <span>Display</span>
                                                                 <span class="caret"></span>
                                                                 <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
-                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="display">
+                                                            <div style="height:6px;"></div>
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
                                                                     <button type="button" id="btnDemo" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button></li>
@@ -512,11 +653,7 @@
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <%--<button type="button" id="btnDownload" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button>                                                                                                                             
-                                                                    <asp:Button ID="Button1" Style="display:none" runat="server" OnClick="btnDemoDisplay_Click" ClientIDMode="Static" />--%>
                                                                     <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" Style="float: right" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
-                                                                    <%--<input id="btnClientDownload" type="button" class="btn btn-info btn" value="Download" style="float: right;" onclick="partialPostBack();" />--%>
-
                                                                 </li>
                                                             </ul>
                                                         </div>

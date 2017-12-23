@@ -8,7 +8,7 @@ margin-left:8px;
 margin-top: 3px;
 margin-bottom: 3px;
   }  
-#btnPageContent {
+#btnPageContent, #btnDemo {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -21,7 +21,7 @@ width: 130px;
 margin-top: 5px;
 margin-bottom: 5px;
   } 
-  #btnPageContent {
+  #btnPageContent, #btnDemo {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -47,7 +47,7 @@ width: 130px;
 margin-top: 5px;
 margin-bottom: 5px;
   }
-  #btnPageContent {
+  #btnPageContent, #btnDemo {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -88,6 +88,13 @@ margin-bottom: 5px;
     top: 151px;
     width: 96.3%;
 }
+
+#destroyHeader{
+        position:absolute;
+        top:61px;
+        left:815px; 
+        z-index:10;
+    }
 /*#insideHeader{
     border: 1px solid gray;
     width:96.3%;
