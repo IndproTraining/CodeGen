@@ -51,11 +51,10 @@ public partial class ContentArea : System.Web.UI.Page
 
     protected void btnSave_Click1(object sender, EventArgs e)
     {
-        contentfirst =Request.Form["txtArea1"].Replace("\r\n", "<br>");
+        contentfirst = Request.Form["txtArea1"].Replace("\r\n", "<br>");
         contentsecond = Request.Form["txtArea2"].Replace("\r\n", "<br>");
         contentthird = Request.Form["txtArea3"].Replace("\r\n", "<br>");
         contentfourth = Request.Form["txtArea4"].Replace("\r\n", "<br>");
-        ViewState.Add("VStxtarea1value", contentfirst);
 
         string page1 = HiddenFieldtxtArea1.Value.Replace(" ", String.Empty);
         string page2 = HiddenFieldtxtArea2.Value.Replace(" ", String.Empty);

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="true" CodeFile="ContentArea.aspx.cs" Inherits="ContentArea" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest = "false" CodeFile="ContentArea.aspx.cs" Inherits="ContentArea" %>
 
 <!DOCTYPE html>
 
