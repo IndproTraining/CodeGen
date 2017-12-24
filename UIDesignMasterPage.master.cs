@@ -67,7 +67,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             "</ul>",
             "</div>",
         "</nav>",
-        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:100% \"></div>"};
+        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
                 navDivCode = String.Join("\n", navCode);
 
                 string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",       
@@ -303,7 +303,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             "</ul>",
             "</div>",
         "</nav>",
-        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:100% \"></div>"};
+        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
                 navDivCode = String.Join("\n", navCode);
 
                 string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",
