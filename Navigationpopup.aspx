@@ -50,7 +50,7 @@
         <div class="container" style="margin-left: 70px; margin-top: 30px; height: 300px; width: 250px;">
             <div>
                 <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size:initial;font-family:Verdana;margin-left:10px">Insert Menu Names</asp:Label>
-                <hr style="width: 172px; margin-left: 7px">
+                <hr style="width: 172px; margin-left: 7px"/>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">

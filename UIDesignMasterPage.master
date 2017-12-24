@@ -15,13 +15,12 @@
     <script type="text/javascript" src="jqwidgets/jqxtabs.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
     <script type="text/javascript" src="jqwidgets/jqxnotification.js"></script>
+    <script src="jscolor.js"></script>
     <link href="ProjectUIDesignStyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery.cookie.js"></script>
-    <link href="themes/1/js-image-slider.css" rel="stylesheet" />
-    <script src="themes/1/js-image-slider.js"></script>
     <script type="text/javascript">
         var a1, b1, c1, d1;
         function generateMap(lat, long) {
@@ -90,7 +89,9 @@
             $('#hiddenFieldNav2Value').val(b1);
             $('#hiddenFieldNav3Value').val(c1);
             $('#hiddenFieldNav4Value').val(d1);
-            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
+            //var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
+            var toggleNav = '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div class="collapse navbar-collapse" id="navbar-collapse-2">';
+            var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;z-index:10;"><div class="container-fluid">' + toggleNav + '<ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></div></nav>';
             $("#navbarContain").append(dynamic_nav);
             $('#destroynav').show();
             $('#btnNavbar').prop('disabled', true);
@@ -101,23 +102,28 @@
             debugger;
             $('#ContentArea').load("Downloads/" + page1 + ".html");
             $('#li1').addClass('active');
-            $('#id1').click(function () {
+            $('#id1').click(function ($e) {
                 $('#li4').removeClass('active');
+                $e.preventDefault();
                 $('#li1').addClass('active');
                 $('#ContentArea').load("Downloads/" + page1 + ".html");
+                $e.preventDefault();
             });
-            $('#id2').click(function () {
+            $('#id2').click(function ($e) {
                 $('#li1').removeClass('active');
+                $e.preventDefault();
                 $('#li2').addClass('active');
                 $('#ContentArea').load("Downloads/" + page2 + ".html");
             });
-            $('#id3').click(function () {
+            $('#id3').click(function ($e) {
                 $('#li2').removeClass('active');
+                $e.preventDefault();
                 $('#li3').addClass('active');
                 $('#ContentArea').load("Downloads/" + page3 + ".html");
             });
-            $('#id4').click(function () {
+            $('#id4').click(function ($e) {
                 $('#li3').removeClass('active');
+                $e.preventDefault();
                 $('#li4').addClass('active');
                 $('#ContentArea').load("Downloads/" + page4 + ".html");
             });
@@ -135,8 +141,8 @@
             imagesplit = image.split(',');
             $('#hiddenFieldImagesSplit').val(imagesplit);
             for (var i = 0 ; i < imagesplit.length ; i++) {
-                    $("<li data-target='#myCarousel' data-slide-to=" + i + "></li>").appendTo('.carousel-indicators');
-                    $('<div class="item" runat="server"><img src="Downloads/Images/' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
+                $("<li data-target='#myCarousel' data-slide-to=" + i + "></li>").appendTo('.carousel-indicators');
+                $('<div class="item" runat="server"><img src="Downloads/Images/' + imagesplit[i] + '"  style="width: 820px; height: 150px; "></div>').appendTo('.carousel-inner');
             }
             $('.carousel-indicators > li').first().addClass('active');
             $('.item').first().addClass('active');
@@ -160,7 +166,7 @@
             $("#jqxwindowCA").jqxWindow({ position: { x: x, y: y } });
             $("#jqxwindowCA").jqxWindow('open');
         }
-       
+
         function partialPostBackDemo() {
             $('#btnDemoDisplay').click();
         }
@@ -188,6 +194,17 @@
                 autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "info"
             });
         }
+
+        function newHeaderColor() {
+            var headerDivCol = "#" + document.getElementById("btnHeaderColorTool").value;
+            document.getElementById("headerdiv").style.backgroundColor = headerDivCol;
+            $('#hiddenFieldHeaderDivColor').val(headerDivCol);
+        }
+        function newFooterColor() {
+            var footerDivCol = "#" + document.getElementById("btnFooterColorTool").value;
+            document.getElementById("footerdiv").style.backgroundColor = footerDivCol;
+            $('#hiddenFieldFooterDivColor').val(footerDivCol);
+        }
     </script>
 
     <script type="text/javascript">
@@ -212,6 +229,7 @@
             $('#destroymap').hide();
             $('#content').hide();
             $('#divColorHeader').hide();
+            $('#divColorFooter').hide();
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
@@ -229,10 +247,10 @@
                 $('#hiddenFieldHeaderValue').val('Header');
                 $('#lblheader').show();
                 var dynamic_header = $(document.createElement('div'));
-                dynamic_header.css({
-                    border: '1px solid', position: 'relative', left: element_pos,
-                    width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                });
+                //dynamic_header.css({
+                //    border: '1px solid', position: 'relative', left: element_pos,
+                //    width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
+                //});
                 $(dynamic_header).attr('id', 'headerdiv');
                 $(dynamic_header).appendTo('#header');
                 $('#destroyHeader').show();
@@ -258,6 +276,7 @@
                 $('#fontSizeHeader').hide();
                 $('#fontColorHeader').hide();
                 $('#fontFamilyHeader').hide();
+                $("#btnHeaderColorTool").hide();
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
@@ -268,6 +287,10 @@
                 $('#apply').hide();
                 $('#remove').hide();
                 $('#hiddenFieldHeaderValue').val('Header');
+                $('#fontSizeHeader').hide();
+                $('#fontColorHeader').hide();
+                $('#fontFamilyHeader').hide();
+                $("#btnHeaderColorTool").hide();
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
@@ -279,10 +302,8 @@
             $('#btnFooter').click(function () {
                 $('#hiddenFieldFooterValue').val('Footer');
                 $('#lblfooter').show();
+                $('#divColorFooter').show();
                 var dynamic_footer = $(document.createElement('div'));
-                dynamic_footer.css({
-                    border: '1px solid', height: '90', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                });
                 $(dynamic_footer).attr('id', 'footerdiv');
                 $(dynamic_footer).appendTo('#Footer');
                 $('#destroyFooter').show();
@@ -295,6 +316,7 @@
                 $('#fontSizeFooter').show();
                 $('#fontColorFooter').show();
                 $('#fontFamilyFooter').show();
+                $('#divColorFooter').show();
                 return false;
             });
             $('#apply1').click(function () {
@@ -306,6 +328,7 @@
                 $('#fontSizeFooter').hide();
                 $('#fontColorFooter').hide();
                 $('#fontFamilyFooter').hide();
+                $("#btnFooterColorTool").hide();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
@@ -319,6 +342,7 @@
                 $('#fontSizeFooter').hide();
                 $('#fontColorFooter').hide();
                 $('#fontFamilyFooter').hide();
+                $("#btnFooterColorTool").hide();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
@@ -339,6 +363,8 @@
                 $('#fontSizeHeader').hide();
                 $('#fontColorHeader').hide();
                 $('#fontFamilyHeader').hide();
+                $('#divColorHeader').hide();
+                $('#btnHeaderColorTool').hide();
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
@@ -359,6 +385,8 @@
                 $('#fontSizeFooter').hide();
                 $('#fontColorFooter').hide();
                 $('#fontFamilyFooter').hide();
+                $('#divColorFooter').hide();
+                $('#btnFooterColorTool').hide();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
@@ -415,7 +443,7 @@
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "block";
                 return false;
-            });    
+            });
             $('#fontSizeFooter').click(function ($e) {
                 $e.preventDefault();
                 document.getElementById("fontSize1ListFooter").style.display = "block";
@@ -433,7 +461,16 @@
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "block";
-            });    
+            });
+            $('#divColorHeader').click(function () {
+                document.getElementById("btnHeaderColorTool").style.display = "block";
+
+            });
+            $('#divColorFooter').click(function ($e) {
+                document.getElementById("btnFooterColorTool").style.display = "block";
+                $e.preventDefault();
+
+            });
         });
         function headerSize(selectTag) {
             debugger;
@@ -492,11 +529,20 @@
         <asp:HiddenField ID="hiddenFieldFooterSize" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldFooterColor" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldFooterFamily" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldHeaderDivColor" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenFieldFooterDivColor" runat="server" ClientIDMode="Static" />
 
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
                 <a style="color: aliceblue; font-family: Verdana; font-size: 24px;">Tagline here!!</a>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12"></div>
+            <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12">
+                <br />
+                <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-log-out"></span> <b>Log out</b>
+                </asp:LinkButton>
             </div>
         </div>
         <br />
@@ -611,7 +657,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="navbar-collapse collapse sidebar-navbar-collapse" id="display">
-                                                            <div style="height:6px;"></div>
+                                                            <div style="height: 3px;"></div>
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
                                                                     <button type="button" id="btnDemo" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button></li>
@@ -633,7 +679,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">4.Downloads</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4.Downloads</a>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse in">
@@ -642,18 +688,19 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="sidebar-nav">
-                                                    <div class="navbar navbar-default" role="navigation" id="download">
+                                                    <div class="navbar navbar-default" role="navigation">
                                                         <div class="navbar-header">
-                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                                                                <span>Display</span>
+                                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#download">
+                                                                <span>Download</span>
                                                                 <span class="caret"></span>
                                                                 <span class="sr-only">Toggle navigation</span>
                                                             </button>
                                                         </div>
-                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                                        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="download">
+                                                            <div style="height: 3px;"></div>
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" Style="float: right" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
+                                                                    <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -704,10 +751,11 @@
             <div id="jqxNotification" style="display: none; position: absolute; left: 370px;">
                 <h5 style="font-family: Verdana">New Page Generated.</h5>
             </div>
-            <div id="jqxNotificationEmpty" style="display:none; position:absolute; left:370px;">
-        <h5 style="font-family:Verdana">Please add any control inside the working area.</h5></div>
+            <div id="jqxNotificationEmpty" style="display: none; position: absolute; left: 370px;">
+                <h5 style="font-family: Verdana">Please add any control inside the working area.</h5>
+            </div>
         </div>
-        
+
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
             <h3 style="text-align: center">Footer</h3>

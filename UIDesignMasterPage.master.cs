@@ -36,9 +36,14 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         }
         else
         {
+            string headerDivColor;
+            if (hiddenFieldHeaderDivColor.Value == "")
+                headerDivColor = "lightgrey";
+            else
+                headerDivColor = hiddenFieldHeaderDivColor.Value;
             if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
             {
-                string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:lightgrey; height: 120px;\">",
+                string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
       "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
       "</div>"};
                 headerDivCode = String.Join("\n", headerCode);
@@ -51,8 +56,9 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
             if (!string.IsNullOrEmpty(page1) && !string.IsNullOrEmpty(page2) && !string.IsNullOrEmpty(page3) && !string.IsNullOrEmpty(page4))
             {
-                string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%\">",
-            "<div class=\"container-fluid\">",
+                string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
+                string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
+            "<div class=\"container-fluid\">"+toggleNav+"",
             "<ul class=\"nav navbar-nav\">",
             "   <li class=\"active\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
             "   <li><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
@@ -125,10 +131,14 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
                 carouselDivCode = String.Join("\n", carouselCode);
             }
-
+            string footerDivColor;
+            if (hiddenFieldFooterDivColor.Value == "")
+                footerDivColor = "lightgrey";
+            else
+                footerDivColor = hiddenFieldFooterDivColor.Value;
             if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
             {
-                string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px;top:995px; width:100%; left:0px; padding-left:15px; background-color: lightgrey; height: 90px;\">",
+                string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px;top:995px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;\">",
        "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
        "</div>"};
                 footerDivCode = String.Join("\n", footerCode);
@@ -239,9 +249,14 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         }
         else
         {
+            string headerDivColor;
+            if (hiddenFieldHeaderDivColor.Value == "")
+                headerDivColor = "lightgrey";
+            else
+                headerDivColor = hiddenFieldHeaderDivColor.Value;
             if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
             {
-                string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:lightgrey; height: 120px;\">",
+                string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
       "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
       "</div>"};
                 headerDivCode = String.Join("\n", headerCode);
@@ -255,8 +270,9 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
             if (!string.IsNullOrEmpty(page1) && !string.IsNullOrEmpty(page2) && !string.IsNullOrEmpty(page3) && !string.IsNullOrEmpty(page4))
             {
-                string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%\">",
-            "<div class=\"container-fluid\">",
+                string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
+                string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
+            "<div class=\"container-fluid\">"+toggleNav+"",
             "<ul class=\"nav navbar-nav\">",
             "   <li class=\"active\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
             "   <li><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
@@ -347,10 +363,14 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 
                 carouselDivCode = String.Join("\n", carouselCode);
             }
-
+            string footerDivColor;
+            if (hiddenFieldFooterDivColor.Value == "")
+                footerDivColor = "lightgrey";
+            else
+                footerDivColor = hiddenFieldFooterDivColor.Value;
             if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
             {
-                string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px; width:100%; left:0px; padding-left:15px; background-color: lightgrey; height: 90px;top:995px;\">",
+                string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;top:995px;\">",
        "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
        "</div>"};
                 footerDivCode = String.Join("\n", footerCode);
@@ -436,5 +456,30 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         File.Delete(FileToDelete3);
         string FileToDelete4 = Server.MapPath(HttpUtility.HtmlDecode(recpage4) + ".html");
         File.Delete(FileToDelete4);
+    }
+
+
+
+    protected void btnLogout_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetNoStore();
+        try
+        {
+            Session.Abandon();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Buffer = true;
+            Response.ExpiresAbsolute = DateTime.Now.AddDays(-1d);
+            Response.Expires = -1000;
+            Response.CacheControl = "no-cache";
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+        Response.Redirect("Login.aspx");
     }
 }

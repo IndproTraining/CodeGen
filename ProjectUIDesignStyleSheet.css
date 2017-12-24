@@ -8,7 +8,7 @@ margin-left:8px;
 margin-top: 3px;
 margin-bottom: 3px;
   }  
-#btnPageContent, #btnDemo {
+#btnPageContent, #btnDemo, #btnDownload {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -21,7 +21,7 @@ width: 130px;
 margin-top: 5px;
 margin-bottom: 5px;
   } 
-  #btnPageContent, #btnDemo {
+  #btnPageContent, #btnDemo, #btnDownload {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -34,7 +34,7 @@ margin-bottom: 5px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
-    #btnPageContent {
+    #btnPageContent, #btnDemo, #btnDownload {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -47,7 +47,7 @@ width: 130px;
 margin-top: 5px;
 margin-bottom: 5px;
   }
-  #btnPageContent, #btnDemo {
+  #btnPageContent, #btnDemo, #btnDownload {
         width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -95,16 +95,27 @@ margin-bottom: 5px;
         left:815px; 
         z-index:10;
     }
-/*#insideHeader{
-    border: 1px solid gray;
+#headerdiv{
+    border:1px solid;
     width:96.3%;
     position:absolute;
     left:16px;
     height:90px;
     margin: 0;
+    border-color: lightgrey;
+    background-color: lightgrey;
+}
+
+#footerdiv{
+    border: 1px solid;
+    width:100%;
+    position:absolute;
+    left:0px;
+    height:91px;
+    margin: 0;
+    border-color:lightgrey;
    background-color: lightgrey;
-   
-}*/
+}
 
 @media screen and (max-width: 1200px) {
 #myCarousel{
@@ -129,6 +140,25 @@ margin-bottom: 5px;
     position: absolute;
     top: 151px;
     width: 95%;
+}
+#headerdiv{
+    border: 1px solid gray;
+    width:95%;
+    position:absolute;
+    left:16px;
+    height:90px;
+    margin: 0;
+   background-color: lightgrey;
+   
+}
+#footerdiv{
+    border: 1px solid gray;
+    width:98.7%;
+    position:absolute;
+    left:0px;
+    height:91px;
+    margin: 0;
+   background-color: lightgrey;
 }
 }
 
@@ -155,5 +185,23 @@ margin-bottom: 5px;
     position: absolute;
     top: 151px;
     width: 93.5%;
+}
+#headerdiv{
+    border: 1px solid gray;
+    width:93.5%;
+    position:absolute;
+    left:16px;
+    height:90px;
+    margin: 0;
+   background-color: lightgrey;
+}
+#footerdiv{
+    border: 1px solid gray;
+    width:97.5%;
+    position:absolute;
+    left:0px;
+    height:91px;
+    margin: 0;
+   background-color: lightgrey;
 }
 }

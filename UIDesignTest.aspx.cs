@@ -10,6 +10,9 @@ public partial class UIDesignTest : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["sesnuserid"]==null)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }
