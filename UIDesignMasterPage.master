@@ -104,6 +104,8 @@
             $('#li1').addClass('active');
             $('#id1').click(function ($e) {
                 $('#li4').removeClass('active');
+                $('#li3').removeClass('active');
+                $('#li2').removeClass('active');
                 $e.preventDefault();
                 $('#li1').addClass('active');
                 $('#ContentArea').load("Downloads/" + page1 + ".html");
@@ -111,18 +113,24 @@
             });
             $('#id2').click(function ($e) {
                 $('#li1').removeClass('active');
+                $('#li3').removeClass('active');
+                $('#li4').removeClass('active');
                 $e.preventDefault();
                 $('#li2').addClass('active');
                 $('#ContentArea').load("Downloads/" + page2 + ".html");
             });
             $('#id3').click(function ($e) {
                 $('#li2').removeClass('active');
+                $('#li1').removeClass('active');
+                $('#li4').removeClass('active');
                 $e.preventDefault();
                 $('#li3').addClass('active');
                 $('#ContentArea').load("Downloads/" + page3 + ".html");
             });
             $('#id4').click(function ($e) {
+                $('#li1').removeClass('active');
                 $('#li3').removeClass('active');
+                $('#li2').removeClass('active');
                 $e.preventDefault();
                 $('#li4').addClass('active');
                 $('#ContentArea').load("Downloads/" + page4 + ".html");
@@ -534,8 +542,8 @@
 
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                <h2 style="color: aliceblue; font-family: Verdana;"><b>Header</b></h2>
-                <a style="color: aliceblue; font-family: Verdana; font-size: 24px;">Tagline here!!</a>
+                <h2 style="font-family: Verdana;"><b style="color: #5bc0de">Code</b><b style="color: aliceblue">Gen</b></h2>
+                <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Minimize your time!</a>
             </div>
             <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12"></div>
             <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12">
@@ -577,14 +585,16 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnFooter" class="btn btn-info btn">Footer</button></li>
+                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button>
+                                                                </li>
                                                                 <li>
                                                                     <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Carousel</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button></li>
-                                                                <li>
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" onclick="GoogleMapPopup()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static" />
+                                                                </li>
+                                                                <li>
+                                                                    <button type="button" id="btnFooter" class="btn btn-info btn">Footer</button>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -758,7 +768,7 @@
 
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
-            <h3 style="text-align: center">Footer</h3>
+            <b style="margin-left: 570px; position: absolute; top: 1200px; font-size: 12px;">developed by <b style="color: #5bc0de; font-size: 14px;">Code</b><b style="color: aliceblue; font-size: 14px;">Gen</b> team - <b style="color: orange; font-size: 14px;">Ind</b><b style="color: red; font-size: 14px;">pro</b></b>
         </div>
         <%--JQX Window Navigation--%>
         <div id="jqxwindow">

@@ -98,10 +98,12 @@
     <form id="form1" runat="server">
         <asp:ValidationSummary ID="VSSignUp" HeaderText="<b>Following fields are mandatory</b>" ForeColor="Red" runat="server" ClientIDMode="Static"/>
          <%--<asp:Button ID="btnLogIn" class="btn btn-info btn" runat="server" Text="Login" Font-Size="18px" Font-Bold="true" OnClientClick="RedirectToLogin();"/>--%>
-        <input id="btnLogIn" type="button" class="btn btn-info btn" style="font-size:18px; padding-bottom:30px; margin-top:-3px" value="Login" onclick="RedirectToLogin();"/>
+        
         <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
         <div class="container" style="margin-top:60px;">
+            
              <h1 style="color:#0094ff">Sign Up</h1>
+            <input id="btnLogIn" type="button" class="btn btn-info btn" style="font-size:18px;" value="Login" onclick="RedirectToLogin();"/>
             <hr />
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
@@ -116,7 +118,7 @@
                         <br />
                         <div style="height: 6px"></div>
                         <asp:TextBox ID="txtname" runat="server" placeholder=" Enter Your Name"  Font-Bold="true" Font-Size="Small"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RFVname" runat="server" ErrorMessage="Name is Required!" Display="None" ControlToValidate="txtname"></asp:RequiredFieldValidator></td>
+                        <asp:RequiredFieldValidator ID="RFVname" runat="server" ErrorMessage="Name is Required!" Display="None" ControlToValidate="txtname"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="REVname" runat="server" ErrorMessage="Only Alphabets are allowed!" Display="None" ControlToValidate="txtname" ValidationExpression="[A-Z-.,'ÅÄÖa-zåäöåäöÅÄÖæÆøØüÜéÉ_ ]*"></asp:RegularExpressionValidator>
                     </div>
                     <div style="height: 10px"></div>
