@@ -347,25 +347,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
    "    });",
    "</script>" };
                 navFunction = string.Join("\n", navPagesFunction);
-
             }
-
-            //string images = hiddenFieldImagesSplit.Value;
-            //if (!string.IsNullOrEmpty(images))
-            //{
-            //    string[] imageCount = images.Split(',');
-            //    string divCarousel = "";
-            //    sliderLink = "<link href=\"../themes/1/js-image-slider.css\" rel=\"stylesheet\" /> \n <script src=\"../themes/1/js-image-slider.js\"></script> \n <style type=\"text/css\">\n #slider .navBulletsWrapper  {top:310px;\n text-align:center;\n background:none;\n position:relative;\n z-index:3;\n }</style>";
-            //    foreach (string imageName in imageCount)
-            //        divCarousel = divCarousel + "<img src=\"Images/" + imageName + "\" style=\"width: 100%; height: 210px\"> \n";
-            //    string[] carouselCode = {"<div id=\"sliderFrame\">",
-            //    "<div id=\"slider\" style=\"width: 1353px !important;height:300px !important;top:-40px;left:-16px\">",
-            //   ""+divCarousel+"",
-            //"</div>",
-            //"</div>"};
-
-            //    carouselDivCode = String.Join("\n", carouselCode);
-            //}//End Image
 
             string images = hiddenFieldImagesSplit.Value;
             if (!string.IsNullOrEmpty(images))
@@ -459,7 +441,6 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                 gMapDiv = "<div id=\"map\" style=\"position: absolute; top: 764px; width:100%; left:0px; height:230px;\"></div>";
                 gMapConvertFunction = String.Join("\n", gMapFunction);
             }
-
 
             string[] indexPage ={"<!DOCTYPE html>",
 "<html xmlns=\"http://www.w3.org/1999/xhtml\">",

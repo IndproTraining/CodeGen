@@ -11,22 +11,6 @@ public partial class Registration : System.Web.UI.Page
     {
 
     }
-    //protected void btnSIgnUp_Click(object sender, EventArgs e)
-    //{
-    //    RegisterUser obj = new RegisterUser();
-    //    string name = txtname.Text.Trim();
-    //    string email = txtmail.Text.Trim();
-    //    string password = txtpassword.Text.Trim();
-    //    int var = obj.UserRegister(name, email, password);
-    //    if (var > 0)
-    //    {
-    //        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "RegistrationSuccessNotification();", true);
-    //    }
-    //    else
-    //    {
-    //        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "RegistrationErrorNotification();", true);
-    //    }
-    //}
 
     protected void btnSIgnUp_Click(object sender, EventArgs e)
     {

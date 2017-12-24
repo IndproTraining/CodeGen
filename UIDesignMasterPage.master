@@ -89,7 +89,6 @@
             $('#hiddenFieldNav2Value').val(b1);
             $('#hiddenFieldNav3Value').val(c1);
             $('#hiddenFieldNav4Value').val(d1);
-            //var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;"><div class="container-fluid"><ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></nav>';
             var toggleNav = '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div class="collapse navbar-collapse" id="navbar-collapse-2">';
             var dynamic_nav = '<nav class="navbar navbar-default" style="left:-15px;z-index:10;"><div class="container-fluid">' + toggleNav + '<ul class="nav navbar-nav"><li id="li1"><a id="id1" href="#">' + a1 + '</a></li><li id="li2"><a id="id2" href="#">' + b1 + '</a></li><li id="li3"><a id="id3" href="#">' + c1 + '</a></li><li id="li4"><a id="id4" href="#">' + d1 + '</a></li></ul></div></div></nav>';
             $("#navbarContain").append(dynamic_nav);
@@ -166,25 +165,29 @@
         }
 
         function ContentAreaPopup() {
-            $("#winHeaderCA").html('Content Area Insert Form');
-            $("#wincontentCA").html('<iframe src="ContentArea.aspx?nav1=' + a1 + ';nav2=' + b1 + ';nav3=' + c1 + ';nav4=' + d1 + '" width="854" height="450" style="border:none;"></iframe>');
-            $("#jqxwindowCA").jqxWindow({ height: '435', width: '838', resizable: false, isModal: true, draggable: false, showCloseButton: true });
-            var x = ($(window).width() - $("#jqxwindowCA").jqxWindow('width')) / 2 + $(window).scrollLeft();
-            var y = ($(window).height() - $("#jqxwindowCA").jqxWindow('height')) / 2 + $(window).scrollTop();
-            $("#jqxwindowCA").jqxWindow({ position: { x: x, y: y } });
-            $("#jqxwindowCA").jqxWindow('open');
+            if (a1 == "") {
+                ContentNotification();
+            }
+            else {
+                $("#winHeaderCA").html('Content Area Insert Form');
+                $("#wincontentCA").html('<iframe src="ContentArea.aspx?nav1=' + a1 + ';nav2=' + b1 + ';nav3=' + c1 + ';nav4=' + d1 + '" width="854" height="450" style="border:none;"></iframe>');
+                $("#jqxwindowCA").jqxWindow({ height: '435', width: '838', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+                var x = ($(window).width() - $("#jqxwindowCA").jqxWindow('width')) / 2 + $(window).scrollLeft();
+                var y = ($(window).height() - $("#jqxwindowCA").jqxWindow('height')) / 2 + $(window).scrollTop();
+                $("#jqxwindowCA").jqxWindow({ position: { x: x, y: y } });
+                $("#jqxwindowCA").jqxWindow('open');
+            }
         }
 
         function partialPostBackDemo() {
             $('#btnDemoDisplay').click();
         }
 
-        function SuccessMsg() {
-            //$("#jqxNotification").css('display:block');
+        function ContentNotification() {
             $("#jqxNotification").jqxNotification("open");
             $("#jqxNotification").jqxNotification({
                 width: "50%", position: "top-right", opacity: 0.9,
-                autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "success"
+                autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "info"
             });
         }
         function newPageLoad() {
@@ -255,10 +258,6 @@
                 $('#hiddenFieldHeaderValue').val('Header');
                 $('#lblheader').show();
                 var dynamic_header = $(document.createElement('div'));
-                //dynamic_header.css({
-                //    border: '1px solid', position: 'relative', left: element_pos,
-                //    width: '103.9%', height: '90', margin: '0', backgroundColor: 'lightgrey', borderColor: 'lightgrey'
-                //});
                 $(dynamic_header).attr('id', 'headerdiv');
                 $(dynamic_header).appendTo('#header');
                 $('#destroyHeader').show();
@@ -290,6 +289,7 @@
                 document.getElementById("fontfamilyListHeader").style.display = "none";
                 return false;
             });
+
             $('#remove').click(function () {
                 document.getElementById('lblheader').innerHTML = "Header";
                 $('#apply').hide();
@@ -307,6 +307,7 @@
                 document.getElementById("lblheader").style.color = "black";
                 return false;
             });
+
             $('#btnFooter').click(function () {
                 $('#hiddenFieldFooterValue').val('Footer');
                 $('#lblfooter').show();
@@ -318,6 +319,7 @@
                 $('#btnFooter').prop('disabled', true);
                 return false;
             });
+
             $('#lblfooter').click(function () {
                 $('#apply1').show();
                 $('#remove1').show();
@@ -327,6 +329,7 @@
                 $('#divColorFooter').show();
                 return false;
             });
+
             $('#apply1').click(function () {
                 var edited = document.getElementById('lblfooter');
                 var useredited1 = edited.innerHTML;
@@ -342,6 +345,7 @@
                 document.getElementById("fontfamilyListFooter").style.display = "none";
                 return false;
             });
+
             $('#remove1').click(function () {
                 document.getElementById('lblfooter').innerHTML = "Footer";
                 $('#apply1').hide();
@@ -359,6 +363,7 @@
                 document.getElementById("lblfooter").style.color = "black";
                 return false;
             });
+
             $('#destroyHeader').click(function () {
                 $('#headerdiv').remove();
                 $('#apply').hide();
@@ -381,6 +386,7 @@
                 document.getElementById('lblheader').style.color = "black";
                 return false;
             });
+
             $('#destroyFooter').click(function () {
                 $('#footerdiv').remove();
                 $('#apply1').hide();
@@ -403,6 +409,7 @@
                 document.getElementById('lblfooter').style.color = "black";
                 return false;
             });
+
             $('#destroycar').click(function () {
                 $('.carousel-indicators').empty();
                 $('.carousel-inner').empty();
@@ -413,6 +420,7 @@
                 $('#hiddenFieldImagesSplit').val('');
                 return false;
             });
+
             $('#destroynav').click(function () {
                 $('#navbarContain').empty();
                 $('#destroynav').hide();
@@ -423,6 +431,10 @@
                 $('#ContentArea').empty();
                 $('#btnNavbar').prop('disabled', false);
                 $('#btnPageContent').prop('disabled', false);
+                a1 = "";
+                b1 = "";
+                c1 = "";
+                d1 = "";
                 deleteFile();
                 return false;
             });
@@ -481,25 +493,21 @@
             });
         });
         function headerSize(selectTag) {
-            debugger;
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.fontSize = listValue;
             $('#hiddenFieldHeaderSize').val(listValue);
         }
         function headerColor(selectTag) {
-            debugger;
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.color = listValue;
             $('#hiddenFieldHeaderColor').val(listValue);
         }
         function headerFamily(selectTag) {
-            debugger;
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.fontFamily = listValue;
             $('#hiddenFieldHeaderFamily').val(listValue);
         }
         function footerSize(selectTag) {
-            debugger;
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblfooter").style.fontSize = listValue;
             $('#hiddenFieldFooterSize').val(listValue);
@@ -759,7 +767,7 @@
 
             <!--Notifications-->
             <div id="jqxNotification" style="display: none; position: absolute; left: 370px;">
-                <h5 style="font-family: Verdana">New Page Generated.</h5>
+                <h5 style="font-family: Verdana">Please add menu control before setting the page content.</h5>
             </div>
             <div id="jqxNotificationEmpty" style="display: none; position: absolute; left: 370px;">
                 <h5 style="font-family: Verdana">Please add any control inside the working area.</h5>

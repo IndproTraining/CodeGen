@@ -15,7 +15,38 @@ public partial class ContentArea : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        if (Session["sesnContent1"] != null)
+        {
+            txtArea1.Value = Session["sesnContent1"].ToString();
+        }
+        else
+        {
+            txtArea1.Value = string.Empty;
+        }
+        if (Session["sesnContent2"] != null)
+        {
+            txtArea2.Value = Session["sesnContent2"].ToString();
+        }
+        else
+        {
+            txtArea2.Value = string.Empty;
+        }
+        if (Session["sesnContent3"] != null)
+        {
+            txtArea3.Value = Session["sesnContent3"].ToString();
+        }
+        else
+        {
+            txtArea3.Value = string.Empty;
+        }
+        if (Session["sesnContent4"] != null)
+        {
+            txtArea4.Value = Session["sesnContent4"].ToString();
+        }
+        else
+        {
+            txtArea4.Value = string.Empty;
+        }
     }
 
     protected void btnSave_Click1(object sender, EventArgs e)
@@ -25,21 +56,17 @@ public partial class ContentArea : System.Web.UI.Page
         contentthird = Request.Form["txtArea3"].Replace("\r\n", "<br>");
         contentfourth = Request.Form["txtArea4"].Replace("\r\n", "<br>");
         ViewState.Add("VStxtarea1value", contentfirst);
+
         string page1 = HiddenFieldtxtArea1.Value.Replace(" ", String.Empty);
         string page2 = HiddenFieldtxtArea2.Value.Replace(" ", String.Empty);
         string page3 = HiddenFieldtxtArea3.Value.Replace(" ", String.Empty);
         string page4 = HiddenFieldtxtArea4.Value.Replace(" ", String.Empty);
 
+        Session["sesnContent1"] = contentfirst;
+        Session["sesnContent2"] = contentsecond;
+        Session["sesnContent3"] = contentthird;
+        Session["sesnContent4"] = contentfourth;
 
-        //function GetParameterValues(param) {  
-        //    var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
-        //    for (var i = 0; i < url.length; i++) {  
-        //        var urlparam = url[i].split('=');  
-        //        if (urlparam[0] == param) {  
-        //            return urlparam[1];  
-        //        }  
-        //    }
-        
         string[] navPage1 ={"<!DOCTYPE html>",
         "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
         "<head>",
@@ -96,7 +123,5 @@ public partial class ContentArea : System.Web.UI.Page
         "</html>"};
             File.WriteAllLines(Server.MapPath("Downloads/" + page4 + ".html"), navPage4);
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "closewindow(); window.parent.navDataLoad('" + page1 + "','" + page2 + "','" + page3 + "','" + page4 + "');", true);
-           
     }
-        
-    }
+}

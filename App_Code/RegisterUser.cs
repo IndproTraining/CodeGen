@@ -46,7 +46,6 @@ public class RegisterUser
         }
         return rowinserted;
     }
-
     #endregion
 
     public DataTable GetLoggedInUserDetails(string Email, string Password)

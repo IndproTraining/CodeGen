@@ -99,22 +99,25 @@
             <div>
                 <br /><br />
               <textarea id="txtArea1" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
-                <asp:Button ID="btnNext1" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change();return false;"  Style="margin-left:640px;width:75px"/>
+                <asp:Button ID="btnNext1" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change();return false;"  Style="margin-left:554px;width:75px"/>
                 <asp:HiddenField ID="HiddenFieldtxtArea1" runat="server" />
+                <asp:Button ID="btnCancleOfFirstTab" runat="server" class="btn btn-info btn" Text="Cancel" OnClientClick="closewindow();" Style="margin-left: 4px; width: 75px; margin-top: -1px" />
                  </div>
             <div>
                 <br /><br />
                <textarea id="txtArea2" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
                 <asp:Button ID="Button2" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:130px;width:90px"  OnClientClick="prev();return false;"/>
-                <asp:Button ID="btnNext2" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change1();return false;"  Style="margin-left:640px;width:75px;margin-top:-52px"/>
+                <asp:Button ID="btnNext2" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change1();return false;"  Style="margin-left:554px;width:75px;margin-top:-52px"/>
             <asp:HiddenField ID="HiddenFieldtxtArea2" runat="server" />
+                 <asp:Button ID="btnCancleOfSecondTab" runat="server" class="btn btn-info btn" Text="Cancel" OnClientClick="closewindow();" Style="margin-left: 4px; width: 75px; margin-top:-52px" />
                  </div>
             <div>
                 <br /><br />
                <textarea id="txtArea3" rows="19" cols="70" style="margin-left:130px" runat="server"></textarea><br /><br />
                 <asp:Button ID="Button1" runat="server" class="btn btn-info btn" Text="Previous" Style="margin-left:130px;width:90px"  OnClientClick="prev1();return false;"/>
-                 <asp:Button ID="btnNext3" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change2();return false;"  Style="margin-left:640px;width:75px;margin-top:-52px"/>
+                 <asp:Button ID="btnNext3" runat="server" class="btn btn-info btn" Text="Next" OnClientClick="change2();return false;"  Style="margin-left:554px;width:75px;margin-top:-52px"/>
            <asp:HiddenField ID="HiddenFieldtxtArea3" runat="server" />
+                <asp:Button ID="btnCancleOfThirdTab" runat="server" class="btn btn-info btn" Text="Cancel" OnClientClick="closewindow();" Style="margin-left: 4px; width: 75px; margin-top: -52px" />
                  </div>
             <div>
                  <br /><br />

@@ -96,8 +96,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ValidationSummary ID="VSSignUp" HeaderText="<b>Following fields are mandatory</b>" ForeColor="Red" runat="server" ClientIDMode="Static"/>
-         <%--<asp:Button ID="btnLogIn" class="btn btn-info btn" runat="server" Text="Login" Font-Size="18px" Font-Bold="true" OnClientClick="RedirectToLogin();"/>--%>
+        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         
         <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
         <div class="container" style="margin-top:60px;">

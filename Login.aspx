@@ -102,7 +102,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ValidationSummary ID="VSSignUp" HeaderText="<b>Following fields are mandatory</b>" ForeColor="Red" runat="server" />
+         <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         <input id="btnSignUp" type="button" value="Sign Up" class="btn btn-info btn" style="font-size: 18px; padding-bottom: 30px; margin-top: -3px" onclick="RedirectToRegistration();" />
         <div class="container" style="margin-top: 90px;">
             <h1 style="color: #0094ff;">Log In</h1>
