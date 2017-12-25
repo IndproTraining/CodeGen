@@ -22,7 +22,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap"></script>
     <script src="jquery.cookie.js"></script>
     <script type="text/javascript">
-        var a1, b1, c1, d1;
+        var a1 = "";
+        var b1 = "";
+        var c1 = "";
+        var d1 = "";
         function generateMap(lat, long) {
             var latitude = parseFloat(lat);
             var longitude = parseFloat(long);
@@ -98,7 +101,6 @@
         }
 
         function navDataLoad(page1, page2, page3, page4) {
-            debugger;
             $('#ContentArea').load("Downloads/" + page1 + ".html");
             $('#li1').addClass('active');
             $('#id1').click(function ($e) {
@@ -165,6 +167,7 @@
         }
 
         function ContentAreaPopup() {
+            debugger;
             if (a1 == "") {
                 ContentNotification();
             }
@@ -238,9 +241,10 @@
             $('#destroycar').hide();
             $('#destroynav').hide();
             $('#destroymap').hide();
-            $('#content').hide();
+            //$('#content').hide();
             $('#divColorHeader').hide();
             $('#divColorFooter').hide();
+
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
@@ -551,7 +555,7 @@
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="font-family: Verdana;"><b style="color: #5bc0de">Code</b><b style="color: aliceblue">Gen</b></h2>
-                <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Minimize your time!</a>
+                <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Minimizes your time!</a>
             </div>
             <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12"></div>
             <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12">
@@ -564,14 +568,14 @@
         <br />
         <div class="container">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="background-color: lightgray; height: 1000px; border: 2px solid gray;">
-                <h3 style="text-align: center">Controls</h3>
+                <h3 style="text-align: center">Toolbox</h3>
                 <!--Accordion-->
                 <div class="bs-example">
                     <div id="accordion" class="panel-group">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1.Attributes</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Controls</a>
                                 </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in">
@@ -593,10 +597,10 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnHeader" class="btn btn-info btn">Header</button></li>
                                                                 <li>
-                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">NavBar</button>
+                                                                    <button type="button" id="btnNavbar" class="btn btn-info btn" onclick="NavigationPopup();return false;">Menu</button>
                                                                 </li>
                                                                 <li>
-                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Carousel</button></li>
+                                                                    <button type="button" id="btnCarousel" class="btn btn-info btn" onclick="CarouselPopup();">Slides</button></li>
                                                                 <li>
                                                                     <button type="button" id="btnMap" class="btn btn-info btn" onclick="GoogleMapPopup()">Map</button>
                                                                     <asp:HiddenField ID="hiddenFieldMapFlag" runat="server" ClientIDMode="Static" />
@@ -619,7 +623,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2.Contents</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Contents</a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse in">
@@ -657,7 +661,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3.Preview Page</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Preview</a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse in">
@@ -697,7 +701,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4.Downloads</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Downloads</a>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse in">
@@ -776,7 +780,7 @@
 
         <br />
         <div class="footer" style="background-color: #787272; height: 100px;">
-            <b style="margin-left: 570px; position: absolute; top: 1200px; font-size: 12px;">developed by <b style="color: #5bc0de; font-size: 14px;">Code</b><b style="color: aliceblue; font-size: 14px;">Gen</b> team - <b style="color: orange; font-size: 14px;">Ind</b><b style="color: red; font-size: 14px;">pro</b></b>
+            <b style="margin-left: 570px; position: absolute; top: 1200px; font-size: 12px;">developed by <b style="color: #5bc0de; font-size: 14px;">Code</b><b style="color: aliceblue; font-size: 14px;">Gen</b> team, <b style="color: orange; font-size: 14px;">Ind</b><b style="color: red; font-size: 14px;">pro</b></b>
         </div>
         <%--JQX Window Navigation--%>
         <div id="jqxwindow">
