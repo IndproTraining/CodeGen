@@ -58,7 +58,6 @@
             width: 150px;
             height: 38px;
             border-radius: 5px;
-            /*background-color: gray;*/
             font-size: 14px;
             color: white;
         }
@@ -70,7 +69,6 @@
             width: 110px;
             height: 35px;
             border-radius: 5px;
-            /*background-color: lightgreen;*/
             opacity: 0.8;
             color: white;
         }
@@ -83,6 +81,7 @@
                 autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "success"
             });
         }
+
         function RegistrationErrorNotification() {
             $("#jqxNotificationRegistrationError").jqxNotification("open");
             $("#jqxNotificationRegistrationError").jqxNotification({
@@ -98,7 +97,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
+        <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>You could not be registered</b><br/><br/>" />
         <div class="container" style="margin-top: 60px;">
             <table>
                 <tr>

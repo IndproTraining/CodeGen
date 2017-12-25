@@ -11,7 +11,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9BrEw4FK-AARM5rEjgqt-Z3rcIk3rDf8&callback=initialize">
     </script>
     <script type="text/javascript">
-        //var map;
         function initialize() {
             var myLatlng = new google.maps.LatLng(22.5726, 88.3639);
             var myOptions = {
@@ -19,7 +18,6 @@
                 center: myLatlng,
             }
             map = new google.maps.Map(document.getElementById("gmap"), myOptions);
-            // marker refers to a global variable
             marker = new google.maps.Marker({
                 position: myLatlng,
                 draggable: true,
@@ -27,11 +25,8 @@
             });
 
             google.maps.event.addListener(marker, "drag", function (event) {
-                // get lat/lon of click
                 var clickLat = event.latLng.lat();
                 var clickLon = event.latLng.lng();
-
-                // show in input box
                 document.getElementById("txtlat").value = clickLat.toFixed(5);
                 document.getElementById("txtlong").value = clickLon.toFixed(5);
             });
@@ -59,7 +54,6 @@
             }
             return false;
         }
-
 
         function addmapdata() {
             var lat = $('#txtlat').val();

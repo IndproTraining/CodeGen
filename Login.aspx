@@ -101,7 +101,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
+         <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>You could not be logged in</b><br/><br/>" />
         <div class="container" style="margin-top: 90px;">
             <table>
                  <tr><td><h1 style="color: #0094ff;">Log In</h1></td>

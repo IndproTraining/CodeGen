@@ -16,7 +16,6 @@ public class RegisterUser
 		// TODO: Add constructor logic here
 		//
 	}
-    #region Insert Method
 
     public int UserRegister(string name, string email,string password)
     {
@@ -28,7 +27,6 @@ public class RegisterUser
         cmd.Parameters.AddWithValue("@UserName", name);
         cmd.Parameters.AddWithValue("@Email", email);
         cmd.Parameters.AddWithValue("@Password", password);
-
         try
         {
             conn.Open();
@@ -37,7 +35,6 @@ public class RegisterUser
         }
         catch (Exception ex)
         {
-            //throw ex;
             string excp = ex.Message.ToString();
         }
         finally
@@ -46,7 +43,6 @@ public class RegisterUser
         }
         return rowinserted;
     }
-    #endregion
 
     public DataTable GetLoggedInUserDetails(string Email, string Password)
     {
@@ -96,5 +92,4 @@ public class RegisterUser
         }
         return dt;
     }
-
 }

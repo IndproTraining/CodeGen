@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Ionic.Zip;
-
+using System.Web.Services;
 
 public partial class UIDesignMasterPage : System.Web.UI.MasterPage
 {
@@ -44,8 +44,8 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
             {
                 string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
-      "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
-      "</div>"};
+                "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
+                "</div>"};
                 headerDivCode = String.Join("\n", headerCode);
             }
 
@@ -58,58 +58,58 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             {
                 string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
                 string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
-            "<div class=\"container-fluid\">"+toggleNav+"",
-            "<ul class=\"nav navbar-nav\">",
-            "   <li class=\"active\" id=\"li1\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
-            "   <li id=\"li2\"><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
-            "   <li id=\"li3\"><a id=\"id3\" href=\"#\">"+hiddenFieldNav3Value.Value+"</a></li>",
-            "   <li id=\"li4\"><a id=\"id4\" href=\"#\">"+hiddenFieldNav4Value.Value+"</a></li>",
-            "</ul>",
-            "</div>",
-        "</nav>",
-        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
+                "<div class=\"container-fluid\">"+toggleNav+"",
+                "<ul class=\"nav navbar-nav\">",
+                "   <li class=\"active\" id=\"li1\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
+                "   <li id=\"li2\"><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
+                "   <li id=\"li3\"><a id=\"id3\" href=\"#\">"+hiddenFieldNav3Value.Value+"</a></li>",
+                "   <li id=\"li4\"><a id=\"id4\" href=\"#\">"+hiddenFieldNav4Value.Value+"</a></li>",
+                "</ul>",
+                "</div>",
+                "</nav>",
+                "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
                 navDivCode = String.Join("\n", navCode);
 
-                string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",       
-   "<script type=\"text/javascript\">",
-   "   $(document).ready(function () {",
-   "       $('#displayNavPages').load(\""+page1+".html\");",
-   "       $('#li1').addClass('active');",
-   "       $('#id1').click(function ($e) {",
-   "       $('#li4').removeClass('active');",
-   "       $('#li3').removeClass('active');",
-   "       $('#li2').removeClass('active');",
-   "       $e.preventDefault();",
-   "       $('#li1').addClass('active');",
-   "       $('#displayNavPages').load(\""+page1+".html\");",
-   "       $e.preventDefault();",
-   "        });",
-   "        $('#id2').click(function ($e) {",
-   "       $('#li4').removeClass('active');",
-   "       $('#li3').removeClass('active');",
-   "       $('#li1').removeClass('active');",
-   "       $e.preventDefault();",
-   "       $('#li2').addClass('active');",
-   "       $('#displayNavPages').load(\""+page2+".html\");",
-   "        });",
-   "        $('#id3').click(function ($e) {",
-   "        $('#li2').removeClass('active');",
-   "        $('#li1').removeClass('active');",
-   "        $('#li4').removeClass('active');",
-   "        $e.preventDefault();",
-   "        $('#li3').addClass('active');",
-   "        $('#displayNavPages').load(\""+page3+".html\");",
-   "        });",
-   "        $('#id4').click(function ($e) {",
-   "        $('#li1').removeClass('active');",
-   "        $('#li3').removeClass('active');",
-   "        $('#li2').removeClass('active');",
-   "        $e.preventDefault();",
-   "        $('#li4').addClass('active');",
-   "        $('#displayNavPages').load(\""+page4+".html\");",
-   "        });",
-   "    });",
-   "</script>" };
+               string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",       
+               "<script type=\"text/javascript\">",
+               "   $(document).ready(function () {",
+               "       $('#displayNavPages').load(\""+page1+".html\");",
+               "       $('#li1').addClass('active');",
+               "       $('#id1').click(function ($e) {",
+               "       $('#li4').removeClass('active');",
+               "       $('#li3').removeClass('active');",
+               "       $('#li2').removeClass('active');",
+               "       $e.preventDefault();",
+               "       $('#li1').addClass('active');",
+               "       $('#displayNavPages').load(\""+page1+".html\");",
+               "       $e.preventDefault();",
+               "        });",
+               "        $('#id2').click(function ($e) {",
+               "       $('#li4').removeClass('active');",
+               "       $('#li3').removeClass('active');",
+               "       $('#li1').removeClass('active');",
+               "       $e.preventDefault();",
+               "       $('#li2').addClass('active');",
+               "       $('#displayNavPages').load(\""+page2+".html\");",
+               "        });",
+               "        $('#id3').click(function ($e) {",
+               "        $('#li2').removeClass('active');",
+               "        $('#li1').removeClass('active');",
+               "        $('#li4').removeClass('active');",
+               "        $e.preventDefault();",
+               "        $('#li3').addClass('active');",
+               "        $('#displayNavPages').load(\""+page3+".html\");",
+               "        });",
+               "        $('#id4').click(function ($e) {",
+               "        $('#li1').removeClass('active');",
+               "        $('#li3').removeClass('active');",
+               "        $('#li2').removeClass('active');",
+               "        $e.preventDefault();",
+               "        $('#li4').addClass('active');",
+               "        $('#displayNavPages').load(\""+page4+".html\");",
+               "        });",
+               "    });",
+               "</script>" };
                 navFunction = string.Join("\n", navPagesFunction);
             }
 
@@ -135,21 +135,21 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                     i = i + 1;
                 }
                 string[] carouselCode = {"<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"top:162px; width:110%; left:-16px\">",
-                       "<ol class=\"carousel-indicators\">",
-                       ""+listCarousel+"",
-                       "</ol>",
-                       "<div class=\"carousel-inner\">",
-                       ""+divCarousel+"",
-                       "</div>",
-                       "<a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">",
-                       "   <span class=\"glyphicon glyphicon-chevron-left\"></span>",
-                       "   <span class=\"sr-only\">Previous</span>",
-                       "</a>",
-                       "<a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\" style=\"margin-right:90px;\">",
-                       "   <span class=\"glyphicon glyphicon-chevron-right\"></span>",
-                       "   <span class=\"sr-only\">Next</span>",
-                       "</a>",
-                       "</div>"};
+                "<ol class=\"carousel-indicators\">",
+                ""+listCarousel+"",
+                "</ol>",
+                "<div class=\"carousel-inner\">",
+                ""+divCarousel+"",
+                "</div>",
+                "<a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">",
+                "   <span class=\"glyphicon glyphicon-chevron-left\"></span>",
+                "   <span class=\"sr-only\">Previous</span>",
+                "</a>",
+                "<a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\" style=\"margin-right:90px;\">",
+                "   <span class=\"glyphicon glyphicon-chevron-right\"></span>",
+                "   <span class=\"sr-only\">Next</span>",
+                "</a>",
+                "</div>"};
 
                 carouselDivCode = String.Join("\n", carouselCode);
             }
@@ -161,73 +161,72 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
             {
                 string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px;top:995px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;\">",
-       "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
-       "</div>"};
+                "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
+                "</div>"};
                 footerDivCode = String.Join("\n", footerCode);
             }
 
             if (!string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLatitude.Value)) && !string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
             {
                 string[] gMapFunction = { "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap\">",
-     "</script>",
-     "<style type=\"text/css\">",
-     "#map {",
-     "height: 300px;",
-     "width: 50%;",
-     "border:2px solid darkgrey;",
-     " }",
-     "</style>",    
-     "<script type=\"text/javascript\">",
-     "window.onload = function () {",
-     "      generateMap();",
-     "   }",
-     " function generateMap() {",
-     "      document.getElementById('map').style.display = 'block';",
-     "      var location = { lat: "+hiddenFieldMapLatitude.Value+", lng: "+hiddenFieldMapLongitude.Value+" };",
-     "      var noticeBoard = '-: Our Office :-';",
-     "      var map = new google.maps.Map(document.getElementById('map'), {",
-     "          zoom: 17,",
-     "          center: location",
-     "      });",
-     "      var infowindow = new google.maps.InfoWindow({",
-     "          content: noticeBoard",
-     "      });",
-     "       var marker = new google.maps.Marker({",
-     "          position: location,",
-     "          map: map,",
-     "           title: 'Click Me'",
-     "       });",
-     "       marker.addListener('click', function () {",
-     "           infowindow.open(map, marker);",
-     "       });",
-     "   }",
-     "</script>"};
+                "</script>",
+                "<style type=\"text/css\">",
+                "#map {",
+                "height: 300px;",
+                "width: 50%;",
+                "border:2px solid darkgrey;",
+                " }",
+                "</style>",    
+                "<script type=\"text/javascript\">",
+                "window.onload = function () {",
+                "      generateMap();",
+                "   }",
+                " function generateMap() {",
+                "      document.getElementById('map').style.display = 'block';",
+                "      var location = { lat: "+hiddenFieldMapLatitude.Value+", lng: "+hiddenFieldMapLongitude.Value+" };",
+                "      var noticeBoard = '-: Our Office :-';",
+                "      var map = new google.maps.Map(document.getElementById('map'), {",
+                "          zoom: 17,",
+                "          center: location",
+                "      });",
+                "      var infowindow = new google.maps.InfoWindow({",
+                "          content: noticeBoard",
+                "      });",
+                "       var marker = new google.maps.Marker({",
+                "          position: location,",
+                "          map: map,",
+                "           title: 'Click Me'",
+                "       });",
+                "       marker.addListener('click', function () {",
+                "           infowindow.open(map, marker);",
+                "       });",
+                "   }",
+                "</script>"};
                 gMapDiv = "<div id=\"map\" style=\"position: absolute; top: 764px; width:100%; left:0px; height:230px;\"></div>";
                 gMapConvertFunction = String.Join("\n", gMapFunction);
             }
 
-
             string[] indexPage ={"<!DOCTYPE html>",
-"<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-"<head>",
-"<title></title>",
-"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
-"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>",
-"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-""+sliderLink+"",
-""+navFunction+"",
-""+gMapConvertFunction+"",
-"</head>",
-"<body style=\"margin:0px;padding:0px;overflow-x:hidden\">",
-"<div class=\"container-fluid\" style=\"width:100%;\">",
-""+headerDivCode+"",
-""+navDivCode+"",
-""+carouselDivCode+"",
-""+gMapDiv+"",
-""+footerDivCode+"",
-" </div>",
-"</body>",
-"</html>"};
+            "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
+            "<head>",
+            "<title></title>",
+            "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
+            "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>",
+            "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
+            ""+sliderLink+"",
+            ""+navFunction+"",
+            ""+gMapConvertFunction+"",
+            "</head>",
+            "<body style=\"margin:0px;padding:0px;overflow-x:hidden\">",
+            "<div class=\"container-fluid\" style=\"width:100%;\">",
+            ""+headerDivCode+"",
+            ""+navDivCode+"",
+            ""+carouselDivCode+"",
+            ""+gMapDiv+"",
+            ""+footerDivCode+"",
+            " </div>",
+            "</body>",
+            "</html>"};
             File.WriteAllLines(Server.MapPath(@"~/Downloads/IndexPage.html"), indexPage);
             var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
             Response.ContentType = "application/zip";
@@ -279,8 +278,8 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
             {
                 string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
-      "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
-      "</div>"};
+                "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
+                "</div>"};
                 headerDivCode = String.Join("\n", headerCode);
             }
 
@@ -289,63 +288,62 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             string page3 = Convert.ToString(hiddenFieldNav3Value.Value).Replace(" ", String.Empty);
             string page4 = Convert.ToString(hiddenFieldNav4Value.Value).Replace(" ", String.Empty);
 
-
             if (!string.IsNullOrEmpty(page1) && !string.IsNullOrEmpty(page2) && !string.IsNullOrEmpty(page3) && !string.IsNullOrEmpty(page4))
             {
                 string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
                 string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
-            "<div class=\"container-fluid\">"+toggleNav+"",
-            "<ul class=\"nav navbar-nav\">",
-            "   <li class=\"active\" id=\"li1\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
-            "   <li  id=\"li2\"><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
-            "   <li  id=\"li3\"><a id=\"id3\" href=\"#\">"+hiddenFieldNav3Value.Value+"</a></li>",
-            "   <li  id=\"li4\"><a id=\"id4\" href=\"#\">"+hiddenFieldNav4Value.Value+"</a></li>",
-            "</ul>",
-            "</div>",
-        "</nav>",
-        "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
+                "<div class=\"container-fluid\">"+toggleNav+"",
+                "<ul class=\"nav navbar-nav\">",
+                "   <li class=\"active\" id=\"li1\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
+                "   <li  id=\"li2\"><a id=\"id2\" href=\"#\">"+hiddenFieldNav2Value.Value+"</a></li>",
+                "   <li  id=\"li3\"><a id=\"id3\" href=\"#\">"+hiddenFieldNav3Value.Value+"</a></li>",
+                "   <li  id=\"li4\"><a id=\"id4\" href=\"#\">"+hiddenFieldNav4Value.Value+"</a></li>",
+                "</ul>",
+                "</div>",
+                "</nav>",
+                "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
                 navDivCode = String.Join("\n", navCode);
 
                 string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",
-  "<script type=\"text/javascript\">",
-   "   $(document).ready(function () {",
-   "       $('#displayNavPages').load(\""+page1+".html\");",
-   "       $('#li1').addClass('active');",
-   "       $('#id1').click(function ($e) {",
-   "       $('#li4').removeClass('active');",
-   "       $('#li3').removeClass('active');",
-   "       $('#li2').removeClass('active');",
-   "       $e.preventDefault();",
-   "       $('#li1').addClass('active');",
-   "       $('#displayNavPages').load(\""+page1+".html\");",
-   "       $e.preventDefault();",
-   "        });",
-   "        $('#id2').click(function ($e) {",
-   "       $('#li4').removeClass('active');",
-   "       $('#li3').removeClass('active');",
-   "       $('#li1').removeClass('active');",
-   "       $e.preventDefault();",
-   "       $('#li2').addClass('active');",
-   "       $('#displayNavPages').load(\""+page2+".html\");",
-   "        });",
-   "        $('#id3').click(function ($e) {",
-   "        $('#li2').removeClass('active');",
-   "        $('#li1').removeClass('active');",
-   "        $('#li4').removeClass('active');",
-   "        $e.preventDefault();",
-   "        $('#li3').addClass('active');",
-   "        $('#displayNavPages').load(\""+page3+".html\");",
-   "        });",
-   "        $('#id4').click(function ($e) {",
-   "        $('#li1').removeClass('active');",
-   "        $('#li3').removeClass('active');",
-   "        $('#li2').removeClass('active');",
-   "        $e.preventDefault();",
-   "        $('#li4').addClass('active');",
-   "        $('#displayNavPages').load(\""+page4+".html\");",
-   "        });",
-   "    });",
-   "</script>" };
+                "<script type=\"text/javascript\">",
+                "   $(document).ready(function () {",
+                "       $('#displayNavPages').load(\""+page1+".html\");",
+                "       $('#li1').addClass('active');",
+                "       $('#id1').click(function ($e) {",
+                "       $('#li4').removeClass('active');",
+                "       $('#li3').removeClass('active');",
+                "       $('#li2').removeClass('active');",
+                "       $e.preventDefault();",
+                "       $('#li1').addClass('active');",
+                "       $('#displayNavPages').load(\""+page1+".html\");",
+                "       $e.preventDefault();",
+                "        });",
+                "        $('#id2').click(function ($e) {",
+                "       $('#li4').removeClass('active');",
+                "       $('#li3').removeClass('active');",
+                "       $('#li1').removeClass('active');",
+                "       $e.preventDefault();",
+                "       $('#li2').addClass('active');",
+                "       $('#displayNavPages').load(\""+page2+".html\");",
+                "        });",
+                "        $('#id3').click(function ($e) {",
+                "        $('#li2').removeClass('active');",
+                "        $('#li1').removeClass('active');",
+                "        $('#li4').removeClass('active');",
+                "        $e.preventDefault();",
+                "        $('#li3').addClass('active');",
+                "        $('#displayNavPages').load(\""+page3+".html\");",
+                "        });",
+                "        $('#id4').click(function ($e) {",
+                "        $('#li1').removeClass('active');",
+                "        $('#li3').removeClass('active');",
+                "        $('#li2').removeClass('active');",
+                "        $e.preventDefault();",
+                "        $('#li4').addClass('active');",
+                "        $('#displayNavPages').load(\""+page4+".html\");",
+                "        });",
+                "    });",
+                "</script>" };
                 navFunction = string.Join("\n", navPagesFunction);
             }
 
@@ -371,22 +369,21 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                     i = i + 1;
                 }
                 string[] carouselCode = {"<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"top:162px; width:110%; left:-16px\">",
-                       "<ol class=\"carousel-indicators\">",
-                       ""+listCarousel+"",
-                       "</ol>",
-                       "<div class=\"carousel-inner\">",
-                       ""+divCarousel+"",
-                       "</div>",
-                       "<a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">",
-                       "   <span class=\"glyphicon glyphicon-chevron-left\"></span>",
-                       "   <span class=\"sr-only\">Previous</span>",
-                       "</a>",
-                       "<a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\" style=\"margin-right:90px;\">",
-                       "   <span class=\"glyphicon glyphicon-chevron-right\"></span>",
-                       "   <span class=\"sr-only\">Next</span>",
-                       "</a>",
-                       "</div>"};
-
+                "<ol class=\"carousel-indicators\">",
+                ""+listCarousel+"",
+                "</ol>",
+                "<div class=\"carousel-inner\">",
+                ""+divCarousel+"",
+                "</div>",
+                "<a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">",
+                "   <span class=\"glyphicon glyphicon-chevron-left\"></span>",
+                "   <span class=\"sr-only\">Previous</span>",
+                "</a>",
+                "<a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\" style=\"margin-right:90px;\">",
+                "   <span class=\"glyphicon glyphicon-chevron-right\"></span>",
+                "   <span class=\"sr-only\">Next</span>",
+                "</a>",
+                "</div>"};
                 carouselDivCode = String.Join("\n", carouselCode);
             }
             string footerDivColor;
@@ -397,72 +394,72 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
             {
                 string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;top:995px;\">",
-       "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
-       "</div>"};
+                "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
+                "</div>"};
                 footerDivCode = String.Join("\n", footerCode);
             }
 
             if (!string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLatitude.Value)) && !string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
             {
                 string[] gMapFunction = { "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap\">",
-     "</script>",
-     "<style type=\"text/css\">",
-     "#map {",
-     "height: 300px;",
-     "width: 50%;",
-     "border:2px solid darkgrey;",
-     " }",
-     "</style>",
-     "<script type=\"text/javascript\">",
-     "window.onload = function () {",
-     "      generateMap();",
-     "   }",
-     " function generateMap() {",
-     "      document.getElementById('map').style.display = 'block';",
-     "      var location = { lat: "+hiddenFieldMapLatitude.Value+", lng: "+hiddenFieldMapLongitude.Value+" };",
-     "      var noticeBoard = '-: Our Office :-';",
-     "      var map = new google.maps.Map(document.getElementById('map'), {",
-     "          zoom: 17,",
-     "          center: location",
-     "      });",
-     "      var infowindow = new google.maps.InfoWindow({",
-     "          content: noticeBoard",
-     "      });",
-     "       var marker = new google.maps.Marker({",
-     "          position: location,",
-     "          map: map,",
-     "           title: 'Click Me'",
-     "       });",
-     "       marker.addListener('click', function () {",
-     "           infowindow.open(map, marker);",
-     "       });",
-     "   }",
-     "</script>"};
+                 "</script>",
+                 "<style type=\"text/css\">",
+                 "#map {",
+                 "height: 300px;",
+                 "width: 50%;",
+                 "border:2px solid darkgrey;",
+                 " }",
+                 "</style>",
+                 "<script type=\"text/javascript\">",
+                 "window.onload = function () {",
+                 "      generateMap();",
+                 "   }",
+                 " function generateMap() {",
+                 "      document.getElementById('map').style.display = 'block';",
+                 "      var location = { lat: "+hiddenFieldMapLatitude.Value+", lng: "+hiddenFieldMapLongitude.Value+" };",
+                 "      var noticeBoard = '-: Our Office :-';",
+                 "      var map = new google.maps.Map(document.getElementById('map'), {",
+                 "          zoom: 17,",
+                 "          center: location",
+                 "      });",
+                 "      var infowindow = new google.maps.InfoWindow({",
+                 "          content: noticeBoard",
+                 "      });",
+                 "       var marker = new google.maps.Marker({",
+                 "          position: location,",
+                 "          map: map,",
+                 "           title: 'Click Me'",
+                 "       });",
+                 "       marker.addListener('click', function () {",
+                 "           infowindow.open(map, marker);",
+                 "       });",
+                 "   }",
+                 "</script>"};
                 gMapDiv = "<div id=\"map\" style=\"position: absolute; top: 764px; width:100%; left:0px; height:230px;\"></div>";
                 gMapConvertFunction = String.Join("\n", gMapFunction);
             }
 
             string[] indexPage ={"<!DOCTYPE html>",
-"<html xmlns=\"http://www.w3.org/1999/xhtml\">",
-"<head>",
-"<title></title>",
-"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
-"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>",
-"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-""+sliderLink+"",
-""+navFunction+"",
-""+gMapConvertFunction+"",
-"</head>",
-"<body style=\"margin:0px;padding:0px;overflow-x:hidden\">",
-"<div class=\"container-fluid\" style=\"width:100%;\">",
-""+headerDivCode+"",
-""+navDivCode+"",
-""+carouselDivCode+"",
-""+gMapDiv+"",
-""+footerDivCode+"",
-" </div>",
-"</body>",
-"</html>"};
+            "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
+            "<head>",
+            "<title></title>",
+            "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
+            "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>",
+            "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
+            ""+sliderLink+"",
+            ""+navFunction+"",
+            ""+gMapConvertFunction+"",
+            "</head>",
+            "<body style=\"margin:0px;padding:0px;overflow-x:hidden\">",
+            "<div class=\"container-fluid\" style=\"width:100%;\">",
+            ""+headerDivCode+"",
+            ""+navDivCode+"",
+            ""+carouselDivCode+"",
+            ""+gMapDiv+"",
+            ""+footerDivCode+"",
+            " </div>",
+            "</body>",
+            "</html>"};
             File.WriteAllLines(Server.MapPath(@"~/Downloads/IndexPage.html"), indexPage);
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "window.parent.newPageLoad();", true);
         }
@@ -483,8 +480,6 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         File.Delete(FileToDelete4);
     }
 
-
-
     protected void btnLogout_Click(object sender, EventArgs e)
     {
         Session.Clear();
@@ -494,6 +489,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         Response.Cache.SetNoStore();
         try
         {
+            Response.Cookies["ContentCookies"].Expires = DateTime.Now.AddDays(-1);
             Session.Abandon();
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Buffer = true;

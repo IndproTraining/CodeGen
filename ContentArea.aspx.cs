@@ -15,33 +15,33 @@ public partial class ContentArea : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["sesnContent1"] != null)
+        if (Request.Cookies["ContentCookies"] != null)
         {
-            txtArea1.Value = Session["sesnContent1"].ToString();
+            txtArea1.Value = Request.Cookies["ContentCookies"]["CookieContent1"];
         }
         else
         {
             txtArea1.Value = string.Empty;
         }
-        if (Session["sesnContent2"] != null)
+        if (Request.Cookies["ContentCookies"] != null)
         {
-            txtArea2.Value = Session["sesnContent2"].ToString();
+            txtArea2.Value = Request.Cookies["ContentCookies"]["CookieContent2"];
         }
         else
         {
             txtArea2.Value = string.Empty;
         }
-        if (Session["sesnContent3"] != null)
+        if (Request.Cookies["ContentCookies"] != null)
         {
-            txtArea3.Value = Session["sesnContent3"].ToString();
+            txtArea3.Value = Request.Cookies["ContentCookies"]["CookieContent3"];
         }
         else
         {
             txtArea3.Value = string.Empty;
         }
-        if (Session["sesnContent4"] != null)
+        if (Request.Cookies["ContentCookies"] != null)
         {
-            txtArea4.Value = Session["sesnContent4"].ToString();
+            txtArea4.Value = Request.Cookies["ContentCookies"]["CookieContent4"];
         }
         else
         {
@@ -61,10 +61,10 @@ public partial class ContentArea : System.Web.UI.Page
         string page3 = HiddenFieldtxtArea3.Value.Replace(" ", String.Empty);
         string page4 = HiddenFieldtxtArea4.Value.Replace(" ", String.Empty);
 
-        Session["sesnContent1"] = contentfirst;
-        Session["sesnContent2"] = contentsecond;
-        Session["sesnContent3"] = contentthird;
-        Session["sesnContent4"] = contentfourth;
+        Response.Cookies["ContentCookies"]["CookieContent1"] = contentfirst;
+        Response.Cookies["ContentCookies"]["CookieContent2"] = contentsecond;
+        Response.Cookies["ContentCookies"]["CookieContent3"] = contentthird;
+        Response.Cookies["ContentCookies"]["CookieContent4"] = contentfourth;
 
         string[] navPage1 ={"<!DOCTYPE html>",
         "<html xmlns=\"http://www.w3.org/1999/xhtml\">",

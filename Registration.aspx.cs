@@ -28,9 +28,4 @@ public partial class Registration : System.Web.UI.Page
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ErrorMessage", "RegistrationErrorNotification();", true);
         }
     }
-
-    //protected void btnLogIn_Click(object sender, EventArgs e)
-    //{
-    //    Response.Redirect("Login.aspx");
-    //}
 }

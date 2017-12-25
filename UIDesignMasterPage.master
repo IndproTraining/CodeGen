@@ -55,8 +55,8 @@
 
         function NavigationPopup() {
             $("#winHeader").html('Add menu items');
-            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="400" style="border:none;"></iframe>');
-            $("#jqxwindow").jqxWindow({ height: '400', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            $("#wincontent").html('<iframe src="Navigationpopup.aspx" width="360" height="375" style="border:none;"></iframe>');
+            $("#jqxwindow").jqxWindow({ height: '375', width: '360', resizable: false, isModal: true, draggable: false, showCloseButton: true });
             var x = ($(window).width() - $("#jqxwindow").jqxWindow('width')) / 2 + $(window).scrollLeft();
             var y = ($(window).height() - $("#jqxwindow").jqxWindow('height')) / 2 + $(window).scrollTop();
             $("#jqxwindow").jqxWindow({ position: { x: x, y: y } });
@@ -112,6 +112,7 @@
                 $('#ContentArea').load("Downloads/" + page1 + ".html");
                 $e.preventDefault();
             });
+
             $('#id2').click(function ($e) {
                 $('#li1').removeClass('active');
                 $('#li3').removeClass('active');
@@ -120,6 +121,7 @@
                 $('#li2').addClass('active');
                 $('#ContentArea').load("Downloads/" + page2 + ".html");
             });
+
             $('#id3').click(function ($e) {
                 $('#li2').removeClass('active');
                 $('#li1').removeClass('active');
@@ -128,6 +130,7 @@
                 $('#li3').addClass('active');
                 $('#ContentArea').load("Downloads/" + page3 + ".html");
             });
+
             $('#id4').click(function ($e) {
                 $('#li1').removeClass('active');
                 $('#li3').removeClass('active');
@@ -136,6 +139,7 @@
                 $('#li4').addClass('active');
                 $('#ContentArea').load("Downloads/" + page4 + ".html");
             });
+
             $.cookie("cookiepage1", page1, { path: '/' });
             $.cookie("cookiepage2", page2, { path: '/' });
             $.cookie("cookiepage3", page3, { path: '/' });
@@ -143,9 +147,7 @@
             $('#btnPageContent').prop('disabled', false);
         }
 
-
         function ReceiveCarouselImages(result) {
-            debugger;
             var image = result.substring(0, result.length - 1)
             imagesplit = image.split(',');
             $('#hiddenFieldImagesSplit').val(imagesplit);
@@ -167,7 +169,6 @@
         }
 
         function ContentAreaPopup() {
-            debugger;
             if (a1 == "") {
                 ContentNotification();
             }
@@ -241,16 +242,13 @@
             $('#destroycar').hide();
             $('#destroynav').hide();
             $('#destroymap').hide();
-            //$('#content').hide();
             $('#divColorHeader').hide();
             $('#divColorFooter').hide();
 
-            // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
             });
 
-            // Toggle plus minus icon on show hide of collapse element
             $(".collapse").on('show.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
             }).on('hide.bs.collapse', function () {
@@ -268,8 +266,8 @@
                 $('#divColorHeader').show();
                 $('#btnHeader').prop('disabled', true);
                 return false;
-
             });
+
             $('#lblheader').click(function () {
                 $('#apply').show();
                 $('#remove').show();
@@ -278,6 +276,7 @@
                 $('#fontFamilyHeader').show();
                 return false;
             });
+
             $('#apply').click(function () {
                 var edited = document.getElementById('lblheader');
                 useredited = edited.innerHTML;
@@ -439,9 +438,16 @@
                 b1 = "";
                 c1 = "";
                 d1 = "";
+                ClearContentCookie();
                 deleteFile();
                 return false;
             });
+
+            function ClearContentCookie()
+            {
+                $.removeCookie('ContentCookies', { path: '/' });
+            }
+
             $('#destroymap').click(function () {
                 $('#map').empty();
                 $('#destroymap').hide();
@@ -450,90 +456,98 @@
                 $('#btnMap').prop('disabled', false);
                 return false;
             });
+
             $('#fontSizeHeader').click(function () {
                 document.getElementById("fontSize1ListHeader").style.display = "block";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
                 return false;
             });
+
             $('#fontColorHeader').click(function () {
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "block";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
                 return false;
             });
+
             $('#fontFamilyHeader').click(function () {
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "block";
                 return false;
             });
+
             $('#fontSizeFooter').click(function ($e) {
                 $e.preventDefault();
                 document.getElementById("fontSize1ListFooter").style.display = "block";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
             });
+
             $('#fontColorFooter').click(function ($e) {
                 $e.preventDefault();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "block";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
             });
+
             $('#fontFamilyFooter').click(function ($e) {
                 $e.preventDefault();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "block";
             });
+
             $('#divColorHeader').click(function () {
                 document.getElementById("btnHeaderColorTool").style.display = "block";
-
             });
+
             $('#divColorFooter').click(function ($e) {
                 document.getElementById("btnFooterColorTool").style.display = "block";
                 $e.preventDefault();
-
             });
         });
+
         function headerSize(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.fontSize = listValue;
             $('#hiddenFieldHeaderSize').val(listValue);
         }
+
         function headerColor(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.color = listValue;
             $('#hiddenFieldHeaderColor').val(listValue);
         }
+
         function headerFamily(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblheader").style.fontFamily = listValue;
             $('#hiddenFieldHeaderFamily').val(listValue);
         }
+
         function footerSize(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblfooter").style.fontSize = listValue;
             $('#hiddenFieldFooterSize').val(listValue);
         }
+
         function footerColor(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblfooter").style.color = listValue;
             $('#hiddenFieldFooterColor').val(listValue);
         }
+
         function footerFamily(selectTag) {
             var listValue = selectTag.options[selectTag.selectedIndex].text;
             document.getElementById("lblfooter").style.fontFamily = listValue;
             $('#hiddenFieldFooterFamily').val(listValue);
         }
     </script>
-
-
 </head>
 <body>
     <form id="form1" runat="server">
-        <%-- //Hidden Field //--%>
-
         <asp:HiddenField ID="hiddenFieldHeaderValue" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldFooterValue" runat="server" ClientIDMode="Static" />
         <asp:HiddenField ID="hiddenFieldNav1Value" runat="server" ClientIDMode="Static" />
@@ -555,7 +569,7 @@
         <div class="header" style="margin-top: 0px; height: 100px; background-color: #787272;">
             <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                 <h2 style="font-family: Verdana;"><b style="color: #5bc0de">Code</b><b style="color: aliceblue">Gen</b></h2>
-                <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Minimizes your time!</a>
+                <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Empowers your web</a>
             </div>
             <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12"></div>
             <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12">

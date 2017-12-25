@@ -11,7 +11,6 @@ public partial class Carousel : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-
         fileupload2.Enabled = false;
         fileupload3.Enabled = false;
         fileupload4.Enabled = false;
@@ -21,7 +20,6 @@ public partial class Carousel : System.Web.UI.Page
         Imageshow3.Attributes["src"] = ResolveUrl("Numbers/3.jpg");
         Imageshow4.Attributes["src"] = ResolveUrl("Numbers/4.jpg");
         Imageshow5.Attributes["src"] = ResolveUrl("Numbers/5.jpg");
-
     }
 
     protected void btnimagesubmit_Click(object sender, EventArgs e)

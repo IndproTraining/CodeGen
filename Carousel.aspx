@@ -20,7 +20,6 @@
     padding-left:10px;
     padding-right:10px;
     padding-top:1px;
-    
 }
     </style>
     <script type="text/javascript">
@@ -52,6 +51,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         function readURL3(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -61,6 +61,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         function readURL4(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -70,6 +71,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         function readURL5(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -87,14 +89,12 @@
             readURL1(args, count);
         }
 
-
         function ShowFiles2(args) {
             count = count + 1;
             $('#fileupload3').css("opacity", "1");
             $('#fileupload3').prop('disabled', false);
             readURL2(args, count);
         }
-
 
         function ShowFiles3(args) {
             count = count + 1;
@@ -103,14 +103,12 @@
             readURL3(args, count);
         }
 
-
         function ShowFiles4(args) {
             count = count + 1;
             $('#fileupload5').css("opacity", "1");
             $('#fileupload5').prop('disabled', false);
             readURL4(args, count);
         }
-
 
         function ShowFiles5(args) {
             count = count + 1;
