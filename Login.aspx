@@ -27,15 +27,14 @@
         }
 
         #btnSignUp {
-            position: absolute;
-            top: 120px;
-            right: 113px;
+            margin-left:900px;
+            margin-top:35px;
             width: 110px;
             height: 35px;
             border-radius: 5px;
             /*background-color: lightgreen;*/
             opacity: 0.8;
-            font-size: 14px;
+            font-size: 18px;
             color: white;
         }
 
@@ -103,9 +102,14 @@
 <body>
     <form id="form1" runat="server">
          <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
-        <input id="btnSignUp" type="button" value="Sign Up" class="btn btn-info btn" style="font-size: 18px; padding-bottom: 30px; margin-top: -3px" onclick="RedirectToRegistration();" />
         <div class="container" style="margin-top: 90px;">
-            <h1 style="color: #0094ff;">Log In</h1>
+            <table>
+                 <tr><td colspan="2"><h1 style="color: #0094ff;">Log In</h1></td>
+                     <td >
+                         <input id="btnSignUp" type="button" value="Sign Up" class="btn btn-info btn" onclick="RedirectToRegistration();" />
+                         </td>
+                 </tr>
+             </table>
             <hr />
             <br />
             <div class="row">
