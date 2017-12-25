@@ -27,7 +27,7 @@
         }
 
         #btnSignUp {
-            margin-left:900px;
+            margin-left:928px;
             margin-top:35px;
             width: 110px;
             height: 35px;
@@ -104,7 +104,7 @@
          <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 98%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Following Fields Are Mandatory</b>" />
         <div class="container" style="margin-top: 90px;">
             <table>
-                 <tr><td colspan="2"><h1 style="color: #0094ff;">Log In</h1></td>
+                 <tr><td><h1 style="color: #0094ff;">Log In</h1></td>
                      <td >
                          <input id="btnSignUp" type="button" value="Sign Up" class="btn btn-info btn" onclick="RedirectToRegistration();" />
                          </td>
