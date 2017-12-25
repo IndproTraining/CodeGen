@@ -21,7 +21,7 @@
       
                 <%--Carousel--%>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
- <a href="#"><span class="label label-danger" style="position:absolute;left:800px; z-index:10;" id="destroycar">X</span></a>
+ <a href="#"><span class="label label-danger" style="position:absolute;left:800px; z-index:10; top:0px;" id="destroycar">X</span></a>
             <!-- Indicators -->
             <ol class="carousel-indicators">
             </ol>
