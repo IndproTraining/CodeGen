@@ -499,8 +499,9 @@
                 document.getElementById("fontfamilyListFooter").style.display = "block";
             });
 
-            $('#divColorHeader').click(function () {
+            $('#divColorHeader').click(function ($e) {
                 document.getElementById("btnHeaderColorTool").style.display = "block";
+                $e.preventDefault();
             });
 
             $('#divColorFooter').click(function ($e) {
@@ -571,13 +572,10 @@
                 <h2 style="font-family: Verdana;"><b style="color: #5bc0de">Code</b><b style="color: aliceblue">Gen</b></h2>
                 <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Empowers your web</a>
             </div>
-            <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12"></div>
-            <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12">
                 <br />
                 <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-log-out"></span> <b>Log out</b>
                 </asp:LinkButton>
-            </div>
         </div>
         <br />
         <div class="container">

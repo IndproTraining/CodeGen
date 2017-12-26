@@ -8,20 +8,20 @@
         <div id="header">
                 <asp:Label ID="lblheader" runat="server" Text="Header" style="position:absolute;top:80px;z-index:10;font-family:Calibri; font-size:14px; color:black;" contenteditable="true" ClientIDMode="Static"></asp:Label>
                 <a href="#"><span class="label label-success" style="position:absolute;top:60px;z-index:10; left:15px;" id="apply">Change</span></a><a href="#"><span class="label label-danger" style="position:absolute;top:60px;left:68px; z-index:10;" id="remove">Cancel</span></a>
-        <a href="#"><span class="label label-danger" style="position:absolute;left:815px;top:63px; z-index:10;" id="destroyHeader">X</span></a>
-            <a href="#"><span class="label label-warning" style="position:absolute;top:63px;left:735px; z-index:10;" id="divColorHeader">Header-color</span></a>
+        <a href="#"><span class="label label-danger" id="destroyHeader">X</span></a>
+            <a href="#"><span class="label label-warning" id="divColorHeader">Header-color</span></a>
                <a href="#"><span class="label label-warning" style="position:absolute;top:135px;left:15px; z-index:10;" id="fontSizeHeader">fontsize</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;top:135px;left:70px; z-index:10;" id="fontColorHeader">font-color</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;top:135px;left:134px; z-index:10;" id="fontFamilyHeader">font-family</span></a>
-        <input id="btnHeaderColorTool" type="button" class="jscolor" style="display:none; z-index:10;position:absolute;left:671px;" onchange="newHeaderColor()"/>     
+        <input id="btnHeaderColorTool" type="button" class="jscolor" onchange="newHeaderColor()"/>     
         </div>
         <%--  NavBar--%>
         <div id="navbarContain"></div>
-         <a href="#"><span class="label label-danger" style="position:absolute;left:816px;top:151px; z-index:10;" id="destroynav">X</span></a>
+         <a href="#"><span class="label label-danger" id="destroynav">X</span></a>
       
                 <%--Carousel--%>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
- <a href="#"><span class="label label-danger" style="position:absolute;left:800px; z-index:10; top:0px;" id="destroycar">X</span></a>
+ <a href="#"><span class="label label-danger" id="destroycar">X</span></a>
             <!-- Indicators -->
             <ol class="carousel-indicators">
             </ol>
@@ -45,17 +45,17 @@
         </div>
     <%--Map--%>
     <div id="map" style="display: none; position: absolute; top: 731px; left: 16.5px"></div>
-<a href="#"<span class="label label-danger" style="position:absolute;left:816px;top:731px; z-index:10;" id="destroymap">X</span></a>
+<a href="#"<span class="label label-danger" id="destroymap">X</span></a>
     <%--Footer--%>
     <div id="Footer" style="position:absolute;top:888px;left:16px; height:50px;width:96.3%">
          <asp:Label ID="lblfooter" runat="server" Text="Footer" style="position:absolute;top:20px;left:10px;z-index:10;font-family:Calibri; font-size:14px; color:black;" contenteditable="true" ClientIDMode="Static"></asp:Label>
                 <a href="#"><span class="label label-success" style="position:absolute;z-index:10;" id="apply1">Change</span></a><a href="#"><span class="label label-danger" style="position:absolute;left:53px; z-index:10;" id="remove1">Cancel</span></a>
-   <a href="#"><span class="label label-danger" style="position:absolute;top:2px;left:799px; z-index:10;" id="destroyFooter">X</span></a>
-        <a href="#"><span class="label label-warning" style="position:absolute;top:2px;left:722px; z-index:10;" id="divColorFooter">Footer-color</span></a>
+   <a href="#"><span class="label label-danger" id="destroyFooter">X</span></a>
+        <a href="#"><span class="label label-warning" id="divColorFooter">Footer-color</span></a>
         <a href="#"><span class="label label-warning" style="position:absolute;bottom:-20px; z-index:10;" id="fontSizeFooter">fontsize</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;bottom:-20px;left:55px; z-index:10;" id="fontColorFooter">font-color</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;bottom:-20px;left:119px; z-index:10;" id="fontFamilyFooter">font-family</span></a>
-         <input id="btnFooterColorTool" type="button" class="jscolor" style="display:none;z-index:10;position:absolute;left:660px; top:2px" onchange="newFooterColor()"/>
+         <input id="btnFooterColorTool" type="button" class="jscolor" onchange="newFooterColor()"/>
     </div>  
         <div style="position:absolute;top:150px;z-index:10; left:16px;">
          <select id="fontSize1ListHeader" onchange="headerSize(this);" size="3" style="display: none">

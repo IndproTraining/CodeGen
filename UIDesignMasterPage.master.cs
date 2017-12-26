@@ -30,34 +30,36 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         string page2;
         string page3;
         string page4;
-        if (string.IsNullOrEmpty(Convert.ToString(headerValue)) && string.IsNullOrEmpty(Convert.ToString(footerValue)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldNav1Value.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldImagesSplit.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
-        {
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "EmptyNotification();", true);
-        }
-        else
-        {
-            string headerDivColor;
-            if (hiddenFieldHeaderDivColor.Value == "")
-                headerDivColor = "lightgrey";
-            else
-                headerDivColor = hiddenFieldHeaderDivColor.Value;
-            if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
+        //if (Request.Cookies["ContentCookies"] != null)
+        //{
+            if (string.IsNullOrEmpty(Convert.ToString(headerValue)) && string.IsNullOrEmpty(Convert.ToString(footerValue)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldNav1Value.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldImagesSplit.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
             {
-                string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "EmptyNotification();", true);
+            }
+            else
+            {
+                string headerDivColor;
+                if (hiddenFieldHeaderDivColor.Value == "")
+                    headerDivColor = "lightgrey";
+                else
+                    headerDivColor = hiddenFieldHeaderDivColor.Value;
+                if (!string.IsNullOrEmpty(Convert.ToString(headerValue)))
+                {
+                    string[] headerCode = {"<div class=\"header\" style=\"position:absolute; top:0px; width:100%; left:0px; padding-left:15px ;background-color:"+headerDivColor+"; height: 120px;\">",
                 "<h3 style=\"text-align: left; color:"+hiddenFieldHeaderColor.Value+"; font-family:"+hiddenFieldHeaderFamily.Value+";font-size:"+hiddenFieldHeaderSize.Value+"\">"+headerValue+"</h3>",
                 "</div>"};
-                headerDivCode = String.Join("\n", headerCode);
-            }
+                    headerDivCode = String.Join("\n", headerCode);
+                }
 
-            page1 = Convert.ToString(hiddenFieldNav1Value.Value).Replace(" ", String.Empty);
-            page2 = Convert.ToString(hiddenFieldNav2Value.Value).Replace(" ", String.Empty);
-            page3 = Convert.ToString(hiddenFieldNav3Value.Value).Replace(" ", String.Empty);
-            page4 = Convert.ToString(hiddenFieldNav4Value.Value).Replace(" ", String.Empty);
+                page1 = Convert.ToString(hiddenFieldNav1Value.Value).Replace(" ", String.Empty);
+                page2 = Convert.ToString(hiddenFieldNav2Value.Value).Replace(" ", String.Empty);
+                page3 = Convert.ToString(hiddenFieldNav3Value.Value).Replace(" ", String.Empty);
+                page4 = Convert.ToString(hiddenFieldNav4Value.Value).Replace(" ", String.Empty);
 
-            if (!string.IsNullOrEmpty(page1) && !string.IsNullOrEmpty(page2) && !string.IsNullOrEmpty(page3) && !string.IsNullOrEmpty(page4))
-            {
-                string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
-                string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
+                if (!string.IsNullOrEmpty(page1) && !string.IsNullOrEmpty(page2) && !string.IsNullOrEmpty(page3) && !string.IsNullOrEmpty(page4))
+                {
+                    string toggleNav = "<div class=\"navbar-header\">\n<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n<span class=\"icon-bar\"></span>\n</button>\n</div>\n<div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">";
+                    string[] navCode = {"<nav class=\"navbar navbar-default\" style=\"position:absolute ;left:0px; top:110px;width:100%;z-index:10\">",
                 "<div class=\"container-fluid\">"+toggleNav+"",
                 "<ul class=\"nav navbar-nav\">",
                 "   <li class=\"active\" id=\"li1\"><a id=\"id1\" href=\"#\">"+hiddenFieldNav1Value.Value+"</a></li>",
@@ -68,9 +70,9 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                 "</div>",
                 "</nav>",
                 "<div id=\"displayNavPages\" style=\"position:absolute; left:50px; top:400px; height:265px; width:93% \"></div>"};
-                navDivCode = String.Join("\n", navCode);
+                    navDivCode = String.Join("\n", navCode);
 
-               string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",       
+                    string[] navPagesFunction = {"<script src=\"jquery-1.11.1.min.js\"></script>",
                "<script type=\"text/javascript\">",
                "   $(document).ready(function () {",
                "       $('#displayNavPages').load(\""+page1+".html\");",
@@ -110,31 +112,31 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                "        });",
                "    });",
                "</script>" };
-                navFunction = string.Join("\n", navPagesFunction);
-            }
-
-            string images = hiddenFieldImagesSplit.Value;
-            if (!string.IsNullOrEmpty(images))
-            {
-                string[] imageCount = images.Split(',');
-                string listCarousel = "";
-                string divCarousel = "";
-                int i = 0;
-                foreach (string imageName in imageCount)
-                {
-                    if (i == 0)
-                    {
-                        listCarousel = "<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n";
-                        divCarousel = "<div class=\"item active\"> \n <img src=\"Images/" + imageName + "\" style=\"width:100%; height: 210px\"> \n </div>\n";
-                    }
-                    else
-                    {
-                        listCarousel = listCarousel + "<li data-target=\"#myCarousel\" data-slide-to=\"" + i + "\"></li>\n";
-                        divCarousel = divCarousel + "<div class=\"item\"> \n <img src=\"Images/" + imageName + "\" style=\"width: 100%; height: 210px\"> \n </div>\n";
-                    }
-                    i = i + 1;
+                    navFunction = string.Join("\n", navPagesFunction);
                 }
-                string[] carouselCode = {"<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"top:162px; width:110%; left:-16px\">",
+
+                string images = hiddenFieldImagesSplit.Value;
+                if (!string.IsNullOrEmpty(images))
+                {
+                    string[] imageCount = images.Split(',');
+                    string listCarousel = "";
+                    string divCarousel = "";
+                    int i = 0;
+                    foreach (string imageName in imageCount)
+                    {
+                        if (i == 0)
+                        {
+                            listCarousel = "<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n";
+                            divCarousel = "<div class=\"item active\"> \n <img src=\"Images/" + imageName + "\" style=\"width:100%; height: 210px\"> \n </div>\n";
+                        }
+                        else
+                        {
+                            listCarousel = listCarousel + "<li data-target=\"#myCarousel\" data-slide-to=\"" + i + "\"></li>\n";
+                            divCarousel = divCarousel + "<div class=\"item\"> \n <img src=\"Images/" + imageName + "\" style=\"width: 100%; height: 210px\"> \n </div>\n";
+                        }
+                        i = i + 1;
+                    }
+                    string[] carouselCode = {"<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"top:162px; width:110%; left:-16px\">",
                 "<ol class=\"carousel-indicators\">",
                 ""+listCarousel+"",
                 "</ol>",
@@ -151,24 +153,24 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                 "</a>",
                 "</div>"};
 
-                carouselDivCode = String.Join("\n", carouselCode);
-            }
-            string footerDivColor;
-            if (hiddenFieldFooterDivColor.Value == "")
-                footerDivColor = "lightgrey";
-            else
-                footerDivColor = hiddenFieldFooterDivColor.Value;
-            if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
-            {
-                string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px;top:995px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;\">",
+                    carouselDivCode = String.Join("\n", carouselCode);
+                }
+                string footerDivColor;
+                if (hiddenFieldFooterDivColor.Value == "")
+                    footerDivColor = "lightgrey";
+                else
+                    footerDivColor = hiddenFieldFooterDivColor.Value;
+                if (!string.IsNullOrEmpty(Convert.ToString(footerValue)))
+                {
+                    string[] footerCode = {"<div class=\"footer\" style=\"position:absolute; bottom:0px;top:995px; width:100%; left:0px; padding-left:15px; background-color: "+footerDivColor+"; height: 90px;\">",
                 "<h3 style=\"text-align: left; color:"+hiddenFieldFooterColor.Value+"; font-family:"+hiddenFieldFooterFamily.Value+";font-size:"+hiddenFieldFooterSize.Value+"\">"+footerValue+"</h3>",
                 "</div>"};
-                footerDivCode = String.Join("\n", footerCode);
-            }
+                    footerDivCode = String.Join("\n", footerCode);
+                }
 
-            if (!string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLatitude.Value)) && !string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
-            {
-                string[] gMapFunction = { "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap\">",
+                if (!string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLatitude.Value)) && !string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
+                {
+                    string[] gMapFunction = { "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBqmidBFhrUsLeCeyK6o_8U_rD1BrDnE5E&callback=generateMap\">",
                 "</script>",
                 "<style type=\"text/css\">",
                 "#map {",
@@ -176,7 +178,7 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                 "width: 50%;",
                 "border:2px solid darkgrey;",
                 " }",
-                "</style>",    
+                "</style>",
                 "<script type=\"text/javascript\">",
                 "window.onload = function () {",
                 "      generateMap();",
@@ -202,11 +204,11 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                 "       });",
                 "   }",
                 "</script>"};
-                gMapDiv = "<div id=\"map\" style=\"position: absolute; top: 764px; width:100%; left:0px; height:230px;\"></div>";
-                gMapConvertFunction = String.Join("\n", gMapFunction);
-            }
+                    gMapDiv = "<div id=\"map\" style=\"position: absolute; top: 764px; width:100%; left:0px; height:230px;\"></div>";
+                    gMapConvertFunction = String.Join("\n", gMapFunction);
+                }
 
-            string[] indexPage ={"<!DOCTYPE html>",
+                string[] indexPage ={"<!DOCTYPE html>",
             "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
             "<head>",
             "<title></title>",
@@ -227,30 +229,34 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             " </div>",
             "</body>",
             "</html>"};
-            File.WriteAllLines(Server.MapPath(@"~/Downloads/IndexPage.html"), indexPage);
-            var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
-            Response.ContentType = "application/zip";
-            Response.AddHeader("Content-Disposition", "filename=" + downloadFileName);
-            using (var zip = new ZipFile())
-            {
-                DirectoryInfo dirInfor = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Downloads"));
-                zip.AddFile(dirInfor + "/IndexPage.html", "CodeGen");
-                string[] imageCount1 = images.Split(',');
-                if (!string.IsNullOrEmpty(images))
+                File.WriteAllLines(Server.MapPath(@"~/Downloads/IndexPage.html"), indexPage);
+                var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
+                Response.ContentType = "application/zip";
+                Response.AddHeader("Content-Disposition", "filename=" + downloadFileName);
+                using (var zip = new ZipFile())
                 {
-                    foreach (string imageName in imageCount1)
-                        zip.AddFile(dirInfor + "/Images/" + imageName, "CodeGen/Images");
+                    DirectoryInfo dirInfor = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Downloads"));
+                    zip.AddFile(dirInfor + "/IndexPage.html", "CodeGen");
+                    string[] imageCount1 = images.Split(',');
+                    if (!string.IsNullOrEmpty(images))
+                    {
+                        foreach (string imageName in imageCount1)
+                            zip.AddFile(dirInfor + "/Images/" + imageName, "CodeGen/Images");
+                    }
+                    if (!string.IsNullOrEmpty(page1)&& Request.Cookies["ContentCookies"] != null)
+                    {
+                        zip.AddFile(dirInfor + "/" + page1 + ".html", "CodeGen");
+                        zip.AddFile(dirInfor + "/" + page2 + ".html", "CodeGen");
+                        zip.AddFile(dirInfor + "/" + page3 + ".html", "CodeGen");
+                        zip.AddFile(dirInfor + "/" + page4 + ".html", "CodeGen");
+                    }
+                    zip.Save(Response.OutputStream);
                 }
-                if (!string.IsNullOrEmpty(page1))
-                {
-                    zip.AddFile(dirInfor + "/" + page1 + ".html", "CodeGen");
-                    zip.AddFile(dirInfor + "/" + page2 + ".html", "CodeGen");
-                    zip.AddFile(dirInfor + "/" + page3 + ".html", "CodeGen");
-                    zip.AddFile(dirInfor + "/" + page4 + ".html", "CodeGen");
-                }
-                zip.Save(Response.OutputStream);
             }
-        }
+        //}
+        //else {
+        //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "DownloadErrorMsg();", true);
+        //}
     }
     protected void btnDemoDisplay_Click(object sender, EventArgs e)
     {

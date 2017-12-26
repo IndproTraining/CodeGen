@@ -88,7 +88,6 @@ margin-bottom: 5px;
     top: 151px;
     width: 96.3%;
 }
-
 #destroyHeader{
         position:absolute;
         top:61px;
@@ -105,7 +104,6 @@ margin-bottom: 5px;
     border-color: lightgrey;
     background-color: lightgrey;
 }
-
 #footerdiv{
     border: 1px solid;
     width:100%;
@@ -116,49 +114,165 @@ margin-bottom: 5px;
     border-color:lightgrey;
    background-color: lightgrey;
 }
+#destroyHeader{
+position:absolute;
+left:815px;
+top:63px; 
+z-index:10;
+}
+#divColorHeader {
+        position: absolute;
+        top: 63px;
+        left: 735px;
+        z-index: 10;
+    }
+#btnHeaderColorTool{
+    display:none; 
+    z-index:10;
+    position:absolute;
+    left:671px;
+}
+#destroyFooter {
+    position: absolute;
+    top: 2px;
+    left: 799px;
+    z-index: 10;
+}
+#divColorFooter{
+    position:absolute;
+    top:2px;
+    left:722px; 
+    z-index:10;
+}
+#btnFooterColorTool {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 660px;
+    top: 2px;
+}
+#destroynav {
+    position: absolute;
+    left: 816px;
+    top: 151px;
+    z-index: 10;
+}
+#destroycar {
+    position: absolute;
+    left: 800px;
+    z-index: 10;
+    top: 0px;
+}
+#destroymap {
+    position: absolute;
+    left: 816px;
+    top: 731px;
+    z-index: 10;
+}
+#btnLogout{
+    position:absolute;
+    right:20px;
+    top:20px;
+}
 
 @media screen and (max-width: 1200px) {
-#myCarousel{
-    width:95%; 
-    position: absolute; 
-    top: 200px; 
-    left: 16px
-}
-#map {
+    #myCarousel {
+        width: 95%;
+        position: absolute;
+        top: 200px;
+        left: 16px;
+    }
+    #map {
         height: 16%;
         width: 95%;
-        border:2px solid lightgrey;
-     }
-#ContentArea{
-    height:381px; 
-    border:1px solid gray; 
-    width: 95%; left:0px; 
-    right:0px; position:absolute; 
-    top:350px;
-}
-#navbarContain {
+        border: 2px solid lightgrey;
+    }
+    #ContentArea {
+        height: 381px;
+        border: 1px solid gray;
+        width: 95%;
+        left: 0px;
+        right: 0px;
+        position: absolute;
+        top: 350px;
+    }
+    #navbarContain {
+        position: absolute;
+        top: 151px;
+        width: 95%;
+    }
+    #headerdiv {
+        border: 1px solid gray;
+        width: 95%;
+        position: absolute;
+        left: 16px;
+        height: 90px;
+        margin: 0;
+        background-color: lightgrey;
+    }
+    #footerdiv {
+        border: 1px solid gray;
+        width: 98.7%;
+        position: absolute;
+        left: 0px;
+        height: 91px;
+        margin: 0;
+        background-color: lightgrey;
+    }
+    #destroyHeader {
+        position: absolute;
+        left: 587px;
+        top: 61px;
+        z-index: 10;
+    }
+    #divColorHeader {
+        position: absolute;
+        top: 61px;
+        left: 507px;
+        z-index: 10;
+    }
+    #btnHeaderColorTool {
+        display: none;
+        z-index: 10;
+        position: absolute;
+        left: 442px;
+    }
+    #destroyFooter {
     position: absolute;
+    top: 2px;
+    left: 572px;
+    z-index: 10;
+}
+    #divColorFooter{
+    position:absolute;
+    top:2px;
+    left:495px; 
+    z-index:10;
+}
+    #btnFooterColorTool {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 431px;
+    top: 2px;
+}
+    #destroynav {
+    position: absolute;
+    left: 587px;
     top: 151px;
-    width: 95%;
+    z-index: 10;
 }
-#headerdiv{
-    border: 1px solid gray;
-    width:95%;
-    position:absolute;
-    left:16px;
-    height:90px;
-    margin: 0;
-   background-color: lightgrey;
-   
+    #destroycar {
+    position: absolute;
+    left: 571px;
+    z-index: 10;
+    top: 0px;
 }
-#footerdiv{
-    border: 1px solid gray;
-    width:98.7%;
-    position:absolute;
-    left:0px;
-    height:91px;
-    margin: 0;
-   background-color: lightgrey;
+    #destroymap {
+    position: absolute;
+    left: 587px;
+    top: 731px;
+    z-index: 10;
 }
 }
 
@@ -203,5 +317,147 @@ margin-bottom: 5px;
     height:91px;
     margin: 0;
    background-color: lightgrey;
+}
+#destroyHeader{
+position:absolute;
+left:441px;
+top:61px; 
+z-index:10;
+}
+#divColorHeader {
+        position: absolute;
+        top: 61px;
+        left: 362px;
+        z-index: 10;
+    }
+#destroyFooter {
+    position: absolute;
+    top: 2px;
+    left: 425px;
+    z-index: 10;
+}
+#divColorFooter{
+    position:absolute;
+    top:2px;
+    left:346px; 
+    z-index:10;
+}
+#btnFooterColorTool {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 283px;
+    top: 0px;
+}
+#destroynav {
+    position: absolute;
+    left: 441px;
+    top: 151px;
+    z-index: 10;
+}
+#destroycar {
+    position: absolute;
+    left: 425px;
+    z-index: 10;
+    top: 0px;
+}
+#destroymap {
+    position: absolute;
+    left: 441px;
+    top: 731px;
+    z-index: 10;
+}
+ #btnHeaderColorTool{
+    display:none; 
+    z-index:10;
+    position:absolute;
+    left:300px;
+}
+}
+
+@media screen and (max-width: 700px) {
+#myCarousel{
+    width:93.5%; 
+    position: absolute; 
+    top: 200px; 
+    left: 16px
+}
+#map {
+        height: 16%;
+        width: 93.5%;
+        border:2px solid lightgrey;
+     }
+#ContentArea{
+    height:381px; 
+    border:1px solid gray; 
+    width: 94%; left:0px; 
+    right:0px; position:absolute; 
+    top:350px;
+}
+#navbarContain {
+    position: absolute;
+    top: 151px;
+    width: 93.5%;
+}
+#headerdiv{
+    border: 1px solid gray;
+    width:93.5%;
+    position:absolute;
+    left:16px;
+    height:90px;
+    margin: 0;
+   background-color: lightgrey;
+}
+#footerdiv{
+    border: 1px solid gray;
+    width:97.5%;
+    position:absolute;
+    left:0px;
+    height:91px;
+    margin: 0;
+   background-color: lightgrey;
+}
+#destroyHeader{
+position:absolute;
+left:420px;
+top:61px; 
+z-index:10;
+}
+#destroynav {
+    position: absolute;
+    left: 420px;
+    top: 151px;
+    z-index: 10;
+}
+#destroycar {
+    position: absolute;
+    left: 410px;
+    z-index: 10;
+    top: 0px;
+}
+#destroymap {
+    position: absolute;
+    left: 420px;
+    top: 731px;
+    z-index: 10;
+}
+ #divColorHeader {
+        position: absolute;
+        top: 61px;
+        left: 342px;
+        z-index: 10;
+    }
+ #btnHeaderColorTool{
+    display:none; 
+    z-index:10;
+    position:absolute;
+    left:245px;
+}
+  #btnFooterColorTool{
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 280px;
+    top: 2px;
 }
 }

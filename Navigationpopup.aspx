@@ -49,7 +49,7 @@
         <asp:ValidationSummary ID="ValidationSummaryForm" runat="server" Style="border: 2px solid; width: 94%; font-size: 13px; padding-left: 30px; border-color: red; margin: 10px; color: red" HeaderText="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Menu items could not be added</b>" />
         <div class="container" style="margin-left: 70px; margin-top: 30px; height: 300px; width: 250px;">
             <div>
-                <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size:initial;font-family:Verdana;margin-left:0px;font-size:12px"><b>Add your desired menu names</b></asp:Label>
+                <asp:Label ID="MenuHeaders" runat="server" Text="Label" CssClass=" lblstyle " Style="font-size:initial;font-family:Verdana;margin-left:0px;font-size:12px"><b>Add menu names</b></asp:Label>
             </div>
             <br />
             <div class="row">

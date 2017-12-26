@@ -21,7 +21,7 @@ public partial class ContentArea : System.Web.UI.Page
         }
         else
         {
-            txtArea1.Value = string.Empty;
+            txtArea1.Value = "This content is empty";
         }
         if (Request.Cookies["ContentCookies"] != null)
         {
@@ -29,7 +29,7 @@ public partial class ContentArea : System.Web.UI.Page
         }
         else
         {
-            txtArea2.Value = string.Empty;
+            txtArea2.Value = "This content is empty";
         }
         if (Request.Cookies["ContentCookies"] != null)
         {
@@ -37,7 +37,7 @@ public partial class ContentArea : System.Web.UI.Page
         }
         else
         {
-            txtArea3.Value = string.Empty;
+            txtArea3.Value = "This content is empty";
         }
         if (Request.Cookies["ContentCookies"] != null)
         {
@@ -45,7 +45,7 @@ public partial class ContentArea : System.Web.UI.Page
         }
         else
         {
-            txtArea4.Value = string.Empty;
+            txtArea4.Value = "This content is empty";
         }
     }
 
