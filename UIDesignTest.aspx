@@ -14,6 +14,7 @@
             <a href="#"><span class="label label-warning" style="position:absolute;top:135px;left:70px; z-index:10;" id="fontColorHeader">font-color</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;top:135px;left:134px; z-index:10;" id="fontFamilyHeader">font-family</span></a>
         <input id="btnHeaderColorTool" type="button" class="jscolor" onchange="newHeaderColor()"/>     
+            <a href="#"><span class="label label-success" id="applycolor">Change</span></a><a href="#"><span class="label label-danger" style="" id="removecolor">Cancel</span></a>
         </div>
         <%--  NavBar--%>
         <div id="navbarContain"></div>
@@ -56,6 +57,7 @@
             <a href="#"><span class="label label-warning" style="position:absolute;bottom:-20px;left:55px; z-index:10;" id="fontColorFooter">font-color</span></a>
             <a href="#"><span class="label label-warning" style="position:absolute;bottom:-20px;left:119px; z-index:10;" id="fontFamilyFooter">font-family</span></a>
          <input id="btnFooterColorTool" type="button" class="jscolor" onchange="newFooterColor()"/>
+         <a href="#"><span class="label label-success" id="applycolorfooter">Change</span></a><a href="#"><span class="label label-danger" id="removecolorfooter">Cancel</span></a>
     </div>  
         <div style="position:absolute;top:150px;z-index:10; left:16px;">
          <select id="fontSize1ListHeader" onchange="headerSize(this);" size="3" style="display: none">

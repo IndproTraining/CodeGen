@@ -174,7 +174,28 @@ z-index:10;
     right:20px;
     top:20px;
 }
-
+ #applycolorfooter{
+        position:absolute;
+        z-index:10;
+        left:560px
+    }
+  #removecolorfooter{
+        position:absolute;
+        left:614px; 
+        z-index:10;
+    }
+#applycolor {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    left: 570px;
+}
+#removecolor {
+        position: absolute;
+        top: 60px;
+        left: 624px;
+        z-index: 10;
+    }
 @media screen and (max-width: 1200px) {
     #myCarousel {
         width: 95%;
@@ -274,6 +295,28 @@ z-index:10;
     top: 731px;
     z-index: 10;
 }
+    #applycolorfooter{
+        position:absolute;
+        z-index:10;
+        left:325px
+    }
+    #removecolorfooter{
+        position:absolute;
+        left:383px; 
+        z-index:10;
+    }
+    #applycolor {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    left: 338px;
+}
+    #removecolor {
+        position: absolute;
+        top: 60px;
+        left: 390px;
+        z-index: 10;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -373,6 +416,28 @@ z-index:10;
     position:absolute;
     left:300px;
 }
+  #applycolorfooter{
+        position:absolute;
+        z-index:10;
+        left:180px
+    }
+    #removecolorfooter{
+        position:absolute;
+        left:235px; 
+        z-index:10;
+    }
+    #applycolor {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    left: 200px;
+}
+    #removecolor {
+        position: absolute;
+        top: 60px;
+        left: 250px;
+        z-index: 10;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -460,4 +525,16 @@ z-index:10;
     left: 280px;
     top: 2px;
 }
+  #applycolor {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    left: 140px;
+}
+    #removecolor {
+        position: absolute;
+        top: 60px;
+        left: 205px;
+        z-index: 10;
+    }
 }

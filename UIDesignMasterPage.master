@@ -244,6 +244,10 @@
             $('#destroymap').hide();
             $('#divColorHeader').hide();
             $('#divColorFooter').hide();
+            $('#applycolor').hide();
+            $('#removecolor').hide();
+            $('#applycolorfooter').hide();
+            $('#removecolorfooter').hide();
 
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
@@ -286,7 +290,6 @@
                 $('#fontSizeHeader').hide();
                 $('#fontColorHeader').hide();
                 $('#fontFamilyHeader').hide();
-                $("#btnHeaderColorTool").hide();
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
@@ -301,7 +304,6 @@
                 $('#fontSizeHeader').hide();
                 $('#fontColorHeader').hide();
                 $('#fontFamilyHeader').hide();
-                $("#btnHeaderColorTool").hide();
                 document.getElementById("fontSize1ListHeader").style.display = "none";
                 document.getElementById("fontcolorListHeader").style.display = "none";
                 document.getElementById("fontfamilyListHeader").style.display = "none";
@@ -309,6 +311,38 @@
                 document.getElementById("lblheader").style.fontFamily = "Calibri";
                 document.getElementById("lblheader").style.color = "black";
                 return false;
+            });
+
+            $('#applycolor').click(function ($e) {
+                $('#btnHeaderColorTool').hide();
+                $('#applycolor').hide();
+                $('#removecolor').hide();
+                $e.preventDefault();
+            });
+
+            $('#removecolor').click(function ($e) {
+                $('#headerdiv').css('background', '#D3D3D3');
+                $('#hiddenFieldHeaderDivColor').val('#D3D3D3');
+                $('#btnHeaderColorTool').hide();
+                $('#applycolor').hide();
+                $('#removecolor').hide();
+                $e.preventDefault();
+            });
+
+            $('#applycolorfooter').click(function ($e) {
+                $('#btnFooterColorTool').hide();
+                $('#applycolorfooter').hide();
+                $('#removecolorfooter').hide();
+                $e.preventDefault();
+            });
+
+            $('#removecolorfooter').click(function ($e) {
+                $('#footerdiv').css('background', '#D3D3D3')
+                $('#hiddenFieldFooterDivColor').val('#D3D3D3');
+                $('#btnFooterColorTool').hide();
+                $('#applycolorfooter').hide();
+                $('#removecolorfooter').hide();
+                $e.preventDefault();
             });
 
             $('#btnFooter').click(function () {
@@ -342,7 +376,6 @@
                 $('#fontSizeFooter').hide();
                 $('#fontColorFooter').hide();
                 $('#fontFamilyFooter').hide();
-                $("#btnFooterColorTool").hide();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
@@ -357,7 +390,6 @@
                 $('#fontSizeFooter').hide();
                 $('#fontColorFooter').hide();
                 $('#fontFamilyFooter').hide();
-                $("#btnFooterColorTool").hide();
                 document.getElementById("fontSize1ListFooter").style.display = "none";
                 document.getElementById("fontcolorListFooter").style.display = "none";
                 document.getElementById("fontfamilyListFooter").style.display = "none";
@@ -501,11 +533,15 @@
 
             $('#divColorHeader').click(function ($e) {
                 document.getElementById("btnHeaderColorTool").style.display = "block";
+                $('#applycolor').show();
+                $('#removecolor').show();
                 $e.preventDefault();
             });
 
             $('#divColorFooter').click(function ($e) {
                 document.getElementById("btnFooterColorTool").style.display = "block";
+                $('#applycolorfooter').show();
+                $('#removecolorfooter').show();
                 $e.preventDefault();
             });
         });
