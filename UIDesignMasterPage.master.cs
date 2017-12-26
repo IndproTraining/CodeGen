@@ -30,8 +30,6 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
         string page2;
         string page3;
         string page4;
-        //if (Request.Cookies["ContentCookies"] != null)
-        //{
             if (string.IsNullOrEmpty(Convert.ToString(headerValue)) && string.IsNullOrEmpty(Convert.ToString(footerValue)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldNav1Value.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldImagesSplit.Value)) && string.IsNullOrEmpty(Convert.ToString(hiddenFieldMapLongitude.Value)))
             {
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "EmptyNotification();", true);
@@ -253,10 +251,6 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                     zip.Save(Response.OutputStream);
                 }
             }
-        //}
-        //else {
-        //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "DownloadErrorMsg();", true);
-        //}
     }
     protected void btnDemoDisplay_Click(object sender, EventArgs e)
     {
