@@ -9,9 +9,6 @@
 <head runat="server">
     <title></title>
     <script type="text/javascript">
-        //$(document).ready(function () {
-        //    $('#FirstDiv').load("Template/page1.html");
-        //});
         function openTemplate(id) {
             window.open("ShowTemplate.aspx?check="+id);
         }

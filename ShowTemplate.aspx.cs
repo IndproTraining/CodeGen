@@ -13,20 +13,19 @@ public partial class ShowTemplate : System.Web.UI.Page
     {
 
     }
-   
+
     protected void btnTempDownload_Click(object sender, EventArgs e)
     {
-        string checkValue=Request.QueryString["check"].ToString();
+        string checkValue = Request.QueryString["check"].ToString();
         var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
         Response.ContentType = "application/zip";
         Response.AddHeader("Content-Disposition", "filename=" + downloadFileName);
-        using (var zip= new ZipFile()) 
+        using (var zip = new ZipFile())
         {
             string getTemplateDirName = hfTemplateDirNameStored.Value;
             DirectoryInfo dirInfor = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Template"));
-           
-               zip.AddDirectory(dirInfor+"/"+getTemplateDirName,"CodeGen");
-               zip.Save(Response.OutputStream);
+            zip.AddDirectory(dirInfor + "/" + getTemplateDirName, "CodeGen");
+            zip.Save(Response.OutputStream);
         }
     }
 }
