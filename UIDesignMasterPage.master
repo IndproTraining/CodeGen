@@ -83,6 +83,16 @@
             $("#jqxwindowCar").jqxWindow('open');
         }
 
+        function TemplatePopUp() {
+            $("#winHeaderTemplate").html('Select any template');
+            $("#wincontentTemplate").html('<iframe src="Template.aspx" width="1100" height="635" style="border:none;"></iframe>');
+            $("#jqxwindowTemplate").jqxWindow({ height: '635', width: '1100', resizable: false, isModal: true, draggable: false, showCloseButton: true });
+            var x = ($(window).width() - $("#jqxwindowTemplate").jqxWindow('width')) / 2 + $(window).scrollLeft();
+            var y = ($(window).height() - $("#jqxwindowTemplate").jqxWindow('height')) / 2 + $(window).scrollTop();
+            $("#jqxwindowTemplate").jqxWindow({ position: { x: 125, y: 60 } });
+            $("#jqxwindowTemplate").jqxWindow('open');
+        }
+
         function ReceiveNavigationHeaders(a, b, c, d) {
             a1 = a;
             b1 = b;
@@ -709,7 +719,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Preview</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Preview & Download</a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse in">
@@ -732,6 +742,7 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnDemo" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button></li>
                                                                 <asp:Button ID="btnDemoDisplay" Style="display: none" runat="server" OnClick="btnDemoDisplay_Click" ClientIDMode="Static" />
+                                                            <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -749,7 +760,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Downloads</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Sample Templates</a>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse in">
@@ -770,7 +781,7 @@
                                                             <div style="height: 3px;"></div>
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                    <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
+                                                                   <asp:Button ID="btnTemplate" class="btn btn-info btn" Text="Template" runat="server" ClientIDMode="Static" OnClientClick=" TemplatePopUp();return false;" />
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -844,6 +855,11 @@
         <div id="jqxwindowCar">
             <div id="winHeaderCar"></div>
             <div id="wincontentCar"></div>
+        </div>
+        <%--JQX Window Template--%>
+        <div id="jqxwindowTemplate">
+            <div id="winHeaderTemplate"></div>
+            <div id="wincontentTemplate"></div>
         </div>
         <%--JQX Window Content Area--%>
         <div id="jqxwindowCA">
