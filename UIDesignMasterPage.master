@@ -231,7 +231,6 @@
             $('#hiddenFieldFooterDivColor').val(footerDivCol);
         }
     </script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             var useredited = '';
@@ -475,6 +474,7 @@
                 $('#nxt').hide();
                 $('#destroycar').hide();
                 $('#btnCarousel').prop('disabled', false);
+                $('#btnCarDeleteImages').click();
                 $('#hiddenFieldImagesSplit').val('');
                 return false;
             });
@@ -498,8 +498,7 @@
                 return false;
             });
 
-            function ClearContentCookie()
-            {
+            function ClearContentCookie() {
                 $.removeCookie('ContentCookies', { path: '/' });
             }
 
@@ -631,10 +630,10 @@
                 <h2 style="font-family: Verdana;"><b style="color: #5bc0de">Code</b><b style="color: aliceblue">Gen</b></h2>
                 <a style="color: #FFFF33; font-family: Verdana; font-size: 12px; position: absolute; top: 58px; margin-left: 12px;">Empowers your web</a>
             </div>
-                <br />
-                <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="btn btn-default btn-sm">
+            <br />
+            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-log-out"></span> <b>Log out</b>
-                </asp:LinkButton>
+            </asp:LinkButton>
         </div>
         <br />
         <div class="container">
@@ -755,7 +754,7 @@
                                                                 <li class="active">
                                                                     <button type="button" id="btnDemo" class="btn btn-info btn" onclick="partialPostBackDemo();">Demo</button></li>
                                                                 <asp:Button ID="btnDemoDisplay" Style="display: none" runat="server" OnClick="btnDemoDisplay_Click" ClientIDMode="Static" />
-                                                            <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
+                                                                <asp:Button ID="btnDownload" class="btn btn-info btn" Text="Download" runat="server" OnClick="btnDownload_Click" ClientIDMode="Static" />
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -794,7 +793,7 @@
                                                             <div style="height: 3px;"></div>
                                                             <ul class="nav navbar-nav">
                                                                 <li class="active">
-                                                                   <asp:Button ID="btnTemplate" class="btn btn-info btn" Text="Template" runat="server" ClientIDMode="Static" OnClientClick=" TemplatePopUp();return false;" />
+                                                                    <asp:Button ID="btnTemplate" class="btn btn-info btn" Text="Template" runat="server" ClientIDMode="Static" OnClientClick=" TemplatePopUp();return false;" />
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -827,13 +826,14 @@
             </div>
         </div>
         <asp:Button ID="btnnavdeletefile" runat="server" Style="display: none" OnClick="btnnavdeletefile_Click" ClientIDMode="Static" />
+        <asp:Button ID="btnCarDeleteImages" runat="server" Text="Button" style="display:none"  OnClick="btnCarDeleteImages_Click" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <asp:Label ID="Label1" runat="server" Text="Label" Style="display: none" EnableViewState="false"></asp:Label>
             </ContentTemplate>
             <Triggers>
-                <%--<asp:AsyncPostBackTrigger ControlID="btnDownload" EventName="Click" />--%>
+                <asp:AsyncPostBackTrigger ControlID="btnCarDeleteImages" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnDemoDisplay" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnnavdeletefile" EventName="Click" />
             </Triggers>

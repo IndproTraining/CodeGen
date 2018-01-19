@@ -250,6 +250,32 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
                     }
                     zip.Save(Response.OutputStream);
                 }
+                if (!string.IsNullOrEmpty(images))
+                {
+                    string[] imagecount1 = images.Split(',');
+                    foreach (string imagename in imagecount1)
+                    {
+                        string carimagedelete = Server.MapPath("Downloads/Images/" + imagename);
+                        File.Delete(carimagedelete);
+                    }
+                }
+                string recpage1 = "Downloads/" + Request.Cookies["cookiepage1"].Value;
+                string recpage2 = "Downloads/" + Request.Cookies["cookiepage2"].Value;
+                string recpage3 = "Downloads/" + Request.Cookies["cookiepage3"].Value;
+                string recpage4 = "Downloads/" + Request.Cookies["cookiepage4"].Value;
+                if (!string.IsNullOrEmpty((Request.Cookies["cookiepage1"]).Value.ToString()))
+                {
+                    string FileToDelete1 = Server.MapPath(HttpUtility.HtmlDecode(recpage1) + ".html");
+                    File.Delete(FileToDelete1);
+                    string FileToDelete2 = Server.MapPath(HttpUtility.HtmlDecode(recpage2) + ".html");
+                    File.Delete(FileToDelete2);
+                    string FileToDelete3 = Server.MapPath(HttpUtility.HtmlDecode(recpage3) + ".html");
+                    File.Delete(FileToDelete3);
+                    string FileToDelete4 = Server.MapPath(HttpUtility.HtmlDecode(recpage4) + ".html");
+                    File.Delete(FileToDelete4);
+                }
+                string FileToDelete5 = Server.MapPath("Downloads/IndexPage.html");
+                File.Delete(FileToDelete5);
             }
     }
     protected void btnDemoDisplay_Click(object sender, EventArgs e)
@@ -502,5 +528,18 @@ public partial class UIDesignMasterPage : System.Web.UI.MasterPage
             Response.Write(ex.Message);
         }
         Response.Redirect("Login.aspx");
+    }
+    protected void btnCarDeleteImages_Click(object sender, EventArgs e)
+    {
+        string images = hiddenFieldImagesSplit.Value;
+        if (!string.IsNullOrEmpty(images))
+        {
+            string[] imageCount1 = images.Split(',');
+            foreach (string imageName in imageCount1)
+            {
+                string carImageDelete = Server.MapPath("Downloads/Images/" + imageName);
+                File.Delete(carImageDelete);
+            }
+        }
     }
 }
