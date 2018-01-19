@@ -26,8 +26,8 @@
                 templateDirName = "fitness_CodeGen";
             }
             if (source == 'sp2') {
-                $('#btnTempEdit').attr('disabled', true);
-                $('#showTemplateInFrame').attr('src', 'Template/company_CodeGen/index.html');
+                $('#btnTempEdit').attr('disabled',false);
+                $('#showTemplateInFrame').attr('src', 'Template/IndexPages/company_Display.aspx');
                 templateDirName = "company_CodeGen";
             }            
             if (source == 'sp3') {
@@ -58,6 +58,8 @@
             $('#btnTempEdit').click(function () {
                 if (source == 'sp3')
                     window.open("Template/IndexPages/catering_Edit.aspx");
+                if (source == 'sp2')
+                    window.open("Template/IndexPages/company_Edit.aspx");
             });
         });
     </script>

@@ -91,7 +91,7 @@
         }
 
         function RedirectToLogin() {
-            window.location.replace("http://localhost/CodeGen/Login.aspx");
+            window.location.replace("http://localhost/CodeGeneration/Login.aspx");
         }
     </script>
 </head>

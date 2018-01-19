@@ -53,7 +53,7 @@
 
         .text {
             color: blue;
-            font-size: 17px;
+            font-size: 13.5px;
             padding-left: 20px;
         }
     </style>
@@ -62,54 +62,43 @@
     <form id="form1" runat="server">
     <div>
          <div id="FirstDiv" class="container" style="height:250px;width:250px;position:absolute; left:70px;top:8px"">
-         <a href="#">
          <img src="Template/Fitness.JPG" class="image" style="height:250px;width:250px;" title="view this template"/>
             <div class="middle">
-              <span class="text" id="sp1" onclick="openTemplate(id);" runat="server"><b>Click to view</b></span>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp1" onclick="openTemplate(id);" runat="server"><b>Click to view</b></span></a>
             </div>
-         </a>
          </div>
          <div id="SecondDiv" class="container" style="height:250px;width:250px;position:absolute; left:425px;top:8px">
-         <a href="#">
              <img src="Template/displayCompany.JPG" class="image" style="height:250px;width:250px;" title="view this template"/>
          <div class="middle">
-              <span class="text" id="sp2" onclick="openTemplate(id);" runat="server">Click to view</span>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp2" onclick="openTemplate(id);" runat="server">Click to view/Edit</span> </a>
          </div>
-         </a>
          </div>
          <div id="ThirdDiv" class="container" style="height:250px;width:250px;position:absolute;left:780px;top:8px">
-         <a href="#">
+        
             <img src="Template/catering.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
             <div class="middle">
-              <span class="text" id="sp3" onclick="openTemplate(id);" runat="server">Click to view</span>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp3" onclick="openTemplate(id);" runat="server">Click to view/Edit</span> </a>
             </div>
-         </a>
          </div>
     </div>
     <div style="position:absolute;top:300px">
         <div id="FourthDiv" class="container" style="height:250px;width:250px;position:absolute; left:70px;top:8px"">
-        <a href="#">
             <img src="Template/dance.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <span class="text" id="sp4" onclick="openTemplate(id);" runat="server">Click to view</span>
+              <a href="#"  style="text-decoration:none"> <span class="text" id="sp4" onclick="openTemplate(id);" runat="server">Click to view</span> </a>
          </div>
-        </a>
         </div>
         <div id="FifthDiv" class="container" style="height:250px;width:250px;position:absolute; left:425px;top:8px">
-        <a href="#">
             <img src="Template/business.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <span class="text" id="sp5" onclick="openTemplate(id);" runat="server">Click to view</span>
+              <a href="#"  style="text-decoration:none"> <span class="text" id="sp5" onclick="openTemplate(id);" runat="server">Click to view</span></a>
          </div>
-         </a>
          </div>
          <div id="SixthDiv" class="container" style="height:250px;width:250px;position:absolute;left:780px;top:8px">
-         <a href="#">
              <img src="Template/medical.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <span class="text" id="sp6" onclick="openTemplate(id);" runat="server">Click to view</span>
+              <a href="#" style="text-decoration:none"><span class="text" id="sp6" onclick="openTemplate(id);" runat="server">Click to view</span></a>
          </div>
-         </a>
          </div>
     </div>
          <button type="button" id="btncancle" class="btn btn-info" onclick="closewindow();" style="margin-left: 500px; margin-top: 580px; width:100px">Cancel</button>

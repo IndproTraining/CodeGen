@@ -20,7 +20,7 @@ public partial class Template_IndexPages_catering_Edit : System.Web.UI.Page
         else
         {
             image1 = "Hamburger.jpg";
-            File.Copy("C:/inetpub/wwwroot/CodeGen/Template/catering_CodeGen/Hamburger.jpg", "C:/inetpub/wwwroot/CodeGen/Downloads/Images/Hamburger.jpg");
+            File.Copy("C:/inetpub/wwwroot/CodeGeneration/Template/catering_CodeGen/Hamburger.jpg", "C:/inetpub/wwwroot/CodeGeneration/Downloads/Images/Hamburger.jpg");
 
         }
 
@@ -30,7 +30,7 @@ public partial class Template_IndexPages_catering_Edit : System.Web.UI.Page
         else
         {
             image2 = "tablesetting.jpg";
-            File.Copy("C:/inetpub/wwwroot/CodeGen/Template/catering_CodeGen/tablesetting.jpg", "C:/inetpub/wwwroot/CodeGen/Downloads/Images/tablesetting.jpg");
+            File.Copy("C:/inetpub/wwwroot/CodeGeneration/Template/catering_codeGen/tablesetting.jpg", "C:/inetpub/wwwroot/CodeGeneration/Downloads/Images/tablesetting.jpg");
         }
 
         string image3 = (FileUploadThirdImage.FileName);
@@ -39,7 +39,7 @@ public partial class Template_IndexPages_catering_Edit : System.Web.UI.Page
         else
         {
             image3 = "tablesetting2.jpg";
-            File.Copy("C:/inetpub/wwwroot/CodeGen/Template/catering_CodeGen/tablesetting2.jpg", "C:/inetpub/wwwroot/CodeGen/Downloads/Images/tablesetting2.jpg");
+            File.Copy("C:/inetpub/wwwroot/CodeGeneration/Template/catering_CodeGen/tablesetting2.jpg", "C:/inetpub/wwwroot/CodeGeneration/Downloads/Images/tablesetting2.jpg");
         }
 
         string[] indexPage ={"<!DOCTYPE html>",

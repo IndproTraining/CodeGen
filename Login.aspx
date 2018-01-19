@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>LogIn</title>
@@ -84,7 +83,7 @@
 
         function RedirectToRegistration()
         {
-            window.location.replace("http://localhost/CodeGen/Registration.aspx");
+            window.location.replace("http://localhost/CodeGeneration/Registration.aspx");
         }
 
         function ForgotPassword()
