@@ -19,7 +19,7 @@
         $(document).ready(function () {
             var templateDirName;
             var source = decodeURIComponent(location.search.match(new RegExp('check' + "=(.*?)($|;)", "i"))[1]);
-            if (source == 'sp1') {
+            if (source == 'sp3') {
                 $('#btnTempEdit').attr('disabled', true);
                 $('#showTemplateInFrame').attr('src', 'Template/fitness_CodeGen/index.html');
                 $('#showTemplateInFrame').css('height', '1880px');
@@ -30,7 +30,7 @@
                 $('#showTemplateInFrame').attr('src', 'Template/IndexPages/company_Display.aspx');
                 templateDirName = "company_CodeGen";
             }            
-            if (source == 'sp3') {
+            if (source == 'sp1') {
                 $('#showTemplateInFrame').attr('src', 'Template/IndexPages/catering_Display.html');
                 $('#showTemplateInFrame').css('height', '2576px');
                 templateDirName = "catering_CodeGen";
@@ -56,7 +56,7 @@
             
             $('#hfTemplateDirNameStored').val(templateDirName);
             $('#btnTempEdit').click(function () {
-                if (source == 'sp3')
+                if (source == 'sp1')
                     window.open("Template/IndexPages/catering_Edit.aspx");
                 if (source == 'sp2')
                     window.open("Template/IndexPages/company_Edit.aspx");

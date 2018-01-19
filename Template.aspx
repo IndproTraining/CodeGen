@@ -62,22 +62,21 @@
     <form id="form1" runat="server">
     <div>
          <div id="FirstDiv" class="container" style="height:250px;width:250px;position:absolute; left:70px;top:8px"">
-         <img src="Template/Fitness.JPG" class="image" style="height:250px;width:250px;" title="view this template"/>
+         <img src="Template/catering.JPG" class="image" style="height:250px;width:250px;" title="view this template"/>
             <div class="middle">
-               <a href="#"  style="text-decoration:none"><span class="text" id="sp1" onclick="openTemplate(id);" runat="server"><b>Click to view</b></span></a>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp1" onclick="openTemplate(id);" runat="server">Click to View/Edit</span></a>
             </div>
          </div>
          <div id="SecondDiv" class="container" style="height:250px;width:250px;position:absolute; left:425px;top:8px">
              <img src="Template/displayCompany.JPG" class="image" style="height:250px;width:250px;" title="view this template"/>
          <div class="middle">
-               <a href="#"  style="text-decoration:none"><span class="text" id="sp2" onclick="openTemplate(id);" runat="server">Click to view/Edit</span> </a>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp2" onclick="openTemplate(id);" runat="server">Click to View/Edit</span> </a>
          </div>
          </div>
          <div id="ThirdDiv" class="container" style="height:250px;width:250px;position:absolute;left:780px;top:8px">
-        
-            <img src="Template/catering.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
+            <img src="Template/Fitness.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
             <div class="middle">
-               <a href="#"  style="text-decoration:none"><span class="text" id="sp3" onclick="openTemplate(id);" runat="server">Click to view/Edit</span> </a>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp3" onclick="openTemplate(id);" runat="server">Click to View</span> </a>
             </div>
          </div>
     </div>
@@ -85,19 +84,19 @@
         <div id="FourthDiv" class="container" style="height:250px;width:250px;position:absolute; left:70px;top:8px"">
             <img src="Template/dance.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <a href="#"  style="text-decoration:none"> <span class="text" id="sp4" onclick="openTemplate(id);" runat="server">Click to view</span> </a>
+              <a href="#"  style="text-decoration:none"> <span class="text" id="sp4" onclick="openTemplate(id);" runat="server">Click to View</span> </a>
          </div>
         </div>
         <div id="FifthDiv" class="container" style="height:250px;width:250px;position:absolute; left:425px;top:8px">
             <img src="Template/business.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <a href="#"  style="text-decoration:none"> <span class="text" id="sp5" onclick="openTemplate(id);" runat="server">Click to view</span></a>
+              <a href="#"  style="text-decoration:none"> <span class="text" id="sp5" onclick="openTemplate(id);" runat="server">Click to View</span></a>
          </div>
          </div>
          <div id="SixthDiv" class="container" style="height:250px;width:250px;position:absolute;left:780px;top:8px">
              <img src="Template/medical.JPG" class="image" style="height:250px;width:250px;"  title="view this template"/>
          <div class="middle">
-              <a href="#" style="text-decoration:none"><span class="text" id="sp6" onclick="openTemplate(id);" runat="server">Click to view</span></a>
+              <a href="#" style="text-decoration:none"><span class="text" id="sp6" onclick="openTemplate(id);" runat="server">Click to View</span></a>
          </div>
          </div>
     </div>

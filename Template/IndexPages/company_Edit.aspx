@@ -113,7 +113,7 @@
 <body>
     <div class="header">
         <div class="wrap">
-            <div class="logo" id="companyLogo" contenteditable="true"><a href="#">Company Name</a></div>
+            <div class="logo" ><a href="#" id="companyLogo" contenteditable="true">Company Name</a></div>
             <div class="phone">
                 <ul>
                     <li contenteditable="true" id="companyContact"><span class="icon mob" ></span>Contact : +91 000-000000</li>
@@ -136,7 +136,7 @@
     <div class="content container">
             <img src="../company_CodeGen/images/s1.jpg" style="width:100%" class="image" id="mainImage">
          <div class="middle">
-               <a href="#"  style="text-decoration:none"><span class="text" id="sp1" onclick="openFileUploader();" runat="server"><b>Choose File</b></span></a>
+               <a href="#"  style="text-decoration:none"><span class="text" id="sp1" onclick="openFileUploader();" runat="server"><b>Change Image</b></span></a>
             </div><br/><br/>                
             <div class="b-box">
             <h1 contenteditable="true" id="companyAbout">About</h1>

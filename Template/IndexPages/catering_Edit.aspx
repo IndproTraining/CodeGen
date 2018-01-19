@@ -266,7 +266,7 @@
     <header class="w3-display-container w3-content w3-wide container" style="max-width: 1600px; min-width: 500px" id="home">
         <img class="image" src="../catering_CodeGen/Hamburger.jpg" alt="Hamburger Catering" width="1600" height="800" id="firstImage" />
         <div class="middle">
-            <span class="text" id="sp1" onclick="openFileUploaderFirstImage();" runat="server"><b>Choose File</b></span>
+            <a href="#" style="text-decoration:none"><span class="text" id="sp1" onclick="openFileUploaderFirstImage();" runat="server"><b>Change Image</b></span></a>
         </div>
         <div class="w3-display-bottomleft w3-padding-large w3-opacity">
             <h1 class="w3-xxlarge" id="firstImageText">CodeGen Catering</h1>
@@ -279,7 +279,7 @@
             <div class="w3-col m6 w3-padding-large w3-hide-small container">
                 <img src="../catering_CodeGen/tablesetting.jpg" class="image" alt="Table Setting" width="600" height="750" id="secondImage" />
                 <div class="middle">
-                    <span class="text" id="Span1" onclick="openFileUploaderSecondImage();" runat="server"><b>Choose File</b></span>
+                   <a href="#" style="text-decoration:none"><span class="text" id="Span1" onclick="openFileUploaderSecondImage();" runat="server"><b>Change Image</b></span></a>
                 </div>
             </div>
             <div class="w3-col m6 w3-padding-large">
@@ -306,7 +306,7 @@
             <div class="w3-col l6 w3-padding-large container">
                 <img src="../catering_CodeGen/tablesetting2.jpg" class="image" alt="Menu" style="width: 100%" id="thirdImage" />
                 <div class="middle">
-                    <span class="text" id="Span2" onclick="openFileUploaderThirdImage();" runat="server"><b>Choose File</b></span>
+                    <a href="#" style="text-decoration:none"><span class="text" id="Span2" onclick="openFileUploaderThirdImage();" runat="server"><b>Change Image</b></span></a>
                 </div>
             </div>
         </div>
