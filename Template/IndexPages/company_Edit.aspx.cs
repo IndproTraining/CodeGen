@@ -11,7 +11,7 @@ public partial class Template_IndexPages_company_Edit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "successMessage", "EditNotification();", true);
     }
     protected void btnDownloadServer_Click(object sender, EventArgs e)
     {
@@ -20,13 +20,10 @@ public partial class Template_IndexPages_company_Edit : System.Web.UI.Page
             fileUploadmainImage.SaveAs(Server.MapPath("../../Downloads/Images/" + image1));
         else
         {
-            //image1 = "Hamburger.jpg";
-            //File.Copy("C:/inetpub/wwwroot/CodeGeneration/Template/catering_CodeGen/Hamburger.jpg", "C:/inetpub/wwwroot/CodeGeneration/Downloads/Images/Hamburger.jpg");
+            image1 = "s1.jpg";
+            File.Copy("C:/inetpub/wwwroot/CodeGeneration/Template/company_CodeGen/images/s1.jpg", "C:/inetpub/wwwroot/CodeGeneration/Downloads/Images/s1.jpg");
 
         }
-
-
-
         string[] indexPage ={"<!DOCTYPE HTML>",
 "<html>",
 "<head>",
@@ -57,7 +54,7 @@ public partial class Template_IndexPages_company_Edit : System.Web.UI.Page
 "    </div>",
 "    <div class=\"wrap\">",
 "    <div class=\"content\">",
-"            <img src=\"Images/s1.jpg\" style=\"width:100%\"><br/><br/>",                
+"            <img src=\"Images/"+image1+"\" style=\"width:100%\"><br/><br/>",                
 "            <div class=\"b-box\">",
 "            <h1>"+hfCompanyAbout.Value+"</h1>",
 "			<p>"+hfCompanyAboutContent.Value+"</p>",
@@ -74,15 +71,22 @@ public partial class Template_IndexPages_company_Edit : System.Web.UI.Page
 "    </body>",
 "    </html>"};
         File.WriteAllLines(Server.MapPath(@"../../Downloads/IndexPage.html"), indexPage);
-        //var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
-        //Response.ContentType = "application/zip";
-        //Response.AddHeader("Content-Disposition", "filename=" + downloadFileName);
-        //using (var zip = new ZipFile())
-        //{
-        //    DirectoryInfo dirInfor = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/company_CodeGen/css"));
-        //    zip.AddDirectory(dirInfor + "/", "CodeGen/css");
-        //    zip.Save(Response.OutputStream);
-        //}
+        var downloadFileName = string.Format("CodeGen.zip", DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss"));
+        Response.ContentType = "application/zip";
+        Response.AddHeader("Content-Disposition", "filename=" + downloadFileName);
+        using (var zip = new ZipFile())
+        {
+            DirectoryInfo dirInforMain = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Downloads"));
+            zip.AddDirectory(dirInforMain + "/", "CodeGen");
+            DirectoryInfo dirInfor = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Template/company_CodeGen/css"));
+            DirectoryInfo dirInfor1 = new DirectoryInfo(HttpContext.Current.Request.MapPath("~/Template/company_CodeGen/fonts"));
+            zip.AddDirectory(dirInfor + "/", "CodeGen/css");
+            zip.AddDirectory(dirInfor1 + "/", "CodeGen/fonts");
+            zip.Save(Response.OutputStream);
+        }
+        string FileToDelete1 = Server.MapPath("../../Downloads/IndexPage.html");
+        File.Delete(FileToDelete1);
+        string FileToDelete2 = Server.MapPath("../../Downloads/Images/" + image1);
+        File.Delete(FileToDelete2);
     }
-
 }

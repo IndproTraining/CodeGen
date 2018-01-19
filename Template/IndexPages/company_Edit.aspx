@@ -5,7 +5,16 @@
 <head>
 <title>Company CodeGen</title>
 <link href="../company_CodeGen/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <script src="../../jquery-1.11.1.min.js"></script>
+     <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxtabs.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxnotification.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#save').click(function () {
@@ -50,6 +59,14 @@
 
         function openFileUploader() {
             $('#fileUploadmainImage').click();
+        }
+
+        function EditNotification() {
+            $("#jqxNotificationEdit").jqxNotification("open");
+            $("#jqxNotificationEdit").jqxNotification({
+                width: "40%", position: "top-right", opacity: 0.9,
+                autoOpen: true, animationOpenDelay: 800, animationCloseDelay: 800, autoClose: true, template: "info"
+            });
         }
     </script>
     <style>
@@ -134,6 +151,9 @@
             </div>
         </div>
     </div>
+     <div id="jqxNotificationEdit" style="display:none; position: absolute; left: 400px;margin-top:50px">
+                <h5 style="font-family: Verdana">Please Click On The Item To Edit.</h5>
+            </div>
     <form runat="server">
         <asp:FileUpload ID="fileUploadmainImage" runat="server" onchange="ShowFiles(this)" style="display:none" />
         <asp:HiddenField ID="hfCompanyLogo" runat="server" />
